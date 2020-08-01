@@ -6,6 +6,7 @@ use App\Product;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Storage;
 $factory->define(Product::class, function (Faker $faker) {
+    //get random image from directory as stand in for product image
     $images = Storage::allFiles('public/product_images');
     $randomImage = $images[rand(0, count($images) - 1)];
     return [
