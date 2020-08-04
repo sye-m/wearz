@@ -1,0 +1,9 @@
+{
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html"
+    },
+    "emmet.preferences": {
+    
+    }
+}

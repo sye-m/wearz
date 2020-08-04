@@ -37,6 +37,8 @@ class Customer extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $table = 'customers'; // add this line with your table name
+
     public function cart(){
         return $this->hasOne('App\Cart');
     }
