@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       color:'#fafafa'
     },
     navBar:{
+      zIndex:'1111',
       padding:'1em 1em 1em 0px',
       backgroundColor:theme.palette.primary.main,
       width: '-moz-available',    /* WebKit-based browsers will ignore this. */

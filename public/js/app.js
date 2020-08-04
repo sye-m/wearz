@@ -67245,6 +67245,123 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/FeaturedProductsBanner.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/FeaturedProductsBanner.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
+  var _prevImageButton;
+
+  return {
+    bannerImage: {
+      width: '100%',
+      display: 'none',
+      height: '100%'
+    },
+    bannerContainer: {
+      height: '80%'
+    },
+    prevImageButton: (_prevImageButton = {
+      position: 'relative',
+      top: '-55%',
+      left: ' 2%',
+      borderRadius: '50%',
+      height: '50px'
+    }, _defineProperty(_prevImageButton, "height", '50px'), _defineProperty(_prevImageButton, "width", '50px'), _defineProperty(_prevImageButton, "minWidth", '50px'), _defineProperty(_prevImageButton, "fontSize", '1.2rem'), _prevImageButton),
+    nextImageButton: {
+      position: 'relative',
+      top: '-55%',
+      right: ' 2%',
+      left: '86%',
+      borderRadius: '50%',
+      height: '50px',
+      width: '50px',
+      minWidth: '50px',
+      fontSize: '1.2rem'
+    }
+  };
+});
+
+var FeaturedProductsBanner = function FeaturedProductsBanner(prop) {
+  var classes = useStyles();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    showDivs(1);
+  }, []);
+  var slideIndex = 1;
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i = 0;
+    var x = document.getElementsByClassName(classes.bannerImage);
+
+    if (x.length > 0) {
+      if (n > x.length) {
+        slideIndex = 1;
+      }
+
+      if (n < 1) {
+        slideIndex = x.length;
+      }
+
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+
+      x[slideIndex - 1].style.display = "inline-block";
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.bannerContainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: classes.bannerImage,
+    src: "storage/featured_products/1.jpg"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: classes.bannerImage,
+    src: "storage/featured_products/2.jpg"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: classes.bannerImage,
+    src: "storage/featured_products/3.jpg"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: classes.bannerImage,
+    src: "storage/featured_products/4.jpg"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: classes.prevImageButton,
+    onClick: function onClick() {
+      return plusDivs(-1);
+    }
+  }, "\u276E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: classes.nextImageButton,
+    onClick: function onClick() {
+      return plusDivs(1);
+    }
+  }, "\u276F"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FeaturedProductsBanner);
+
+/***/ }),
+
 /***/ "./resources/js/components/Landing.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Landing.js ***!
@@ -67258,11 +67375,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _FeaturedProductsBanner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FeaturedProductsBanner */ "./resources/js/components/FeaturedProductsBanner.js");
 
 
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
+  return {};
+});
 
 var Landing = function Landing(prop) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Landing");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FeaturedProductsBanner__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Landing);
@@ -67339,6 +67463,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["ma
       color: '#fafafa'
     },
     navBar: (_navBar = {
+      zIndex: '1111',
       padding: '1em 1em 1em 0px',
       backgroundColor: theme.palette.primary.main,
       width: '-moz-available'
