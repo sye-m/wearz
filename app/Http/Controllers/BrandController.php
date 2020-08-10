@@ -14,7 +14,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['brands'=>Brand::all()]);
     }
 
     /**

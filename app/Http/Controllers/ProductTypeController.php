@@ -14,7 +14,7 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['productTypes' => ProductType::all()]);
     }
 
     /**

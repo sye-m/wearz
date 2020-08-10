@@ -19,8 +19,37 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family:Lato,Roboto,Helvetica,sans-serif;
+}
+
+#container {
+    width: 100%;
+    height: 90%;
+    top: 10%;
+    position: relative;
+    
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+    </style>
 </head>
 <body>
     @yield('content')
 </body>
+<script>
+      window.Auth = {!! json_encode([
+            'signedIn' => Auth::check(),
+            'user' => Auth::user()
+        ]) !!}
+</script>
 </html>
