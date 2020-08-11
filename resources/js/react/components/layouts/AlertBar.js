@@ -16,4 +16,4 @@ const AlertBar = ({alerts}) => {
 const mapStateToProps = state => ({
     alerts:state.alert
 })
-export default connect(mapStateToProps,)(AlertBar)
+export default connect(mapStateToProps,{})(AlertBar)
