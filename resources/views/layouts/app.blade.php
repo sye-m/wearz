@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
         html,
 body {
     width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
     font-family:Lato,Roboto,Helvetica,sans-serif;
@@ -31,10 +30,10 @@ body {
 
 #container {
     width: 100%;
-    height: 90%;
-    top: 10%;
-    position: relative;
-    
+    height: 94%;
+    top: 6%;
+    position: absolute;
+    min-height: 600px;
 }
 
 #app {

@@ -11,6 +11,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import { loadUser } from './actions/auth.js';
 import AlertBar from './components/layouts/AlertBar';
+import Products from './components/products/Products';
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -47,7 +48,8 @@ const App = (prop) => {
                             <Route exact path="/" component={Landing}/>
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
-
+                            <Route exact path="/products" component={Products} />
+                            
                         </Switch>
                     </div>
                 </ThemeProvider>

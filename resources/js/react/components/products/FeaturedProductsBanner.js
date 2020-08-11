@@ -13,12 +13,13 @@ const useStyles = makeStyles((theme)=>({
         objectFit:'cover'
     },
     bannerContainer:{
-        height:'80%',
-        width:'100%'
+        height:'70%',
+        width:'100%',
+        position:'relative'
     },
     prevImageButton:{
         position: 'absolute',
-        top: '40%',
+        top: '50%',
         left:' 1%',
         borderRadius: '50%',
         height: '50px',
@@ -26,12 +27,12 @@ const useStyles = makeStyles((theme)=>({
         width: '50px',
         minWidth:'50px',
         fontSize: '1.2rem',
-        boxShadow:'0px 0px 10px 3px #7b7575'
-
+        boxShadow:'0px 0px 10px 3px #7b7575',
+        border:'1px solid #e1dada'
     },
     nextImageButton:{
         position: 'absolute',
-        top: '40%',
+        top: '50%',
         right:' 1%',
         boxShadow:'0px 0px 10px 3px #7b7575',
         borderRadius: '50%',

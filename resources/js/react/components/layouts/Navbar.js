@@ -57,9 +57,10 @@ const useStyles = makeStyles((theme) => ({
       width: '-moz-available',    /* WebKit-based browsers will ignore this. */
       width:'-webkit-fill-available',
       width:'100%',
-      height:'min-content',
+      height:'6%',
       position:'fixed',
-      maxHeight:'55px'
+      maxHeight:'50px',
+      minHeight:'40px'
     },
     cart:{
       textAlign:'center',
