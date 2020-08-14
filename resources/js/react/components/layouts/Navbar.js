@@ -124,7 +124,7 @@ const Navbar = ({history,location,auth,logout}) => {
         let searchTermQuery = e.target.value?`?searchTerm=${e.target.value}`:'';
         //get previous query terms if present and add them to the query string
         let brandsQuery = query.brands && searchTermQuery.length > 0 ? `&brands=${query.brands}`:query.brands ?`?brands=${query.brands}`:'';//if search term is not present search based on previous brands query present
-        let typesQuery = query.types && searchTermQuery.length > 0? `&types=${query.types}`:query.types && !query.brands ?`?types=${query.types}`:'';//if search term is not present search based on previous types query present
+        let typesQuery = query.types && (searchTermQuery.length > 0 || query.brands) ? `&types=${query.types}`:query.types && !query.brands ?`?types=${query.types}`:'';//if search term is not present search based on previous types query present
         //change location only if there is a query string present
         if(searchTermQuery.length > 0 || brandsQuery.length > 0 || typesQuery.length > 0){
           history.push(`/products${searchTermQuery}${brandsQuery}${typesQuery}`)
