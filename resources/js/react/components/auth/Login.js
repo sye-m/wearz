@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { Redirect,Link, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { login } from '../../actions/auth';

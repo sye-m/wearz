@@ -31,9 +31,10 @@ body {
 #container {
     width: 100%;
     height: 94%;
-    top: 6%;
+    top: 74px;
     position: absolute;
     min-height: 600px;
+    
 }
 
 #app {

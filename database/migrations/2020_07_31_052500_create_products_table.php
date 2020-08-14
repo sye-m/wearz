@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->float('price',10,3);
             $table->float('size',3,1);
             $table->string('color');
-            $table->string('product_image')->default(NULL)->nullable();
+            $table->string('image')->default(NULL)->nullable();
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('type_id');
             $table->foreign('brand_id')->references('id')->on('brands');

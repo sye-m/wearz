@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme)=>({
     bannerContainer:{
         height:'70%',
         width:'100%',
-        position:'relative'
+        position:'relative',
+        maxHeight:'400px'
     },
     prevImageButton:{
         position: 'absolute',
@@ -28,7 +29,6 @@ const useStyles = makeStyles((theme)=>({
         minWidth:'50px',
         fontSize: '1.2rem',
         boxShadow:'0px 0px 10px 3px #7b7575',
-        border:'1px solid #e1dada'
     },
     nextImageButton:{
         position: 'absolute',

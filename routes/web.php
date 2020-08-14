@@ -19,6 +19,7 @@ Route::post('logoutCustomer','Auth\LoginController@logout');
 
 Route::get('getBrands','BrandController@index');
 Route::get('getProductTypes','ProductTypeController@index');
+Route::get('getProducts','ProductController@index');
 
 Route::group(['middleware' => 'auth:web'],function(){
     Route::resource('customer','CustomerController');
