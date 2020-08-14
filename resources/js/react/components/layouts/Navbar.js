@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import { Link } from 'react-router-dom';
-import InputBase from '@material-ui/core/InputBase';
+import { Link,withRouter } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
+import queryString from 'query-string';
+import InputBase from '@material-ui/core/InputBase';
 import Box from '@material-ui/core/Box';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -52,15 +53,13 @@ const useStyles = makeStyles((theme) => ({
     },
     navBar:{
       zIndex:'1111',
-      padding:'1em 1em 1em 0px',
+      padding:'15px 15px 15px 0px',
       backgroundColor:theme.palette.primary.main,
-      width: '-moz-available',    /* WebKit-based browsers will ignore this. */
-      width:'-webkit-fill-available',
       width:'100%',
-      height:'6%',
+      height:'44px',
       position:'fixed',
-      maxHeight:'50px',
-      minHeight:'40px'
+      top:'0',
+      
     },
     cart:{
       textAlign:'center',
@@ -101,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   }));
-const Navbar = ({auth,logout}) => {
+const Navbar = ({history,location,auth,logout}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -116,6 +115,21 @@ const Navbar = ({auth,logout}) => {
     const logoutUser = ()=>{
       setAnchorEl(null);
       logout();
+    }
+
+    const search = (e)=>{
+      //only perform search when enter key is pressed
+      if(e.key === 'Enter'){
+        let query = queryString.parse(location.search);
+        let searchTermQuery = e.target.value?`?searchTerm=${e.target.value}`:'';
+        //get previous query terms if present and add them to the query string
+        let brandsQuery = query.brands && searchTermQuery.length > 0 ? `&brands=${query.brands}`:query.brands ?`?brands=${query.brands}`:'';//if search term is not present search based on previous brands query present
+        let typesQuery = query.types && searchTermQuery.length > 0? `&types=${query.types}`:query.types && !query.brands ?`?types=${query.types}`:'';//if search term is not present search based on previous types query present
+        //change location only if there is a query string present
+        if(searchTermQuery.length > 0 || brandsQuery.length > 0 || typesQuery.length > 0){
+          history.push(`/products${searchTermQuery}${brandsQuery}${typesQuery}`)
+        }
+      }
     }
     return (
             <Box className={classes.navBar} color="text.primary">
@@ -133,6 +147,7 @@ const Navbar = ({auth,logout}) => {
                       <SearchIcon />
                     </div>
                     <InputBase
+                      onKeyUp={search}
                       placeholder="Search…"
                       classes={{
                         root: classes.inputRoot,
@@ -186,5 +201,5 @@ Navbar.propTypes = {
 const mapStateToProps = state => ({
   auth:state.auth
 })
-export default connect(mapStateToProps,{logout})(Navbar);
+export default connect(mapStateToProps,{logout})(withRouter(Navbar));
 

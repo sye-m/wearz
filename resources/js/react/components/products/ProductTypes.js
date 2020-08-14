@@ -8,9 +8,12 @@ const useStyles = makeStyles((theme) => ({
    
     allProductTypesContainer:{
         height:'50%',
+        maxHeight:'300px'
     },
     title:{
-        fontSize:'1.5em'
+        fontSize:'1.5em',
+        marginLeft:'1em',
+        fontWeight:'bold'
     }
 
 }))
@@ -25,7 +28,7 @@ const ProductTypes = ({ productTypes, getProductTypes }) => {
         <div className={classes.allProductTypesContainer}>
             <p className={classes.title}>Shop By Shoe Type</p>
             { productTypes.length > 0 && 
-                <ItemSlider itemType="productTypes" items={productTypes}/>
+                <ItemSlider itemType="types" items={productTypes}/>
             }   
         </div>
     )

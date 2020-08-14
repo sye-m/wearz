@@ -5,7 +5,7 @@ export default function productType(state = initialState, action) {
     const { payload, type } = action;
     switch (type) {
         case GET_PRODUCT_TYPES:
-            return [...state, ...payload];
+            return [...payload];
         default:
             return state;
     }

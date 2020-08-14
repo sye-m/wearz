@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+
 const useStyles = makeStyles((theme) => ({
     itemImage:{
         display:'block',
@@ -17,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         objectFit:'cover'
     },
     itemContainer:{
-        margin: '1%',
         maxWidth:'20%',
         maxHeight:'20%',
         minWidth: '200px',
@@ -35,13 +35,16 @@ const useStyles = makeStyles((theme) => ({
         height: '90%',
         width: '100%',
         display: 'flex',
-        overflow: 'hidden',
-        scrollBehavior:'smooth'
+        overflowX: 'auto',
+        scrollBehavior:'smooth',
+        '&::-webkit-scrollbar':{
+            display:'none'
+        }
     },
     prevButton:{
         right:'0.5%',
         position: 'absolute',
-        top: '35%',
+        top: '30%',
         borderRadius: '50%',
         border: '1px solid lightgray',
         minWidth: '50px',
@@ -50,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     nextButton:{
         left:'0.5%',
         position: 'absolute',
-        top: '35%',
+        top: '30%',
         borderRadius: '50%',
         border: '1px solid lightgray',
         minWidth: '50px',
@@ -58,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
     itemSliderContainer:{
         position:'relative',
+        overflow:'hidden'
     },
 }))
 const ItemSlider = ({itemType,items}) => {
@@ -80,7 +84,7 @@ const ItemSlider = ({itemType,items}) => {
         <div className={classes.itemSliderContainer}>
             <div className={classes.carousel} id={`${itemType}carousel`}>
                 {items.map((item,index) => (
-                    <Link to={`/products?filter=${item.name}`} key={index} style={{left:'0'}} className={classes.itemContainer}>
+                    <Link to={`/products?${itemType}=${item.name},`} key={index} style={{left:'0'}} className={classes.itemContainer}>
                         <img src={item.image} alt={item.name+"logo"} className={classes.itemImage}/>
                         <p className={classes.itemName}>{ item.name } </p>
                     </Link>
@@ -88,7 +92,7 @@ const ItemSlider = ({itemType,items}) => {
                 )}
 
              {items.map((item,index) => (
-                    <Link  to={`/products?filter=${item.name}`} key={index} style={{left:'0'}} className={classes.itemContainer}>
+                    <Link  to={`/products?${itemType}=${item.name},`} key={index} style={{left:'0'}} className={classes.itemContainer}>
                         <img src={item.image} alt={item.name+"logo"} className={classes.itemImage}/>
                         <p className={classes.itemName}>{ item.name } </p>
                     </Link>

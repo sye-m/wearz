@@ -14,7 +14,34 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all(); 
+        $searchTerm = request()->query('searchTerm');
+        $brands = request()->query('brands') != "" ?explode(',',request()->query('brands')):[];
+        $types = request()->query('types') != "" ?explode(',',request()->query('types')):[];
+        //get products with the name like the search term than get the product based on brand and type
+        $filteredProducts = Product::where('name','LIKE',$searchTerm."%")->whereHas('brand',
+                function($query) use ($brands){
+            //where has depends upon the relationship of product and brand table
+                    if(count($brands) > 0){
+                    $query->whereIn('name',$brands);
+                    }
+            })
+            ->whereHas('type',
+                function($query) use ($types){
+                    if(count($types) > 0 ){
+            //where has depends upon the relationship of product and brand table
+                    $query->whereIn('name',$types);
+                }
+            })->with([
+                    'brand' => function($q)
+                    {
+                     $q->select('id','name');//get only id and name of the brand
+                    },
+                    'type' => function($q)
+                    {
+                     $q->select('id','name');//get only id and name of the type of product
+                    }
+                   ])->get();
+        return response()->json(['filteredProducts'=>$filteredProducts]);
     }
 
     /**-

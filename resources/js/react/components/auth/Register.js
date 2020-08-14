@@ -64,7 +64,7 @@ const Register = ({auth,register}) => {
         if (isInitialMount.current) {
             //set the component as mounted
             isInitialMount.current = false;
-         }else{validate()}},[formData])
+         }else{validate()}},[formData])//as soon as form Input changes validate the input 
 
     const {name,email,password,rePassword} = formData;
 
