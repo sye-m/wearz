@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
-import { getProducts } from '../../actions/product.js' 
+import { getProducts } from '../../actions/products' 
 import queryString from 'query-string';
 import DisplayProducts from './DisplayProducts';
-import ProductFilters from './ProductFilters';
+import ProductFilters from '../layouts/ProductFilters';
 const useStyles = makeStyles((theme) => ({
    productsContainer:{
        display:'flex',
@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
         minWidth:'120px'
    },
    products:{
-       width:'74%',
        height: '100%',
    }
 

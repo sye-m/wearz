@@ -1,4 +1,4 @@
-import { GET_BRANDS } from './types.js';
+import { SET_BRANDS } from './types.js';
 
 export const getBrands = () => async dispatch => {
     try{
@@ -6,7 +6,7 @@ export const getBrands = () => async dispatch => {
     let brands = res.data.brands;
     console.log(brands);
     dispatch({
-        type:GET_BRANDS,
+        type:SET_BRANDS,
         payload:brands
     })
     }

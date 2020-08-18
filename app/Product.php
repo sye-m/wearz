@@ -18,10 +18,10 @@ class Product extends Model
 
     
     public function orders(){
-        return $this->belongsToMany('App\Order')->withTimestamps();
+        return $this->belongsToMany('App\Order')->withTimestamps()->withPivot('size','quantity');
     }
 
     public function carts(){
-        return $this->belongsToMany('App\Product')->withTimestamps();
+        return $this->belongsToMany('App\Product','cart_product','cart_id','product_id')->withTimestamps()->withPivot('quantity', 'size');;
     }
 }

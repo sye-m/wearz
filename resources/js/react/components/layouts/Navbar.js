@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
     navBar:{
       zIndex:'1111',
-      padding:'15px 15px 15px 0px',
+      padding:'15px 0px 15px 0px',
       backgroundColor:theme.palette.primary.main,
       width:'100%',
       height:'44px',
@@ -73,8 +73,6 @@ const useStyles = makeStyles((theme) => ({
     },
     userText:{
       fontSize:'1.2rem',
-      position:'relative',
-      top:'-8px'
     },
     cartText:{
       fontSize:'1.2rem'
@@ -100,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   }));
-const Navbar = ({history,location,auth,logout}) => {
+const Navbar = ({history,location,auth,cart,logout}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -124,7 +122,7 @@ const Navbar = ({history,location,auth,logout}) => {
         let searchTermQuery = e.target.value?`?searchTerm=${e.target.value}`:'';
         //get previous query terms if present and add them to the query string
         let brandsQuery = query.brands && searchTermQuery.length > 0 ? `&brands=${query.brands}`:query.brands ?`?brands=${query.brands}`:'';//if search term is not present search based on previous brands query present
-        let typesQuery = query.types && searchTermQuery.length > 0? `&types=${query.types}`:query.types && !query.brands ?`?types=${query.types}`:'';//if search term is not present search based on previous types query present
+        let typesQuery = query.types && (searchTermQuery.length > 0 || query.brands) ? `&types=${query.types}`:query.types && !query.brands ?`?types=${query.types}`:'';//if search term is not present search based on previous types query present
         //change location only if there is a query string present
         if(searchTermQuery.length > 0 || brandsQuery.length > 0 || typesQuery.length > 0){
           history.push(`/products${searchTermQuery}${brandsQuery}${typesQuery}`)
@@ -136,7 +134,7 @@ const Navbar = ({history,location,auth,logout}) => {
             <Grid container>
                 <Grid item xl={3} xs={2} xm={3}>
                     <Link to="/" style={{textDecoration:'none'}}>
-                        <img className={classes.brandIcon} src="storage/icons/footIcon.png"/>
+                        <img className={classes.brandIcon} src="/storage/icons/footIcon.png"/>
                         <Box display={{xs:'none',md:'inline',sm:'none', lg:'inline',xl:'inline'}} className={classes.shopName}>Wearz</Box>
                     </Link>
 
@@ -159,13 +157,13 @@ const Navbar = ({history,location,auth,logout}) => {
                 </Grid>
                 <Grid item xl={2} xs={2} xm={4} className={classes.user}>
                   <div>
-                    <AccountCircleIcon className={classes.userIcon}/>
-                    <Box color="text.secondary" display={{xs:'none',md:'inline',sm:'inline', lg:'inline'}} className={classes.userText}>
+                    <Box color="text.secondary" className={classes.userText}>
                       {auth.user?
                       (
                         <Fragment>
                         <Button className={classes.userButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                          {auth.user && auth.user.name}
+                          <AccountCircleIcon className={classes.userIcon}/>
+                          {auth.user && auth.user.name.length>10? auth.user.name.substring(0,10)+"...":auth.user.name}
                         </Button>
                         <Menu
                           id="simple-menu"
@@ -177,17 +175,19 @@ const Navbar = ({history,location,auth,logout}) => {
                           <MenuItem onClick={handleClose}>{auth.user && auth.user.name}</MenuItem>
                           <MenuItem onClick={logoutUser}>Logout</MenuItem>
                         </Menu>
-                        </Fragment>):(<Link to="/login">Login</Link>)}
+                        </Fragment>):(<Button><Link to="/login">Login</Link></Button>)}
                     </Box>
                   </div>
                 </Grid>
                 <Grid item xl={2} xs={2} xm={2} className={classes.cart}>
-                      <div>
-                        <Badge badgeContent={4} color="error">
-                          <ShoppingCartIcon className={classes.cartIcon}/> 
-                        </Badge>
-                        <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline'}} className={classes.cartText}>Cart</Box>
-                      </div>
+                    <Link to="/cart">
+                          <div>
+                            <Badge badgeContent={cart && cart.length} color="error">
+                              <ShoppingCartIcon className={classes.cartIcon}/> 
+                            </Badge>
+                            <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline'}} className={classes.cartText}>Cart</Box>
+                          </div>
+                    </Link>
                   </Grid>
             </Grid>
             </Box>
@@ -199,7 +199,8 @@ Navbar.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  auth:state.auth
+  auth:state.auth,
+  cart:state.cart
 })
 export default connect(mapStateToProps,{logout})(withRouter(Navbar));
 

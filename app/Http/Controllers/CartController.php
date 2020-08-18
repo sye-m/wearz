@@ -7,25 +7,12 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+    public function getUserCart(){
+        $cart = Cart::where('customer_id',auth()->user()->id)->get();
+        return response()->json(['cart'=>$cart[0]->products()->get(['product_id as product','cart_id'])]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,18 +22,19 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = new Cart;
+        $cart->customer_id = $request->customerId;
+        $cart->save();
+        return response()->json(['cart'=>$cart]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cart $cart)
-    {
-        //
+    public function addToCart(Request $request){
+        $cart = auth()->user()->cart()->get();
+        $productId = $request->productId;
+        $size = $request->size;
+        $quantity = $request->quantity;
+        $cart[0]->products()->attach($productId,['size'=>$size,'quantity'=>$quantity]);
+        return response()->json(['cart'=>$cart,'productId'=>$productId,'quantity'=>$quantity,'size'=>$size]);
     }
 
     /**
@@ -67,9 +55,12 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request)
     {
-        //
+        $cart = auth()->user()->cart()->get();
+        $cartProduct = $request->cartProduct;
+        $cart[0]->products()->updateExistingPivot($cartProduct['product_id'],['size'=>$cartProduct['size'],'quantity'=>$cartProduct['quantity']]);
+        return response()->json('updated',200);
     }
 
     /**
@@ -78,8 +69,10 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy($productId)
     {
-        //
+        $cart = auth()->user()->cart()->get();
+        $cart[0]->products()->detach($productId);
+        return response()->json('deleted',200);
     }
 }

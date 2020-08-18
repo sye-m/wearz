@@ -10,8 +10,12 @@ import Landing from './components/layouts/Landing.js';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import { loadUser } from './actions/auth.js';
+import { getCart } from './actions/cart.js';
 import AlertBar from './components/layouts/AlertBar';
 import Products from './components/products/Products';
+import Product from './components/product/Product';
+import Cart from './components/cart/Cart';
+import Orders from './components/order/Orders';
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -35,7 +39,10 @@ const theme = createMuiTheme({
   },
 });
 const App = (prop) => {
-    useEffect(()=>{store.dispatch(loadUser())},[]);
+    useEffect(()=>{
+      store.dispatch(loadUser());
+      store.dispatch(getCart())
+    },[]);
     return (
         <Fragment>
           <Provider store={store}>    
@@ -49,7 +56,9 @@ const App = (prop) => {
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/products" component={Products} />
-                            
+                            <Route exact path="/product/:product_id" component={Product} />
+                            <Route exact path="/cart" component={Cart} />
+                            <Route exact path="/orders" component={Orders} />
                         </Switch>
                     </div>
                 </ThemeProvider>

@@ -44,9 +44,14 @@ class ProductController extends Controller
         return response()->json(['filteredProducts'=>$filteredProducts]);
     }
 
+    public function getCartItems(Request $request) {
+        $products = Product::whereIn('id',request()->productIds)->get();
+        return response()->json(['products'=>$products]);
+
+    }
     /**-
      * Show the form for creating a new resource.
-     *
+     *r
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -71,10 +76,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($productId)
     {
-        $product = Product::find($product);
-        return view('product.show')->with('product',$product);
+        $product = Product::where('id',$productId)->with([
+            'brand' => function($q)
+            {
+             $q->select('id','name');//get only id and name of the brand
+            },
+            'type' => function($q)
+            {
+             $q->select('id','name');//get only id and name of the type of product
+            }
+           ])->get();
+        return response()->json(['product'=>$product]);
     }
 
     /**
