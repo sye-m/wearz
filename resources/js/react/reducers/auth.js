@@ -2,7 +2,8 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_SUCCESS, LOGIN_FAIL, 
 
 const initialState = {
     user: null,
-    isAuthenticated: false
+    isAuthenticated: false,
+    guestId:''
 };
 export default function auth(state = initialState, action) {
     const { payload, type } = action;
@@ -11,7 +12,8 @@ export default function auth(state = initialState, action) {
             return {
                 ...state,
                 isAuthenticated: true,
-                user: payload
+                user: payload,
+                guestId:''
             }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
@@ -26,7 +28,8 @@ export default function auth(state = initialState, action) {
             return {
                 ...state,
                 user: null,
-                isAuthenticated: false
+                isAuthenticated: false,
+                guestId:payload
             };
         default:
             return state;

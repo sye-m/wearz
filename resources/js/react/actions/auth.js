@@ -1,5 +1,7 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOG_OUT, AUTH_ERROR } from './types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOG_OUT, AUTH_ERROR, CART_ERROR } from './types';
+import { v4 as uuidv4 } from 'uuid';
 import { setAlert } from './alert';
+import { newCart } from './cart';
 export const loadUser = () => async dispatch => {
 
     if (Auth.user) {
@@ -8,9 +10,19 @@ export const loadUser = () => async dispatch => {
             payload: Auth.user
         })
     } else {
+        let guestId = ''
+        if(localStorage.getItem('guestId')){
+            guestId = localStorage.getItem('guestId');
+        }
+        else{
+            guestId = uuidv4();
+            localStorage.setItem('guestId',guestId);
+        }
         dispatch({
             type: AUTH_ERROR,
+            payload:guestId
         })
+        
     }
 
 }
@@ -29,6 +41,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     const body = JSON.stringify(newUser)
     try {
         const res = await axios.post('/registerCustomer', body, config);
+        dispatch(newCart(res.data.id));
         dispatch({
             type: REGISTER_SUCCESS,
         })
@@ -76,6 +89,7 @@ export const login = ({ email, password }) => dispatch => {
             dispatch(loadUser())
             resolve('success');
         } catch (err) {
+            console.log(err.response.data)
             const errors = err.response.data.errors;
             if (errors) {
                 errors.email && errors.email.forEach(error => dispatch(setAlert(error, 'error')));
@@ -89,5 +103,6 @@ export const login = ({ email, password }) => dispatch => {
 
 export const logout = () => dispatch => {
     axios.post('/logoutCustomer');
+    dispatch({type:CART_ERROR});
     dispatch({ type: LOG_OUT });
 }

@@ -1,15 +1,18 @@
-import { GET_PRODUCTS } from './types.js';
+import { SET_PRODUCT } from './types.js';
 
-export const getProducts = (searchTerm="",brands="",types="",price="") => async dispatch => {
+export const getProduct = (productId) => async dispatch => {
     try{
-    let res = await axios.get(`/getProducts?searchTerm=${searchTerm}&brands=${brands}&types=${types}`)
-    let products = res.data.filteredProducts;
-    dispatch({
-        type:GET_PRODUCTS,
-        payload:products
-    })
+        let res = await axios.get(`/getProduct/${productId}`);
+        console.log(res)
+        let product = res.data.product[0];
+        product = product;
+        dispatch({
+            type:SET_PRODUCT,
+            payload:product
+        })
     }
     catch(err){
         console.log(err.response.data);
     }
+   
 }

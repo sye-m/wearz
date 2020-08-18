@@ -7,8 +7,13 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOG_OUT = 'LOG_OUT';
-export const GET_BRANDS = 'GET_BRANDS';
-export const GET_PRODUCT_TYPES = 'GET_PRODUCT_TYPES';
-export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const SET_BRANDS = 'SET_BRANDS';
+export const SET_PRODUCT_TYPES = 'SET_PRODUCT_TYPES';
+export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const SET_PRODUCT = 'SET_PRODUCT';
+export const SET_CART = 'SET_CART';
+export const CART_ERROR = 'CART_ERROR';
+export const SET_ORDERS = 'SET_ORDERS';
+export const ORDERS_ERROR = 'ORDERS_ERROR';
 
 

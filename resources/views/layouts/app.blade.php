@@ -20,36 +20,38 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        html,
-body {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    font-family:Lato,Roboto,Helvetica,sans-serif;
-}
+        html,body {
+            width: 100%;
+            height:100%;
+            margin: 0px;
+            padding: 0px;
+            font-family:Lato,Roboto,Helvetica,sans-serif;
+        }
 
-#container {
-    width: 100%;
-    height: 94%;
-    top: 74px;
-    position: absolute;
-    min-height: 600px;
-    
-}
+        #container {
+            width: 100%;
+            height: 94%;
+            top: 74px;
+            position: absolute;
+            min-height: 600px;
+            
+        }
 
-#app {
-    width: 100%;
-    height: 100%;
-}
+        #app {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     @yield('content')
 </body>
 <script>
+        
       window.Auth = {!! json_encode([
             'signedIn' => Auth::check(),
             'user' => Auth::user()
         ]) !!}
+        console.log({{Auth::guest()}})
 </script>
 </html>

@@ -14,8 +14,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = auth()->user()->orders()->get();
-        return view('order.index')->with('orders',$orders);
+        $allOrders = auth()->user()->orders()->get();
+        $orders = array();
+        foreach($allOrders as $order){
+            array_push($orders,$order->products()->get());
+        }
+
+        return response()->json(['orders'=>$orders]);
     }
 
     /**

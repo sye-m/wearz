@@ -20,12 +20,19 @@ Route::post('logoutCustomer','Auth\LoginController@logout');
 Route::get('getBrands','BrandController@index');
 Route::get('getProductTypes','ProductTypeController@index');
 Route::get('getProducts','ProductController@index');
+Route::get('getProduct/{productId}','ProductController@show');
+Route::post('getCartItems','ProductController@getCartItems');
 
 Route::group(['middleware' => 'auth:web'],function(){
     Route::resource('customer','CustomerController');
-    Route::resource('cart','CartController',['except'=>['create']]);
-    Route::resource('order','OrderController',['except'=>['update','edit','create']]);
-    Route::resource('product','ProductController',['except'=>['update','edit','create']]);
+
+    Route::post('newUserCart','CartController@store');
+    Route::post('addToCart','CartController@addToCart');
+    Route::get('getUserCart','CartController@getUserCart');
+    Route::put('updateUserCart','CartController@update');
+    Route::delete('deleteProductFromCart/{productId}','CartController@destroy');
+
+    Route::get('getOrders','OrderController@index');
 
 });
 Route::get( '/{path?}', function(){
