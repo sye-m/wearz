@@ -31,25 +31,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        $order = auth()->user()->orders()->find($order);
-        return view('order.show')->with('order',$order);
+        $products = $request->allProducts;
+        $order = Order::create(['customer_id'=>auth()->user()->id]);
+        foreach($products as $product){
+            $order->products()->attach($product['product_id'],['size'=>$product['size'],'quantity'=>$product['quantity']]);
+        }
+        return response()->json(['allProducts'=>$order],200);
     }
 
     
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        auth()->user()->orders()->find($order)->destroy();
-        return view('or der.index');
+        $orderedProduct = $request->orderedProduct;
+        $order = auth()->user()->orders()->where('id',$orderedProduct['order_id'])->first();
+        $order->products()->where('order_product.id',$orderedProduct['id'])->detach($orderedProduct['product_id']);
+        if(count($order->products()->get()) <= 0){
+        $order->delete();
+        }
+        return response()->json('deleted order',200);
+        
     }
 }

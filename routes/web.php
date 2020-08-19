@@ -30,9 +30,11 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::post('addToCart','CartController@addToCart');
     Route::get('getUserCart','CartController@getUserCart');
     Route::put('updateUserCart','CartController@update');
-    Route::delete('deleteProductFromCart/{productId}','CartController@destroy');
-
+    Route::delete('deleteProductFromCart/{productId}','CartController@deleteProduct');
+    Route::delete('/emptyCart','CartController@emptyCart');
     Route::get('getOrders','OrderController@index');
+    Route::post('orderProducts','OrderController@store');
+    Route::delete('deleteOrderedProduct','OrderController@destroy');
 
 });
 Route::get( '/{path?}', function(){

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
+import { getCartItems,updateCartProduct, deleteCartProduct } from './../../actions/cart';
+import { orderProducts } from './../../actions/order';
 import { Link } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -10,7 +12,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getCartItems,updateCartProduct, deleteCartProduct } from './../../actions/cart';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
 const useStyles = makeStyles((theme) => ({
     cartContainer:{
         width: '100%',
@@ -112,11 +115,13 @@ const useStyles = makeStyles((theme) => ({
     productActions:{
         gridRowStart: '2',
         gridColumnStart: '2',
+        gridColumnEnd:'4',
         ['@media(max-width:600px)']:{
             gridRowStart: '3',
             gridColumnStart: '1',
             gridColumnEnd:'3',
-        }
+        },
+        
     },
     cartActions:{
       gridRowStart:'3',
@@ -132,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }))
   
-const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct}) => {
+const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
     useEffect(()=>{
         getCartItems()
     },[cart.length])
@@ -158,14 +163,16 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct}) => {
         })
         return cartTotalItems;
     }
+
+    const orderCartProducts = () =>{
+        orderProducts();
+    }
     return (
         <div className={classes.cartContainer} >
             <div className={classes.orderButton}>
-                <Link to="/orders">
-                <Button color="primary" variant="contained">
+                <Button color="primary" variant="contained" onClick={orderCartProducts}>
                     {`Order Total(${getCartTotalItems()}) items`}
                 </Button>
-                </Link>      
             </div>
             <div className={classes.displayCart}>
                 <div className={classes.cartDescription}>
@@ -173,7 +180,7 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct}) => {
                     <p className={classes.cartTotal}>Total = {`${getSymbolFromCurrency('INR')} ${Math.round(getCartTotalPrice())}`}</p>
                 </div>
                 <div className={classes.cartProducts}>
-                    {cart && cart.length > 0 && cart.map((cartProduct, index)=>(
+                    {cart.length > 0 ? cart.map((cartProduct, index)=>(
                         typeof cartProduct.product =='object'?   //if the product does not exist do not display it
                         (<div className={classes.cartProduct} key={index}>
                             <div className={classes.productImage}>
@@ -228,7 +235,16 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct}) => {
                                 {`${getSymbolFromCurrency('INR')} ${cartProduct.product.price}`}
                             </div>
                         </div>):''
-                    ))}
+                    )):(<div>
+                            No Products here. 
+                            <Link to="/products">
+                                <Button
+                                variant="contained"
+                                color="primary"
+                                startIcon={<AddShoppingCartIcon/>}>Shop Now</Button>
+                            </Link>
+                      
+                    </div>)}
                 </div>
             </div>
         </div>
@@ -245,4 +261,4 @@ Cart.propTypes = {
 const mapStateToProps = state =>({
     cart:state.cart
 })
-export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct })(Cart)
+export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct,orderProducts })(Cart)
