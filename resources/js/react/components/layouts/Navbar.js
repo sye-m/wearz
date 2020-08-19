@@ -173,6 +173,11 @@ const Navbar = ({history,location,auth,cart,logout}) => {
                           onClose={handleClose}
                         >
                           <MenuItem onClick={handleClose}>{auth.user && auth.user.name}</MenuItem>
+                            <MenuItem>
+                              <Link to="/orders">
+                              Orders
+                              </Link>
+                            </MenuItem>
                           <MenuItem onClick={logoutUser}>Logout</MenuItem>
                         </Menu>
                         </Fragment>):(<Button><Link to="/login">Login</Link></Button>)}

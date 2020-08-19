@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     width:'43%',
     margin:'1em',
     minWidth:'200px',
-    maxWidth:'300px',
+    maxWidth:'450px',
     minHeight:'350px',
     maxHeight:'400px',
     ['@media(max-width:700px)']:{
@@ -73,9 +73,6 @@ const DisplayProducts = ({history,products}) => {
                         {`${getSymbolFromCurrency('INR')} ${product.price}`}
                     </div>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
               </Card>
             )))}
         </div>

@@ -1,17 +1,32 @@
 import React,{ useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { getOrders } from '../../actions/order';
+import { getOrders,cancelOrder } from '../../actions/order';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
 const useStyles = makeStyles((theme) => ({
     ordersContainer:{
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
+    },
+    orderTotal:{
+        fontSize:'1.3em',
+        fontWeight:'bold',
+        width:'60%',
+        textAlign:'end',
+        alignSelf:'center',
+        color:[theme.palette.error.light]
+    },
+    orderTitle:{
+        fontSize: '1.5em',
+        fontWeight: 'bold',
+        width:'40%'
     },
     displayOrders:{
         margin: '20px 0px',
@@ -85,6 +100,15 @@ const useStyles = makeStyles((theme) => ({
             marginRight:'5px'
         }
     },
+    productPrice:{
+        fontWeight:'bold',
+        fontSize:'1.2em',
+        gridColumnStart:'4',
+        ['@media(max-width:700px)']:{
+            gridRowStart: '2',
+            gridColumnStart: '3',
+        }
+    },
     orderActions:{
       gridRowStart:'3',
       gridColumnStart:'2',
@@ -92,10 +116,17 @@ const useStyles = makeStyles((theme) => ({
         gridRowStart: '3',
         gridColumnStart: '3'
     }
+    },
+    cancelOrderButton:{
+        backgroundColor:theme.palette.error.main,
+        color:'#fff',
+        '&:hover': {
+            backgroundColor: theme.palette.error.dark,
+          },
     }
 }))
 
-const Orders = ({orders,getOrders}) => {
+const Orders = ({orders,getOrders,cancelOrder}) => {
     const classes = useStyles();
     useEffect(()=>{
         getOrders();
@@ -104,12 +135,14 @@ const Orders = ({orders,getOrders}) => {
         <div className={classes.ordersContainer}>
             <div className={classes.displayOrders}>
                 <div className={classes.ordersDescription}>
-                    <p className={classes.cartTitle}>Orders</p>
+                    <p className={classes.orderTitle}>Orders</p>
+                    <p className={classes.orderTotal}>Total Price</p>
+
                 </div>
                 <div className={classes.orders}>
-                    {orders.length > 0 && orders.map((order)=>(
-                        order.map((product,index)=>(
-                            <div className={classes.orderedProduct} key={index}>
+                    {orders.length > 0 ? orders.map((order,orderIndex)=>(
+                        order.map((product,productIndex)=>(
+                            <div className={classes.orderedProduct} key={productIndex}>
                             <div className={classes.productImage}>
                                 <img src={product.image} alt=""/>
                             </div>
@@ -127,16 +160,29 @@ const Orders = ({orders,getOrders}) => {
                             <div className={classes.orderActions}>
                                 <Button
                                     variant="contained"
-                                    color="secondary"
+                                    className={classes.cancelOrderButton}
                                     startIcon={<DeleteIcon />}
+                                    onClick={()=>cancelOrder(orderIndex,productIndex,product.pivot)}
                                 >
-                                    Delete
+                                    Cancel
                                 </Button>
+                            </div>
+                            <div className={classes.productPrice}>
+                                {`${getSymbolFromCurrency('INR')} ${Math.round(product.price*product.pivot.quantity)}`}
                             </div>
                         </div>
                         ))
                     
-                    ))}
+                    )):(<div>
+                        No Products here. 
+                        <Link to="/products">
+                            <Button
+                            variant="contained"
+                            color="primary"
+                            startIcon={<AddShoppingCartIcon/>}>Shop Now</Button>
+                        </Link>
+                  
+                </div>)}
                 </div>
             </div>
         </div>
@@ -150,4 +196,4 @@ Orders.propTypes = {
 const mapStateToProps = state =>({
     orders:state.orders
 })
-export default connect(mapStateToProps,{getOrders})(Orders)
+export default connect(mapStateToProps,{getOrders, cancelOrder})(Orders)

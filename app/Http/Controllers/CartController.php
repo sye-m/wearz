@@ -59,8 +59,11 @@ class CartController extends Controller
     {
         $cart = auth()->user()->cart()->get();
         $cartProduct = $request->cartProduct;
-        $cart[0]->products()->updateExistingPivot($cartProduct['product_id'],['size'=>$cartProduct['size'],'quantity'=>$cartProduct['quantity']]);
-        return response()->json('updated',200);
+        $cartItemToUpdate = $cart[0]->products()->where('cart_product.id',$cartProduct['id'])->first();
+        $cartItemToUpdate->pivot->size= $cartProduct['size'];
+        $cartItemToUpdate->pivot->quantity= $cartProduct['quantity'];
+        $cartItemToUpdate->pivot->save();
+        return response()->json('',200);
     }
 
     /**
@@ -69,10 +72,26 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productId)
+    public function deleteProduct($productId)
     {
         $cart = auth()->user()->cart()->get();
         $cart[0]->products()->detach($productId);
+        return response()->json('deleted',200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
+    public function emptyCart(Request $request)
+    {
+        $products = $request->allProducts;
+        $cart = auth()->user()->cart()->get();
+        foreach($products as $product){
+            $cart[0]->products()->detach($product['product_id']);
+        }
         return response()->json('deleted',200);
     }
 }

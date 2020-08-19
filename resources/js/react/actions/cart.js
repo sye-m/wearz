@@ -130,7 +130,9 @@ export const updateCartProduct = (positionInCart,option) => async (dispatch,getS
     let productItem = cart[positionInCart];//get the cart item
     productItem = {...productItem,pivot:{...productItem.pivot,...option}};
     cart[positionInCart] = productItem;//update the cart state locally
+    console.log(productItem)
     let res = await axios.put(`/updateUserCart`,{'cartProduct':productItem.pivot});
+    console.log(res)
     dispatch({
         type:SET_CART,
         payload:cart
