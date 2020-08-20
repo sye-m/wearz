@@ -14,7 +14,7 @@ export const getOrders = () => async dispatch => {
         dispatch({
             type:ORDERS_ERROR,
         })
-        dispatch(setAlert('Error with adding items', 'error'));
+        dispatch(setAlert('Error with getting orders', 'error'));
     }
 }
 
@@ -33,7 +33,7 @@ catch(err){
     dispatch({
         type:ORDERS_ERROR,
     })
-    dispatch(setAlert('Error with adding items', 'error'));
+    dispatch(setAlert('Error with cancelling the order', 'error'));
 }
 
 }
@@ -54,6 +54,6 @@ export const orderProducts = () => async(dispatch, getState) => {
         dispatch({
             type:ORDERS_ERROR,
         })
-        dispatch(setAlert('Error with adding items', 'error'));
+        dispatch(setAlert('Error with ordering products', 'error'));
     }
 }
