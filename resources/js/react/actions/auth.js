@@ -86,7 +86,6 @@ export const login = ({ email, password }) => dispatch => {
                 type: LOAD_USER,
                 payload: Auth.user
             })
-            dispatch(loadUser())
             resolve('success');
         } catch (err) {
             console.log(err.response.data)

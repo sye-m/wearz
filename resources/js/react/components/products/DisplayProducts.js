@@ -5,17 +5,17 @@ import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import CircularLoader from './../loaders/CircularLoader';
 const useStyles = makeStyles((theme) => ({
   productsDisplayContainer:{
       display:'flex',
       flexWrap:'wrap',
       height:'100%',
       width:'100%',
-      justifyContent:'center'
+      justifyContent:'center',
+      position:'relative'
   },
   productCard:{
     height:'60%',
@@ -44,11 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
   productDescription:{
       width:'60%'
-  }
+  },
+  
+ 
 }))
 
 
-const DisplayProducts = ({history,products}) => {
+const DisplayProducts = ({history,products:{loading,products}}) => {
     const classes = useStyles();
 
     const viewProduct = (product) => {
@@ -57,6 +59,7 @@ const DisplayProducts = ({history,products}) => {
     
     return (
         <div className={classes.productsDisplayContainer}>
+            <CircularLoader loading={loading}/>
             {products.length > 0 && products.map((product,index)=>((
                 <Card onClick={()=>{viewProduct(product)}} className={classes.productCard} variant="outlined" key={index}>
                     <CardMedia className={classes.productImage}
@@ -80,7 +83,7 @@ const DisplayProducts = ({history,products}) => {
 }
 
 DisplayProducts.propTypes = {
-    products:PropTypes.array.isRequired,
+    products:PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

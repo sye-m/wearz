@@ -34,7 +34,8 @@ class CartController extends Controller
         $size = $request->size;
         $quantity = $request->quantity;
         $cart[0]->products()->attach($productId,['size'=>$size,'quantity'=>$quantity]);
-        return response()->json(['cart'=>$cart,'productId'=>$productId,'quantity'=>$quantity,'size'=>$size]);
+        $row = $cart[0]->products()->where('cart_product.product_id',$productId)->where('cart_product.size',$size)->where('cart_product.quantity',$quantity)->get();
+        return response()->json(['id'=>$row[0]->pivot->id,'cart_id'=>$cart[0]->id],200);
     }
 
     /**
@@ -63,7 +64,7 @@ class CartController extends Controller
         $cartItemToUpdate->pivot->size= $cartProduct['size'];
         $cartItemToUpdate->pivot->quantity= $cartProduct['quantity'];
         $cartItemToUpdate->pivot->save();
-        return response()->json('',200);
+        return response()->json('updated product',200);
     }
 
     /**

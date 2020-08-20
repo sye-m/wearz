@@ -1,4 +1,4 @@
-import { SET_CART,CART_ERROR } from './types.js';
+import { SET_CART,CART_ERROR,LOADING_CART } from './types.js';
 import { setAlert } from './alert';
 
 //create new User cart when the user first registers successfully
@@ -30,7 +30,7 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
                 'Content-Type': 'application/json'
             }
         }
-        let cart = getState().cart;
+        let cart = getState().cart.products;
         //check if the product is already in the cart 
         let productIndex = cart.findIndex((cartProduct)=> 
         //check if existing product is of the same size if it is not of the same size add the product as a new product
@@ -40,7 +40,7 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
         if(productIndex < 0 ){
             const res = await axios.post(`/addToCart`,{'productId':productData.pivot.product_id,'size':productData.pivot.size,'quantity':productData.pivot.quantity},config);
             console.log(res);
-            cart.unshift(productData);
+            cart.unshift({...productData,pivot:{...productData.pivot,id:res.data.id,cart_id:res.data.cart_id}});
             dispatch({
                 type:SET_CART,
                 payload:cart
@@ -48,10 +48,11 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
         }
        else {
            //if product already exists in the cart just update the quantity of the product
+           let id = cart[productIndex].pivot.id;
            let product_id = productData.product.id;
            let size = productData.pivot.size;
            let quantity = productData.pivot.quantity + cart[productIndex].pivot.quantity;
-           dispatch(updateCartProduct(productIndex,{product_id,size,quantity}))
+           dispatch(updateCartProduct(productIndex,{id,product_id,size,quantity}))
        }
     }
     catch(err){
@@ -89,18 +90,19 @@ export const getCart = () => async (dispatch,getState) => {
 export const getCartItems = () => async (dispatch,getState) =>{
     //as we are adding the products directly to the cart state when the user clicks on add cart
     //we should only get details from the backend if the details are already not present in the cart
-    let productIds = getState().cart.map((cartItems)=>{
+    let productIds = getState().cart.products.map((cartItems)=>{
         if(typeof cartItems.product !== 'object'){//check to see if the product details are already present
             return cartItems.product
         }
     })  //get only the products ids
     if(productIds.length >0){
     try{
+        dispatch({type:LOADING_CART});
         let products = [];
         let res = await axios.post('/getCartItems',{'productIds':productIds});
         products = res.data.products
         //replace the items with the just the product id with the complete details of the products
-        let cart = getState().cart.map((cartItem,index)=>{
+        let cart = getState().cart.products.map((cartItem,index)=>{
             let productItem = products.findIndex((product)=>product.id == cartItem.product);
             if(productItem >=0){
             return {...cartItem,product:products[productItem]}
@@ -126,7 +128,7 @@ export const getCartItems = () => async (dispatch,getState) =>{
 
 export const updateCartProduct = (positionInCart,option) => async (dispatch,getState) => {
     try{
-    let cart = getState().cart;
+    let cart = getState().cart.products;
     let productItem = cart[positionInCart];//get the cart item
     productItem = {...productItem,pivot:{...productItem.pivot,...option}};
     cart[positionInCart] = productItem;//update the cart state locally
@@ -144,7 +146,7 @@ catch(err){
 }
 
 export const deleteCartProduct = (productId,positionInCart) => async (dispatch,getState) =>{
-    let cart = getState().cart;
+    let cart = getState().cart.products;
     cart.splice(positionInCart,1);
     const res = await axios.delete(`/deleteProductFromCart/${productId}`);
     console.log(cart)

@@ -8,20 +8,13 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-
+import products from './../../reducers/products';
+import CircularLoader from './../loaders/CircularLoader';
 const useStyles = makeStyles((theme) => ({
     ordersContainer:{
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-    },
-    orderTotal:{
-        fontSize:'1.3em',
-        fontWeight:'bold',
-        width:'60%',
-        textAlign:'end',
-        alignSelf:'center',
-        color:[theme.palette.error.light]
     },
     orderTitle:{
         fontSize: '1.5em',
@@ -103,10 +96,12 @@ const useStyles = makeStyles((theme) => ({
     productPrice:{
         fontWeight:'bold',
         fontSize:'1.2em',
+        textAlign:'end',
         gridColumnStart:'4',
         ['@media(max-width:700px)']:{
             gridRowStart: '2',
             gridColumnStart: '3',
+            textAlign:'start'
         }
     },
     orderActions:{
@@ -126,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const Orders = ({orders,getOrders,cancelOrder}) => {
+const Orders = ({orders:{products,loading},getOrders,cancelOrder}) => {
     const classes = useStyles();
     useEffect(()=>{
         getOrders();
@@ -136,11 +131,11 @@ const Orders = ({orders,getOrders,cancelOrder}) => {
             <div className={classes.displayOrders}>
                 <div className={classes.ordersDescription}>
                     <p className={classes.orderTitle}>Orders</p>
-                    <p className={classes.orderTotal}>Total Price</p>
 
                 </div>
                 <div className={classes.orders}>
-                    {orders.length > 0 ? orders.map((order,orderIndex)=>(
+                    <CircularLoader loading={loading}/>
+                    {products.length > 0 ? products.map((order,orderIndex)=>(
                         order.map((product,productIndex)=>(
                             <div className={classes.orderedProduct} key={productIndex}>
                             <div className={classes.productImage}>
@@ -173,7 +168,7 @@ const Orders = ({orders,getOrders,cancelOrder}) => {
                         </div>
                         ))
                     
-                    )):(<div>
+                    )):!loading && (<div>
                         No Products here. 
                         <Link to="/products">
                             <Button
@@ -190,7 +185,7 @@ const Orders = ({orders,getOrders,cancelOrder}) => {
 }
 
 Orders.propTypes = {
-    orders:PropTypes.array.isRequired,
+    orders:PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state =>({

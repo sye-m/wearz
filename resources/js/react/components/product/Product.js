@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import CircularLoader from './../loaders/CircularLoader';
 const useStyles = makeStyles((theme) => ({
     productDisplayContainer:{
         display:'flex',
@@ -18,13 +19,17 @@ const useStyles = makeStyles((theme) => ({
         height:'100%',
         width:'100%',
     },
- 
+    product:{
+        display:'flex',
+        flexWrap:'wrap',
+        width:'100%'
+    },
     productImage:{
-        maxWidth: '500px',
         height: '90%',
         maxHeight: '500px',
-        width: '50%',
-        minWidth: '340px',
+        maxWidth: '600px',
+        width: '45%',
+        minWidth: '300px',
         minHeight: '500px',
         padding:'10px',
         '& img':{
@@ -32,20 +37,22 @@ const useStyles = makeStyles((theme) => ({
             height:'100%',
             objectFit:'cover'
         },
-        [theme.breakpoints.down('md')]: {
-            width:'100%',
-            textAlign:'center',
+        ['@media(max-width:600px)']: {
+            width:'96%',
             height:'85%'
         }
     },
 
     productDetails:{
-        width: '50%',
-        minWidth: '350px',
+        width: '42%',
+        minWidth: '200px',
         padding:'10px',
        '& div':{
            marginBottom:'10px'
-       }
+       },
+       ['@media(max-width:600px)']: {
+        width:'100%',
+    }
     },
 
     productName:{
@@ -64,15 +71,18 @@ const useStyles = makeStyles((theme) => ({
         minWidth:'135px',
         marginRight:'1.5em'
     },
-
+    circularLoader:{
+        top:'40%',
+        left:'50%',
+        position:'absolute'
+    }
   }))
 
-const Product = ({match:{params},product,getProduct,addProductToCart}) => {
+const Product = ({match:{params},product:{product,loading},getProduct,addProductToCart}) => {
     const classes = useStyles();
     useEffect(()=>{
-        console.log(params)
         getProduct(params.product_id);
-    },[params])
+    },[params.product_id])
 
     useEffect(()=>{
         if(Object.entries(product).length > 0){
@@ -126,60 +136,65 @@ const Product = ({match:{params},product,getProduct,addProductToCart}) => {
     }
     return (
         <div className={classes.productDisplayContainer}>
-            <div className={classes.productImage}>
-                <img src={product.image} alt={product.name}/>
-            </div>
-
-            <div className={classes.productDetails}>
-                <div className={classes.productTitle}>   
-                    <p className={classes.productName}>{product.name} </p>
-                    <p className={classes.productBrand}>By <b>{product.brand && product.brand.name}</b></p>
-                </div>
-                
-                <div className={classes.productPrice} >
-                    <p>Price: {`${getSymbolFromCurrency('INR')} ${product.price}`}</p>
+            <CircularLoader loading={loading}/> 
+            { !loading && 
+            <div className={classes.product}>
+                <div className={classes.productImage}>
+                    <img src={product.image} alt={product.name}/>
                 </div>
 
-                <div className={classes.productInputs}>
-                <FormControl className={classes.productInput}>
-                    <InputLabel id="productSize">Select Size</InputLabel>
-                    <Select
-                    name="size"
-                    labelId="productSize"
-                    value={productData.pivot.size || ''}
-                    onChange={onInputChange}
-                    >
-                    {product && product.size && product.size.split(',').map((size,index)=>(
-                    <MenuItem key={index} value={size}>{size}</MenuItem>
-                    ))}
-                    </Select>
-                </FormControl> 
-                <FormControl className={classes.productInput}>
-                    <InputLabel id="productQuantity">Select Quantity</InputLabel>
-                    <Select
-                    name="quantity"
-                    labelId="productQuantiy"
-                    value={productData.pivot.quantity || ''}
-                    onChange={onInputChange}
-                    >
-                    {product && Array.from(Array(10), (_, i) => i + 1).map((quantity,index)=>(
-                    <MenuItem key={index} value={quantity}>{quantity}</MenuItem>
-                    ))}
-                    </Select>
-                </FormControl>
-                </div>
-                
-                <div  className={classes.addToCartButton}>
-                    <Button
-                        onClick={addToCart}
-                        variant="contained"
-                        color="primary"
-                        startIcon={<AddShoppingCartIcon />}
-                    >
-                        Add to Cart
-                    </Button>
+                <div className={classes.productDetails}>
+                    <div className={classes.productTitle}>   
+                        <p className={classes.productName}>{product.name} </p>
+                        <p className={classes.productBrand}>By <b>{product.brand && product.brand.name}</b></p>
+                    </div>
+                    
+                    <div className={classes.productPrice} >
+                        <p>Price: {`${getSymbolFromCurrency('INR')} ${product.price}`}</p>
+                    </div>
+
+                    <div className={classes.productInputs}>
+                    <FormControl className={classes.productInput}>
+                        <InputLabel id="productSize">Select Size</InputLabel>
+                        <Select
+                        name="size"
+                        labelId="productSize"
+                        value={productData.pivot.size || ''}
+                        onChange={onInputChange}
+                        >
+                        {product && product.size && product.size.split(',').map((size,index)=>(
+                        <MenuItem key={index} value={size}>{size}</MenuItem>
+                        ))}
+                        </Select>
+                    </FormControl> 
+                    <FormControl className={classes.productInput}>
+                        <InputLabel id="productQuantity">Select Quantity</InputLabel>
+                        <Select
+                        name="quantity"
+                        labelId="productQuantiy"
+                        value={productData.pivot.quantity || ''}
+                        onChange={onInputChange}
+                        >
+                        {product && Array.from(Array(10), (_, i) => i + 1).map((quantity,index)=>(
+                        <MenuItem key={index} value={quantity}>{quantity}</MenuItem>
+                        ))}
+                        </Select>
+                    </FormControl>
+                    </div>
+                    
+                    <div  className={classes.addToCartButton}>
+                        <Button
+                            onClick={addToCart}
+                            variant="contained"
+                            color="primary"
+                            startIcon={<AddShoppingCartIcon />}
+                        >
+                            Add to Cart
+                        </Button>
+                    </div>
                 </div>
             </div>
+            }
         </div>
     )
 }

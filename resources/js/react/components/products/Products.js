@@ -7,6 +7,8 @@ import { getProducts } from '../../actions/products'
 import queryString from 'query-string';
 import DisplayProducts from './DisplayProducts';
 import ProductFilters from '../layouts/ProductFilters';
+import Button from '@material-ui/core/Button';
+
 const useStyles = makeStyles((theme) => ({
    productsContainer:{
        display:'flex',
@@ -18,12 +20,28 @@ const useStyles = makeStyles((theme) => ({
         borderRight: '1px solid lightgray',
         padding: '2%',
         maxWidth: '250px',
-        minWidth:'120px'
+        minWidth:'120px',
+        ['@media(max-width:700px)']:{
+            display:'none',
+            width:'94%',
+            maxWidth:'100%',
+            position:'absolute',
+            background:'#fff',
+            zIndex:'111',
+            border:'none'
+        }
    },
    products:{
        height: '100%',
        width:'100%'
-   }
+   },
+   filtersButton:{
+    display:'none',
+    margin:'10px',
+    ['@media(max-width:700px)']:{
+        display:'inline'
+    }
+},
 
 }))
 const Products = ({location,getProducts}) => {
@@ -35,19 +53,27 @@ const Products = ({location,getProducts}) => {
         let types = query.types ? query.types : '';
         selectedFilters(brands,types);
         getProducts(searchTerm,brands,types);
-    },[location])
+    },[location.search])
 
     const selectedFilters = (brands,types) => {
         checkedFilters.brands= brands.split(',');
         checkedFilters.types = types.split(',');
     }
+
+    const showFilters = () => {
+        document.getElementById('filters').style.display="inline";
+        document.body.style.overflow = "hidden";
+    }
     const classes = useStyles();
     return (
         <div className={classes.productsContainer}>
-            <div className={classes.options}>
+            <div className={classes.options} id="filters">
                 <ProductFilters selectedFilters={checkedFilters} />
             </div>
             <div className={classes.products}>
+                <Button onClick={showFilters} variant="contained" color="secondary" className={classes.filtersButton}>
+                    Filters
+                </Button>
                 <DisplayProducts/>
             </div>
         </div>

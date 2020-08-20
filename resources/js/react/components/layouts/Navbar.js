@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   }));
-const Navbar = ({history,location,auth,cart,logout}) => {
+const Navbar = ({history,location,auth,cart:{products},logout}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -187,7 +187,7 @@ const Navbar = ({history,location,auth,cart,logout}) => {
                 <Grid item xl={2} xs={2} xm={2} className={classes.cart}>
                     <Link to="/cart">
                           <div>
-                            <Badge badgeContent={cart && cart.length} color="error">
+                            <Badge badgeContent={products && products.length} color="error">
                               <ShoppingCartIcon className={classes.cartIcon}/> 
                             </Badge>
                             <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline'}} className={classes.cartText}>Cart</Box>

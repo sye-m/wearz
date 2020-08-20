@@ -2,15 +2,75 @@ import React,{ useState,useEffect,useRef } from 'react'
 import { connect } from 'react-redux';
 import { getBrands } from '../../actions/brand';
 import { getProductTypes } from '../../actions/productTypes';
+import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import queryString from 'query-string';
 import Checkbox from '@material-ui/core/Checkbox';
-import { withRouter } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+const useStyles = makeStyles((theme) => ({
+    productFiltersContainer:{
+     display:'flex',
+     flexDirection:'column',
+     ['@media(max-width:700px)']:{
+         
+     }
+    },
+    brandFilter:{
+        ['@media(max-width:700px)']:{
+            width:'100%',
+            '& p':{
+                textAlign:'center'
+            },
+            '& div':{
+                display:'flex',
+                flexDirection:'row'
+            }
+        }
+    },
+    productTypeFilter:{
+        ['@media(max-width:700px)']:{
+            width:'100%',
+            '& p':{
+                textAlign:'center'
+            },
+            '& div':{
+                display:'flex',
+                flexDirection:'row'
 
+            }
+        }
+    },
+    closeFiltersButton:{
+        display:'inline',
+        width: '50px',                  
+        height: '50px',
+        position: 'absolute',
+        right: '0px',
+        top: '0.5%',
+        border: '1px solid lightgray',
+        background: '#ba68c8',
+        color: '#fff',
+        '&:hover':{
+            background:'rgb(130, 72, 140)'
+        },
+        ['@media(min-width:700px)']:{
+            display:'none'
+        }
+    },
+    title:{
+        fontSize:'1.5em',
+        marginLeft:'1em',
+        fontWeight:'bold'
+    }
+
+}))
 const ProductFilters = ({selectedFilters,brands,productTypes,history,getBrands,getProductTypes}) => {
     const initialMount = useRef(true)
+    const classes = useStyles();
     useEffect(()=>{
         getBrands();//initial load will trigger functions to fetch the brands and productTypes since they are the needed for filters 
         getProductTypes();
@@ -62,6 +122,11 @@ const ProductFilters = ({selectedFilters,brands,productTypes,history,getBrands,g
         setProductTypesNames({...productTypesObject})
     }
 
+    const hideFilters = ()=>{
+        document.getElementById('filters').style.display="none";
+        document.body.style.overflow = "auto";
+
+    }
     const onBrandChange = (e)=>{
         let removedFilter = selectedFilters.brands.indexOf(e.target.name);
         if(removedFilter > -1){
@@ -130,7 +195,11 @@ const ProductFilters = ({selectedFilters,brands,productTypes,history,getBrands,g
     }
     }
     return (
-        <div> 
+        <div className={classes.productFiltersContainer}> 
+            <IconButton onClick={hideFilters} aria-label="close" color="secondary" className={classes.closeFiltersButton}>
+                <CloseIcon />
+            </IconButton>
+            <div className={classes.brandFilter}>
             <p>Brands</p>
             <FormGroup>
                 {brands.map((brand,index) =>(
@@ -139,7 +208,9 @@ const ProductFilters = ({selectedFilters,brands,productTypes,history,getBrands,g
                     label={brand.name}/>
                 ))}
             </FormGroup>
-
+            </div>
+           
+            <div className={classes.productTypeFilter}>
             <p>Shoes Types</p>
             <FormGroup>
                 {productTypes.map((type,index) =>(
@@ -148,6 +219,8 @@ const ProductFilters = ({selectedFilters,brands,productTypes,history,getBrands,g
                     label={type.name}/>
                 ))}
             </FormGroup>
+            </div>
+         
         </div>
     )
 }

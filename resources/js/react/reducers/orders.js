@@ -1,13 +1,15 @@
-import { SET_ORDERS, ORDERS_ERROR  } from '../actions/types'
+import { SET_ORDERS, ORDERS_ERROR, LOADING_ORDERS  } from '../actions/types'
 
-const initialState = [];
+const initialState = {products:[],loading:true};
 export default function orders(state = initialState, action) {
     const { payload, type } = action;
     switch (type) {
         case SET_ORDERS:
-            return [...payload];
+            return {...state,products:[...payload],loading:false};
+        case LOADING_ORDERS:
+            return {...state, loading:true}
         case ORDERS_ERROR:
-            return []
+            return {products:[],loading:false}
         default:
             return state;
     }

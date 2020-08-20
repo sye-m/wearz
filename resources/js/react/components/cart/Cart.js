@@ -13,7 +13,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-
+import CircularLoader from './../loaders/CircularLoader';
 const useStyles = makeStyles((theme) => ({
     cartContainer:{
         width: '100%',
@@ -137,10 +137,10 @@ const useStyles = makeStyles((theme) => ({
     }
   }))
   
-const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
+const Cart = ({cart:{products,loading},getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
     useEffect(()=>{
         getCartItems()
-    },[cart.length])
+    },[products.length])
     const classes = useStyles();
 
     const onProductChange = (e,positionInCart) => {
@@ -150,7 +150,7 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProdu
 
     const getCartTotalPrice = () => {
         let cartTotal = 0;
-        cart && cart.forEach((cartProduct)=>{
+        products && products.forEach((cartProduct)=>{
             cartTotal = cartTotal + cartProduct.product.price*cartProduct.pivot.quantity
         })
         return cartTotal;
@@ -158,7 +158,7 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProdu
 
     const getCartTotalItems = () => {
         let cartTotalItems = 0;
-        cart && cart.forEach((cartProduct)=>{
+        products && products.forEach((cartProduct)=>{
             cartTotalItems = cartTotalItems + cartProduct.pivot.quantity
         })
         return cartTotalItems;
@@ -175,12 +175,13 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProdu
                 </Button>
             </div>
             <div className={classes.displayCart}>
+            <CircularLoader loading={loading}/>
                 <div className={classes.cartDescription}>
                     <p className={classes.cartTitle}>Shopping Cart</p>
                     <p className={classes.cartTotal}>Total = {`${getSymbolFromCurrency('INR')} ${Math.round(getCartTotalPrice())}`}</p>
                 </div>
                 <div className={classes.cartProducts}>
-                    {cart.length > 0 ? cart.map((cartProduct, index)=>(
+                    {!loading && products.length > 0 ? products.map((cartProduct, index)=>(
                         typeof cartProduct.product =='object'?   //if the product does not exist do not display it
                         (<div className={classes.cartProduct} key={index}>
                             <div className={classes.productImage}>
@@ -235,7 +236,7 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProdu
                                 {`${getSymbolFromCurrency('INR')} ${cartProduct.product.price}`}
                             </div>
                         </div>):''
-                    )):(<div>
+                    )):!loading && (<div>
                             No Products here. 
                             <Link to="/products">
                                 <Button
@@ -252,7 +253,7 @@ const Cart = ({cart,getCartItems,updateCartProduct, deleteCartProduct,orderProdu
 }
 
 Cart.propTypes = {
-    cart:PropTypes.array.isRequired,
+    cart:PropTypes.object.isRequired,
     getCartItems:PropTypes.func.isRequired,
     updateCartProduct:PropTypes.func.isRequired,
     deleteCartProduct:PropTypes.func.isRequired,
