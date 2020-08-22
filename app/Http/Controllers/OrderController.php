@@ -44,7 +44,9 @@ class OrderController extends Controller
     {
         $orderedProduct = $request->orderedProduct;
         $order = auth()->user()->orders()->where('id',$orderedProduct['order_id'])->first();
-        $order->products()->where('order_product.id',$orderedProduct['id'])->detach($orderedProduct['product_id']);
+        $order->products()->wherePivot('order_product.id',$orderedProduct['id'])->detach();
+        // a single order will have many products associated with it
+        //if the last product in an order is deleted then delete the order itself
         if(count($order->products()->get()) <= 0){
         $order->delete();
         }

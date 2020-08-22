@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth:'200px',
     maxWidth:'450px',
     minHeight:'350px',
-    maxHeight:'400px',
+    maxHeight:'600px',
     ['@media(max-width:700px)']:{
         width:'100%'
     }
@@ -60,7 +60,7 @@ const DisplayProducts = ({history,products:{loading,products}}) => {
     return (
         <div className={classes.productsDisplayContainer}>
             <CircularLoader loading={loading}/>
-            {products.length > 0 && products.map((product,index)=>((
+            {products.length > 0 ? products.map((product,index)=>((
                 <Card onClick={()=>{viewProduct(product)}} className={classes.productCard} variant="outlined" key={index}>
                     <CardMedia className={classes.productImage}
                     image={product.image}
@@ -77,7 +77,7 @@ const DisplayProducts = ({history,products:{loading,products}}) => {
                     </div>
                 </CardContent>
               </Card>
-            )))}
+            ))):!loading && <p>0 matching products</p>}
         </div>
     )
 }

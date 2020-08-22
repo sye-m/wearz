@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
         margin:'0px'
     },
     productInput:{
-        minWidth:'135px',
+        minWidth:'120px',
         marginRight:'1.5em'
     },
     circularLoader:{

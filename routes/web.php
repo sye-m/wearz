@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('registerCustomer','Auth\RegisterController@register');
 Route::post('loginCustomer','Auth\LoginController@login');
-Route::post('logoutCustomer','Auth\LoginController@logout');
 
 Route::get('getBrands','BrandController@index');
 Route::get('getProductTypes','ProductTypeController@index');
@@ -24,14 +23,14 @@ Route::get('getProduct/{productId}','ProductController@show');
 Route::post('getCartItems','ProductController@getCartItems');
 
 Route::group(['middleware' => 'auth:web'],function(){
-    Route::resource('customer','CustomerController');
-
+    Route::get('getUser','CustomerController@index');
+    Route::get('logoutCustomer','Auth\LoginController@logout');
     Route::post('newUserCart','CartController@store');
     Route::post('addToCart','CartController@addToCart');
     Route::get('getUserCart','CartController@getUserCart');
     Route::put('updateUserCart','CartController@update');
-    Route::delete('deleteProductFromCart/{productId}','CartController@deleteProduct');
-    Route::delete('/emptyCart','CartController@emptyCart');
+    Route::delete('deleteProductFromCart','CartController@deleteProduct');
+    Route::delete('emptyCart','CartController@emptyCart');
     Route::get('getOrders','OrderController@index');
     Route::post('orderProducts','OrderController@store');
     Route::delete('deleteOrderedProduct','OrderController@destroy');

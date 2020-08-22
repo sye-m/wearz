@@ -8,7 +8,7 @@ import queryString from 'query-string';
 import DisplayProducts from './DisplayProducts';
 import ProductFilters from '../layouts/ProductFilters';
 import Button from '@material-ui/core/Button';
-
+import FilterListIcon from '@material-ui/icons/FilterList';
 const useStyles = makeStyles((theme) => ({
    productsContainer:{
        display:'flex',
@@ -53,7 +53,7 @@ const Products = ({location,getProducts}) => {
         let types = query.types ? query.types : '';
         selectedFilters(brands,types);
         getProducts(searchTerm,brands,types);
-    },[location.search])
+    },[location])
 
     const selectedFilters = (brands,types) => {
         checkedFilters.brands= brands.split(',');
@@ -71,7 +71,12 @@ const Products = ({location,getProducts}) => {
                 <ProductFilters selectedFilters={checkedFilters} />
             </div>
             <div className={classes.products}>
-                <Button onClick={showFilters} variant="contained" color="secondary" className={classes.filtersButton}>
+                <Button 
+                onClick={showFilters} 
+                variant="contained" 
+                color="secondary" 
+                startIcon={<FilterListIcon/>}
+                className={classes.filtersButton}>
                     Filters
                 </Button>
                 <DisplayProducts/>

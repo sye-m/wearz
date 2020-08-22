@@ -1,56 +1,77 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOG_OUT, AUTH_ERROR, CART_ERROR } from './types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOG_OUT, AUTH_ERROR, CART_ERROR,LOADING_USER,SET_GUEST } from './types';
 import { v4 as uuidv4 } from 'uuid';
 import { setAlert } from './alert';
-import { newCart } from './cart';
-export const loadUser = () => async dispatch => {
+import { getCart,newCart,newGuestCart } from './cart';
+import { setCookie,getCookie} from './../cookie';
+//get the user 
+const getUser = async () => {
+    try{
+    let res = await axios.get('/getUser');
+    let user = res.data.user
+    return user;
+    }
+    catch(err){
+        return null
+    }
+}
 
-    if (Auth.user) {
-        dispatch({
-            type: LOAD_USER,
-            payload: Auth.user
-        })
-    } else {
-        let guestId = ''
-        if(localStorage.getItem('guestId')){
-            guestId = localStorage.getItem('guestId');
+export const loadUser = () => async dispatch => {
+    try{
+        if (Auth.signedIn) {
+            let user = await getUser();
+            dispatch({
+                type: LOAD_USER,
+                payload: user
+            })
+        } else {
+            let guestId = getCookie('guestId');
+            console.log(guestId)
+            if(guestId === null){
+                guestId = uuidv4()
+                setCookie('guestId',guestId);
+                newGuestCart()
+            }
+            dispatch({
+                type: SET_GUEST,
+                payload:guestId
+            })
+            
         }
-        else{
-            guestId = uuidv4();
-            localStorage.setItem('guestId',guestId);
-        }
-        dispatch({
-            type: AUTH_ERROR,
-            payload:guestId
-        })
-        
+    }
+    catch(err){
+        dispatch(setAlert('Something went wrong try reloading the page','error'))
     }
 
 }
 
 export const register = ({ name, email, password }) => async dispatch => {
-    const newUser = {
-        name,
-        email,
-        password
-    }
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-    const body = JSON.stringify(newUser)
     try {
-        const res = await axios.post('/registerCustomer', body, config);
-        dispatch(newCart(res.data.id));
-        dispatch({
-            type: REGISTER_SUCCESS,
-        })
-        dispatch({
-            type: LOAD_USER,
-            payload: Auth.user
-        })
-        dispatch(setAlert('You have registered successfully', 'success'))
-    } catch (err) {
+        const newUser = {
+            name,
+            email,
+            password
+        }
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        const body = JSON.stringify(newUser)
+            dispatch({type:LOADING_USER})
+            const res = await axios.post('/registerCustomer', body, config);
+            //after user has successfully registered create a cart and assign it to this user
+            dispatch(newCart(res.data.id));
+            dispatch({
+                type: REGISTER_SUCCESS,
+            })
+            let user = await getUser();
+            dispatch({
+                type: LOAD_USER,
+                payload: user
+            })
+            dispatch(setAlert('You have registered successfully', 'success'))
+    } 
+    catch (err) {
         const errors = err.response.data.errors;
         if (errors) {
             errors.email && errors.email.forEach(error => dispatch(setAlert(error, 'error')));
@@ -78,17 +99,19 @@ export const login = ({ email, password }) => dispatch => {
         const body = JSON.stringify(user)
 
         try {
-            const res = await axios.post('/loginCustomer', body, config)
+            dispatch({type:LOADING_USER})
+            await axios.post('/loginCustomer', body, config)
             dispatch({
                 type: LOGIN_SUCCESS,
             });
+            let user = await getUser();
             dispatch({
                 type: LOAD_USER,
-                payload: Auth.user
-            })
+                payload: user
+            });
+            dispatch(getCart());
             resolve('success');
         } catch (err) {
-            console.log(err.response.data)
             const errors = err.response.data.errors;
             if (errors) {
                 errors.email && errors.email.forEach(error => dispatch(setAlert(error, 'error')));
@@ -100,8 +123,8 @@ export const login = ({ email, password }) => dispatch => {
     })
 }
 
-export const logout = () => dispatch => {
-    axios.post('/logoutCustomer');
+export const logout = () => async dispatch => {
+    await axios.get('/logoutCustomer');
     dispatch({type:CART_ERROR});
     dispatch({ type: LOG_OUT });
 }

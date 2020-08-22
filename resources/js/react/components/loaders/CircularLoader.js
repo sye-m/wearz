@@ -20,7 +20,7 @@ const CircularLoader = ({loading}) => {
 }
 
 CircularLoader.propTypes = {
-loading:PropTypes.bool.isRequired,
+    loading:PropTypes.bool.isRequired,
 }
 
 export default CircularLoader

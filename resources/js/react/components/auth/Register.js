@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useRef } from 'react';
+import React, { useState,useEffect,useRef,Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import LinearLoader from './../loaders/LinearLoader';
 const useStyles = makeStyles((theme)=>({
     registerContainer:{
         top: '50%',
@@ -104,21 +104,24 @@ const Register = ({auth,register}) => {
 
     const classess = useStyles();
     return (
-            <div className={classess.registerContainer}>
-                <p className={classess.formTitle}>Create Account</p>
-                <hr/>
-               <form onSubmit={(e)=>registerUser(e)} autoComplete="off">
-               <TextField fullWidth={true} error={formErrors.name.length > 0?true:false} className={classess.formInput} id="name" required name="name" label="Name" variant="outlined" onChange={(e)=>onInputChange(e)}  helperText={formErrors.name}/>
-               <TextField type="email" fullWidth={true} error={ formErrors.email.length > 0?true:false } className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email} helperText={formErrors.email} />
-               <TextField type="password" fullWidth={true} error={ formErrors.password.length > 0?true:false } className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password} helperText={formErrors.password} />
-               <TextField type="password" fullWidth={true} error = { formErrors.rePassword.length > 0?true:false }className={classess.formInput} required id="rePassword" name="rePassword" label="Confirm Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={rePassword} helperText={formErrors.rePassword} />
-               <Button disabled={!isValidated} variant="contained" fullWidth={true} color="primary" type="submit">Create Account</Button>
-               </form>
-               <div className={classess.logInSection}>
-                    Already have an account? 
-                    <Link to="/login"> Login</Link>
+            <Fragment>
+                <LinearLoader loading={auth.loading}/>
+                <div className={classess.registerContainer}>
+                    <p className={classess.formTitle}>Create Account</p>
+                    <hr/>
+                <form onSubmit={(e)=>registerUser(e)} autoComplete="off">
+                <TextField fullWidth={true} error={formErrors.name.length > 0?true:false} className={classess.formInput} id="name" required name="name" label="Name" variant="outlined" onChange={(e)=>onInputChange(e)}  helperText={formErrors.name}/>
+                <TextField type="email" fullWidth={true} error={ formErrors.email.length > 0?true:false } className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email} helperText={formErrors.email} />
+                <TextField type="password" fullWidth={true} error={ formErrors.password.length > 0?true:false } className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password} helperText={formErrors.password} />
+                <TextField type="password" fullWidth={true} error = { formErrors.rePassword.length > 0?true:false }className={classess.formInput} required id="rePassword" name="rePassword" label="Confirm Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={rePassword} helperText={formErrors.rePassword} />
+                <Button disabled={!isValidated} variant="contained" fullWidth={true} color="primary" type="submit">Create Account</Button>
+                </form>
+                <div className={classess.logInSection}>
+                        Already have an account? 
+                        <Link to="/login"> Login</Link>
+                    </div>
                 </div>
-            </div>
+            </Fragment>
             );
 }
 

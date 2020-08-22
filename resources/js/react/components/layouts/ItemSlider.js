@@ -90,14 +90,6 @@ const ItemSlider = ({itemType,items}) => {
                     </Link>
                     )
                 )}
-
-             {items.map((item,index) => (
-                    <Link  to={`/products?${itemType}=${item.name},`} key={index} style={{left:'0'}} className={classes.itemContainer}>
-                        <img src={item.image} alt={item.name+"logo"} className={classes.itemImage}/>
-                        <p className={classes.itemName}>{ item.name } </p>
-                    </Link>
-                    )
-                )}
               </div>
             
             

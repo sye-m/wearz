@@ -64,7 +64,11 @@ const useStyles = makeStyles((theme) => ({
     cart:{
       textAlign:'center',
       alignSelf:'center',
-      fontSize:'1.5rem'
+      fontSize:'1.5rem',
+      '& a':{
+        color:'black',
+        textDecoration:'none'
+      }
     },
     user:{
       textAlign:'center',
@@ -97,6 +101,16 @@ const useStyles = makeStyles((theme) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
     },
+    ordersOption:{
+        textDecoration:'none',
+        color:'#000000'
+    },
+    loginButton:{
+      '& a':{
+        textDecoration:'none',
+        color:'#000000'
+      }
+    }
   }));
 const Navbar = ({history,location,auth,cart:{products},logout}) => {
     const classes = useStyles();
@@ -132,14 +146,14 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
     return (
             <Box className={classes.navBar} color="text.primary">
             <Grid container>
-                <Grid item xl={3} xs={2} xm={3}>
+                <Grid item xl={2} lg={2} xs={2} sm={3}>
                     <Link to="/" style={{textDecoration:'none'}}>
                         <img className={classes.brandIcon} src="/storage/icons/footIcon.png"/>
-                        <Box display={{xs:'none',md:'inline',sm:'none', lg:'inline',xl:'inline'}} className={classes.shopName}>Wearz</Box>
+                        <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline',xl:'inline'}} className={classes.shopName}>Wearz</Box>
                     </Link>
 
                 </Grid>
-                <Grid item xl={5} xs={6} xm={3}>
+                <Grid item xl={6} lg={6} xs={5} sm={5}>
                   <div className={classes.search}>
                     <div className={classes.searchIcon}>
                       <SearchIcon />
@@ -155,7 +169,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                     />
                   </div>
                 </Grid>
-                <Grid item xl={2} xs={2} xm={4} className={classes.user}>
+                <Grid item xl={2} lg={2} xs={3} sm={2} className={classes.user}>
                   <div>
                     <Box color="text.secondary" className={classes.userText}>
                       {auth.user?
@@ -163,7 +177,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                         <Fragment>
                         <Button className={classes.userButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                           <AccountCircleIcon className={classes.userIcon}/>
-                          {auth.user && auth.user.name.length>10? auth.user.name.substring(0,10)+"...":auth.user.name}
+                          {auth.user && auth.user.name.length>3? auth.user.name.substring(0,4)+"..":auth.user.name}
                         </Button>
                         <Menu
                           id="simple-menu"
@@ -173,18 +187,18 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                           onClose={handleClose}
                         >
                           <MenuItem onClick={handleClose}>{auth.user && auth.user.name}</MenuItem>
-                            <MenuItem>
-                              <Link to="/orders">
-                              Orders
-                              </Link>
-                            </MenuItem>
+                            <Link to="/orders"  className={classes.ordersOption}>
+                              <MenuItem>
+                                Orders
+                              </MenuItem>
+                            </Link>
                           <MenuItem onClick={logoutUser}>Logout</MenuItem>
                         </Menu>
-                        </Fragment>):(<Button><Link to="/login">Login</Link></Button>)}
+                        </Fragment>):(<Button className={classes.loginButton}><Link to="/login">Login</Link></Button>)}
                     </Box>
                   </div>
                 </Grid>
-                <Grid item xl={2} xs={2} xm={2} className={classes.cart}>
+                <Grid item xl={2} lg={2}  xs={2} sm={2} className={classes.cart}>
                     <Link to="/cart">
                           <div>
                             <Badge badgeContent={products && products.length} color="error">

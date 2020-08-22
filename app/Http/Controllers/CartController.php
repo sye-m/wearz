@@ -73,11 +73,12 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function deleteProduct($productId)
-    {
+    public function deleteProduct(Request $request)
+    {   
+        $productDetails = $request->productDetails;
         $cart = auth()->user()->cart()->get();
-        $cart[0]->products()->detach($productId);
-        return response()->json('deleted',200);
+        $cart[0]->products()->wherePivot('cart_product.id',$productDetails['id'])->detach();
+        return response()->json('deleted product',200);
     }
 
     /**

@@ -50,8 +50,6 @@
         
       window.Auth = {!! json_encode([
             'signedIn' => Auth::check(),
-            'user' => Auth::user()
         ]) !!}
-        console.log({{Auth::guest()}})
 </script>
 </html>
