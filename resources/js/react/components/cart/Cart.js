@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
 import { getCartItems,updateCartProduct, deleteCartProduct } from './../../actions/cart';
 import { orderProducts } from './../../actions/order';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }))
   
-const Cart = ({cart:{products,loading},getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
+const Cart = ({cart:{products,loading},history,getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
     useEffect(()=>{
         getCartItems()
     },[products.length])
@@ -166,6 +166,7 @@ const Cart = ({cart:{products,loading},getCartItems,updateCartProduct, deleteCar
 
     const orderCartProducts = () =>{
         orderProducts();
+        history.push('/orders');
     }
     return (
         <div className={classes.cartContainer} >
@@ -227,7 +228,7 @@ const Cart = ({cart:{products,loading},getCartItems,updateCartProduct, deleteCar
                                     variant="contained"
                                     color="secondary"
                                     startIcon={<DeleteIcon />}
-                                    onClick={()=>deleteCartProduct(cartProduct.product.id,index)}
+                                    onClick={()=>deleteCartProduct(cartProduct.pivot,index)}
                                 >
                                     Delete
                                 </Button>
@@ -262,4 +263,4 @@ Cart.propTypes = {
 const mapStateToProps = state =>({
     cart:state.cart
 })
-export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct,orderProducts })(Cart)
+export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct,orderProducts })(withRouter(Cart))

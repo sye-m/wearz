@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,Fragment } from 'react'
 import { Redirect,Link, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { login } from '../../actions/auth';
@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import LinearLoader from './../loaders/LinearLoader';
 const useStyles = makeStyles((theme)=>({
     loginContainer:{
         top: '50%',
@@ -69,19 +70,23 @@ const Login = ({auth,history,login}) => {
     //check if the form is validated by checking if the formErrors attributes are empty
 
     return (
-        <div className={classess.loginContainer}>
-            <p className={classess.formTitle}>Login</p>
-            <hr/>
-            <form onSubmit={(e)=>loginUser(e)} autoComplete="off">
-            <TextField type="email" fullWidth={true}  className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email}/>
-            <TextField type="password" fullWidth={true} className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password}/>
-            <Button variant="contained" fullWidth={true} color="primary" type="submit">Login</Button>
-            <div className={classess.joinInSection}>
-                Don't have an account with us? 
-                <Link to="/register"> Join Now</Link>
+        <Fragment>
+            <div className={classess.loginContainer}>
+                <p className={classess.formTitle}>Login</p>
+                <hr/>
+                <form onSubmit={(e)=>loginUser(e)} autoComplete="off">
+                <TextField type="email" fullWidth={true}  className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email}/>
+                <TextField type="password" fullWidth={true} className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password}/>
+                <Button variant="contained" fullWidth={true} color="primary" type="submit">Login</Button>
+                <div className={classess.joinInSection}>
+                    Don't have an account with us? 
+                    <Link to="/register"> Join Now</Link>
+                </div>
+                </form>
             </div>
-            </form>
-        </div>
+            <LinearLoader loading={auth.loading}/>
+        </Fragment>
+
     )
 }
 

@@ -14,8 +14,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = auth()->user();
-        return view('customer.show')->with('customer',$customer);
+        $user = auth()->user();
+        $user = (object) ['id' => $user->id,'email'=>$user->email, 'name'=>$user->name];
+
+        return response()->json(['user'=>$user],200);
     }
 
     /**

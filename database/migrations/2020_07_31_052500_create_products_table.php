@@ -22,8 +22,10 @@ class CreateProductsTable extends Migration
             $table->string('image')->default(NULL)->nullable();
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('address_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('type_id')->references('id')->on('product_types');
+            $table->foreign('address_id')->references('id')->on('address');
             $table->timestamps();
         });
     }

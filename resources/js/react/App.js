@@ -4,13 +4,14 @@ import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { Provider } from 'react-redux';
+import { loadUser } from './actions/auth.js';
+import { getCart } from './actions/cart.js';
 import store from './store.js';
+import PrivateRoute from './components/routing/PrivateRoute';
 import Navbar from './components/layouts/Navbar.js';
 import Landing from './components/layouts/Landing.js';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import { loadUser } from './actions/auth.js';
-import { getCart } from './actions/cart.js';
 import AlertBar from './components/layouts/AlertBar';
 import Products from './components/products/Products';
 import Product from './components/product/Product';
@@ -40,8 +41,11 @@ const theme = createMuiTheme({
 });
 const App = (prop) => {
     useEffect(()=>{
-      store.dispatch(loadUser());
-      store.dispatch(getCart())
+      const loadUserAndCart = async() => {
+        await store.dispatch(loadUser());
+        store.dispatch(getCart())
+      }
+      loadUserAndCart();
     },[]);
     return (
         <Fragment>
@@ -58,7 +62,7 @@ const App = (prop) => {
                             <Route exact path="/products" component={Products} />
                             <Route exact path="/product/:product_id" component={Product} />
                             <Route exact path="/cart" component={Cart} />
-                            <Route exact path="/orders" component={Orders} />
+                            <PrivateRoute exact path="/orders" component={Orders} />
                         </Switch>
                     </div>
                 </ThemeProvider>
