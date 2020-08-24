@@ -17,6 +17,7 @@ import Products from './components/products/Products';
 import Product from './components/product/Product';
 import Cart from './components/cart/Cart';
 import Orders from './components/order/Orders';
+import ConfirmOrder from './components/order/ConfirmOrder';
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -39,6 +40,7 @@ const theme = createMuiTheme({
     tonalOffset: 0.2,
   },
 });
+
 const App = (prop) => {
     useEffect(()=>{
       const loadUserAndCart = async() => {
@@ -63,6 +65,7 @@ const App = (prop) => {
                             <Route exact path="/product/:product_id" component={Product} />
                             <Route exact path="/cart" component={Cart} />
                             <PrivateRoute exact path="/orders" component={Orders} />
+                            <PrivateRoute exact path="/confirm_order" component={ConfirmOrder} />
                         </Switch>
                     </div>
                 </ThemeProvider>

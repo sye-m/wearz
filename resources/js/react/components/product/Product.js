@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     productDisplayContainer:{
         display:'flex',
         flexWrap:'wrap',
-        height:'100%',
+        minHeight:'100%',
         width:'100%',
     },
     product:{

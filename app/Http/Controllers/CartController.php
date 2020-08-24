@@ -89,7 +89,7 @@ class CartController extends Controller
      */
     public function emptyCart(Request $request)
     {
-        $products = $request->allProducts;
+        $products = $request->orderedProducts;
         $cart = auth()->user()->cart()->get();
         foreach($products as $product){
             $cart[0]->products()->detach($product['product_id']);

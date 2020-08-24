@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
 import { getCartItems,updateCartProduct, deleteCartProduct } from './../../actions/cart';
-import { orderProducts } from './../../actions/order';
+import { setOrderedProducts } from './../../actions/order';
 import { Link,withRouter } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     displayCart:{
         margin: '20px 0px',
         width: '85%',
-        height:'100%',
+        minHeight:'100%',
         padding: '20px',
         minWidth: '300px',
         border: '1px solid lightgray',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     cartProducts:{
-        height:'100%',
+        minHeight:'100%',
         display:'flex',
         flexDirection:'column'
     },
@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     },
     productImage:{
         width: '100%',
-        minWidth: '100px',
+        minWidth: '200px',
         maxWidth: '300px',
         maxHeight:'200px',
         height: '100%',
@@ -100,6 +100,7 @@ const useStyles = makeStyles((theme) => ({
             borderRadius:'10px'
         },
         ['@media(max-width:600px)']:{
+            minWidth:'100px',
             gridRowEnd: '3',
             gridRowStart: '1',
             gridColumnStart: '1',
@@ -133,11 +134,15 @@ const useStyles = makeStyles((theme) => ({
     },
     orderButton:{
         marginTop:'10px',
-        width:'90%'
+        width:'90%',
+        '& a':{
+            textDecoration:'none',
+            color:'#000000'
+        }
     }
   }))
   
-const Cart = ({cart:{products,loading},history,getCartItems,updateCartProduct, deleteCartProduct,orderProducts}) => {
+const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProduct, deleteCartProduct,orderProducts,setOrderedProducts}) => {
     useEffect(()=>{
         getCartItems()
     },[products.length])
@@ -165,8 +170,13 @@ const Cart = ({cart:{products,loading},history,getCartItems,updateCartProduct, d
     }
 
     const orderCartProducts = () =>{
-        orderProducts();
-        history.push('/orders');
+        if(auth.user){
+        setOrderedProducts();
+        history.push('/confirm_order');
+        }
+        else{
+            history.push('/login?confirm_order=true');
+        }
     }
     return (
         <div className={classes.cartContainer} >
@@ -174,6 +184,7 @@ const Cart = ({cart:{products,loading},history,getCartItems,updateCartProduct, d
                 <Button color="primary" variant="contained" onClick={orderCartProducts}>
                     {`Order Total(${getCartTotalItems()}) items`}
                 </Button>
+             
             </div>
             <div className={classes.displayCart}>
             <CircularLoader loading={loading}/>
@@ -261,6 +272,7 @@ Cart.propTypes = {
 }
 
 const mapStateToProps = state =>({
-    cart:state.cart
+    cart:state.cart,
+    auth:state.auth,
 })
-export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct,orderProducts })(withRouter(Cart))
+export default connect(mapStateToProps,{ getCartItems,updateCartProduct,deleteCartProduct,setOrderedProducts })(withRouter(Cart))

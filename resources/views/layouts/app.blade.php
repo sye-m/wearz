@@ -30,7 +30,7 @@
 
         #container {
             width: 100%;
-            height: 94%;
+            height: 100%;
             top: 74px;
             position: absolute;
             min-height: 600px;

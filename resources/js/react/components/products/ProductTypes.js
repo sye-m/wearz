@@ -7,7 +7,7 @@ import ItemSlider from './../layouts/ItemSlider';
 const useStyles = makeStyles((theme) => ({
    
     allProductTypesContainer:{
-        height:'50%',
+        minHeight:'50%',
         maxHeight:'300px'
     },
     title:{

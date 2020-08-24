@@ -37,14 +37,20 @@ class Customer extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $with = ['defaultAddress','addresses'];
+
     protected $table = 'customers'; // add this line with your table name
 
     public function cart(){
         return $this->hasOne('App\Cart');
-    }
+    } 
 
     public function addresses(){
         return $this->hasMany('App\Address');
+    }
+
+    public function defaultAddress(){
+        return $this->belongsTo('App\Address','address_id');
     }
 
     public function orders(){

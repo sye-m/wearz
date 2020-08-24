@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
   productsDisplayContainer:{
       display:'flex',
       flexWrap:'wrap',
+      minHeight:'100%',
       height:'100%',
       width:'100%',
       justifyContent:'center',
       position:'relative'
   },
   productCard:{
-    height:'60%',
+    height:'20%',
     width:'43%',
     margin:'1em',
     minWidth:'200px',

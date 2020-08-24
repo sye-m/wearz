@@ -20,7 +20,6 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('shipping_id');
             $table->string('status');
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('billing_id')->references('id')->on('address');
             $table->foreign('shipping_id')->references('id')->on('address'); 
             $table->timestamps();
         });
