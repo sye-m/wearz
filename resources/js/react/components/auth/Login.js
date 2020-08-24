@@ -1,4 +1,4 @@
-import React, { useState,Fragment } from 'react'
+import React, { useEffect,useState,Fragment } from 'react'
 import { Redirect,Link, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { login } from '../../actions/auth';
@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import LinearLoader from './../loaders/LinearLoader';
+import queryString from 'query-string';
 const useStyles = makeStyles((theme)=>({
     loginContainer:{
         top: '50%',
@@ -41,10 +42,12 @@ const useStyles = makeStyles((theme)=>({
     }
 }));
 
-const Login = ({auth,history,login}) => {
+const Login = ({auth,history,location,login}) => {
     if(auth.isAuthenticated){
         return <Redirect push to="/"/>
     }
+
+    const doSomething = () => {}
     const classess = useStyles();
 
     const [formData,setFormData] = useState({
@@ -57,13 +60,17 @@ const Login = ({auth,history,login}) => {
     }
 
     const loginUser = async (e) =>{
+        let query = queryString.parse(location.search)
+        let ifFromOrder = false;
+        if(query.confirm_order){
+            ifFromOrder = true
+        }
         e.preventDefault();
         try{
-        let res = await login({email,password});
-        history.push('/');
+        let res = await login({email,password},ifFromOrder);
+        history.push('/confirm_order')
         }
         catch(err){
-           setFormData({...formData,password:'',rePassword:''})
         }
     }
 

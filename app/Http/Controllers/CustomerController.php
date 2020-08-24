@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $user = (object) ['id' => $user->id,'email'=>$user->email, 'name'=>$user->name];
+        $user = (object) ['id' => $user->id,'email'=>$user->email, 'name'=>$user->name,'address'=>$user->addresses, 'defaultAddress'=>$user->defaultAddress];
 
         return response()->json(['user'=>$user],200);
     }

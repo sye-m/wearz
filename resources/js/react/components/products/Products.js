@@ -12,11 +12,11 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 const useStyles = makeStyles((theme) => ({
    productsContainer:{
        display:'flex',
-       height:'100%'
+       minHeight:'100%'
    },
    options:{
         width:'24%',
-        height: '100%',
+        minHeight: '100%',
         borderRight: '1px solid lightgray',
         padding: '2%',
         maxWidth: '250px',
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         }
    },
    products:{
-       height: '100%',
+       minHeight: '100%',
        width:'100%'
    },
    filtersButton:{

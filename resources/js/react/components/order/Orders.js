@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import products from './../../reducers/products';
 import CircularLoader from './../loaders/CircularLoader';
 const useStyles = makeStyles((theme) => ({
     ordersContainer:{
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     displayOrders:{
         margin: '20px 0px',
         width: '85%',
-        height:'100%',
+        minHeight:'100%',
         padding: '20px',
         minWidth: '300px',
         border: '1px solid lightgray',
@@ -32,12 +31,11 @@ const useStyles = makeStyles((theme) => ({
     },
     ordersDescription:{
         display:'flex',
-        fontSize:'1.5em',
         fontWeight:'bold',
         borderBottom: '1px solid lightgray',
     },
     orders:{
-        height:'100%',
+        minHeight:'100%',
         display:'flex',
         flexDirection:'column'
     },
@@ -54,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     },
     productImage:{
         width: '100%',
-        minWidth: '100px',
+        minWidth: '200px',
         maxWidth: '300px',
         maxHeight:'200px',
         height: '100%',
@@ -69,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
             borderRadius:'10px'
         },
         ['@media(max-width:600px)']:{
+            minWidth:'100px',
             gridRowEnd: '3',
             gridRowStart: '1',
             gridColumnStart: '1',
@@ -98,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize:'1.2em',
         textAlign:'end',
         gridColumnStart:'4',
-        ['@media(max-width:700px)']:{
+        ['@media(max-width:600px)']:{
             gridRowStart: '2',
             gridColumnStart: '3',
             textAlign:'start'
@@ -121,11 +120,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const Orders = ({orders:{products,loading},getOrders,cancelOrder}) => {
+const Orders = ({auth:{user},orders:{products,loading},getOrders,cancelOrder}) => {
     const classes = useStyles();
     useEffect(()=>{
         getOrders();
-    },[])
+    },[user])
     return (
         <div className={classes.ordersContainer}>
             <div className={classes.displayOrders}>
@@ -134,7 +133,7 @@ const Orders = ({orders:{products,loading},getOrders,cancelOrder}) => {
 
                 </div>
                 <div className={classes.orders}>
-                    <CircularLoader loading={loading}/>
+                    <CircularLoader loading={loading}/> 
                     {products.length > 0 ? products.map((order,orderIndex)=>(
                         order.map((product,productIndex)=>(
                             <div className={classes.orderedProduct} key={productIndex}>
@@ -189,6 +188,8 @@ Orders.propTypes = {
 }
 
 const mapStateToProps = state =>({
-    orders:state.orders
+    orders:state.orders,
+    auth:state.auth
+
 })
 export default connect(mapStateToProps,{getOrders, cancelOrder})(Orders)

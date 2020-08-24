@@ -2,7 +2,8 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER, LOGIN_FAIL, LOGIN_SUCCESS, 
 import { v4 as uuidv4 } from 'uuid';
 import { setAlert } from './alert';
 import { getCart,newCart,newGuestCart } from './cart';
-import { setCookie,getCookie} from './../cookie';
+import { setCookie,getCookie,eraseCookie} from './../cookie';
+import { setOrderedProducts } from './order';
 //get the user 
 const getUser = async () => {
     try{
@@ -85,7 +86,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     }
 }
 
-export const login = ({ email, password }) => dispatch => {
+export const login = ({ email, password },ifFromGuest) => dispatch => {
     return new Promise(async function(resolve, reject) {
         const user = {
             email,
@@ -105,10 +106,14 @@ export const login = ({ email, password }) => dispatch => {
                 type: LOGIN_SUCCESS,
             });
             let user = await getUser();
+            eraseCookie('guestId');
             dispatch({
                 type: LOAD_USER,
                 payload: user
             });
+            if(ifFromGuest){
+                dispatch(setOrderedProducts(ifFromGuest));
+            }
             dispatch(getCart());
             resolve('success');
         } catch (err) {

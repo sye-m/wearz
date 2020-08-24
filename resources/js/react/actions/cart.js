@@ -124,6 +124,7 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
         dispatch(setAlert('Error with adding items', 'error'));
     }
 }
+
  
 //get full details of the products in the cart
 export const getCartItems = () => async (dispatch,getState) =>{

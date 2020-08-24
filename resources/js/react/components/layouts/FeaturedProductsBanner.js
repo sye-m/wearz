@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme)=>({
         objectFit:'cover'
     },
     bannerContainer:{
-        height:'70%',
+        minHeight:'50%',
         width:'100%',
         position:'relative',
         maxHeight:'400px'
@@ -24,8 +24,7 @@ const useStyles = makeStyles((theme)=>({
         left:' 1%',
         borderRadius: '50%',
         color:'#fff',
-        height: '50px',
-        height: '50px',
+        minHeight: '50px',
         width: '50px',
         minWidth:'50px',
         fontSize: '1.2rem',
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme)=>({
         color:'#fff',
         boxShadow:'0px 0px 10px 3px #7b7575',
         borderRadius: '50%',
-        height: '50px',
+        minHeight: '50px',
         width: '50px',
         minWidth:'50px',
         fontSize: '1.2rem',

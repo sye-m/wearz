@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Controllers\AddressController;
 class OrderController extends Controller
 {
     /**
@@ -31,11 +32,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $products = $request->allProducts;
-        $order = Order::create(['customer_id'=>auth()->user()->id]);
+        $products = $request->orderedProducts;
+        $sameAsDefaultAddress = $request->sameAsDefaultAddress;
+        $addressData = $request->addressFormData;
+        if($sameAsDefaultAddress){
+        $order = Order::create(['customer_id'=>auth()->user()->id,'shipping_id'=>auth()->user()->defaultAddress->id]);
+        }
+        else{
+            $address = new AddressController;
+            $address_id = $address->store($addressData);
+            $order = Order::create(['customer_id'=>auth()->user()->id,'shipping_id'=>$address_id]);
+        }
         foreach($products as $product){
             $order->products()->attach($product['product_id'],['size'=>$product['size'],'quantity'=>$product['quantity']]);
         }
+        
         return response()->json(['allProducts'=>$order],200);
     }
 
