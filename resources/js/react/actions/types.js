@@ -15,12 +15,16 @@ export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const LOADING_PRODUCTS = 'LOADING_PRODUCTS';
 export const SET_PRODUCT = 'SET_PRODUCT';
 export const LOADING_PRODUCT = 'LOADING_PRODUCT';
+export const PRODUCT_ERROR = 'PRODUCT_ERROR';
 export const SET_CART = 'SET_CART';
 export const CART_ERROR = 'CART_ERROR';
+export const CLEAR_CART = 'CLEAR_CART';
 export const LOADING_CART = 'LOADING_CART';
 export const SET_ORDERS = 'SET_ORDERS';
 export const LOADING_ORDERS = 'LOADING_ORDERS';
 export const ORDERS_ERROR = 'ORDERS_ERROR';
+export const CLEAR_ORDERS = 'CLEAR_ORDERS';
+
 
 
 

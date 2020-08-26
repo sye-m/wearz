@@ -1,4 +1,4 @@
-import { SET_ORDERS, ORDERS_ERROR, LOADING_ORDERS  } from '../actions/types'
+import { SET_ORDERS, ORDERS_ERROR, LOADING_ORDERS, CLEAR_ORDERS  } from '../actions/types'
 
 const initialState = {products:[],loading:true};
 export default function orders(state = initialState, action) {
@@ -7,8 +7,9 @@ export default function orders(state = initialState, action) {
         case SET_ORDERS:
             return {...state,products:[...payload],loading:false};
         case LOADING_ORDERS:
-            return {...state, loading:true}
+            return {...state,products:[], loading:true}
         case ORDERS_ERROR:
+        case CLEAR_ORDERS:
             return {products:[],loading:false}
         default:
             return state;

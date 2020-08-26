@@ -47,9 +47,5 @@
     @yield('content')
 </body>
 <script>
-        
-      window.Auth = {!! json_encode([
-            'signedIn' => Auth::check(),
-        ]) !!}
 </script>
 </html>

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react'
+import React,{ useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
@@ -145,11 +145,11 @@ const ConfirmOrder = ({auth:{user},history,orderProducts,getOrderedProducts}) =>
                     <div className={classes.shippingAddress}>
                         <p className={classes.shippingAddressTitle}>Shipping Address</p>
                         <form autoComplete="off" onSubmit={orderConfirmed}>
-                            <FormGroup>
+                            {user && user.defaultAddress && <FormGroup>
                                 <FormControlLabel
                                     control={<Checkbox onChange={setShippingAsDefaultAddress} name="defaultAddressCheckbox"/>}
                                 label="Same as Current Address"/>
-                            </FormGroup>
+                            </FormGroup>}
                             <TextField disabled={sameAsDefaultAddress} fullWidth={true} className={classes.formInput} required name="name" label="Building Name" variant="outlined" onChange={(e)=>onShippingInputChange(e)} value={name}/>
                             <TextField disabled={sameAsDefaultAddress} type="text" fullWidth={true} className={classes.formInput}  required name="addrLine1" label="Address Line 1" variant="outlined" onChange={(e)=>onShippingInputChange(e)} value={addrLine1} autoComplete="shipping address-line1"/>
                             <TextField disabled={sameAsDefaultAddress} type="text" fullWidth={true} className={classes.formInput} required name="addrLine2" label="Address Line 2" variant="outlined" onChange={(e)=>onShippingInputChange(e)} value={addrLine2} autoComplete="shipping address-line2"/>
@@ -163,10 +163,15 @@ const ConfirmOrder = ({auth:{user},history,orderProducts,getOrderedProducts}) =>
                     </div>
                     <div className={classes.customerAddress}>
                         <p className={classes.customerAddressTitle}>Current Address</p>
-                        <p>Name:{user && user.name}</p>
-                        <p>Phone: {user && user.defaultAddress.phone}</p>
-                        <p>Addresss: {user && `${user.defaultAddress.name} ${user.defaultAddress.address_line_1} ${user.defaultAddress.address_line_2}`}</p>
-                        <p>{user && `${user.defaultAddress.state} ${user.defaultAddress.zip_code}`}</p>
+                        {user && user.defaultAddress  ? 
+                        <Fragment>
+                            <p>Name:{user.name}</p>
+                            <p>Phone: {user.defaultAddress.phone}</p>
+                            <p>Addresss: {`${user.defaultAddress.name} ${user.defaultAddress.address_line_1} ${user.defaultAddress.address_line_2}`}</p>
+                            <p>{`${user.defaultAddress.state} ${user.defaultAddress.zip_code}`}</p>
+                         </Fragment>
+                         :'No address'}
+                       
                     </div>
                 </div>
             </div>

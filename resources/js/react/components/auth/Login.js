@@ -68,14 +68,25 @@ const Login = ({auth,history,location,login}) => {
         e.preventDefault();
         try{
         let res = await login({email,password},ifFromOrder);
-        history.push('/confirm_order')
+        ifFromOrder ? history.push('/confirm_order') : history.push('/')
         }
         catch(err){
+            console.log(err);
         }
     }
 
+    const registerQuery = () => {
+        let query = queryString.parse(location.search)
+        let qString = ''
+        if(query.confirm_order){
+            qString = '/register?confirm_order=true';
+        }
+        else {
+            qString = '/register';
+        }
+        return qString;
+    }
     //check if the form is validated by checking if the formErrors attributes are empty
-
     return (
         <Fragment>
             <div className={classess.loginContainer}>
@@ -87,7 +98,7 @@ const Login = ({auth,history,location,login}) => {
                 <Button variant="contained" fullWidth={true} color="primary" type="submit">Login</Button>
                 <div className={classess.joinInSection}>
                     Don't have an account with us? 
-                    <Link to="/register"> Join Now</Link>
+                    <Link to={registerQuery}> Join Now</Link>
                 </div>
                 </form>
             </div>

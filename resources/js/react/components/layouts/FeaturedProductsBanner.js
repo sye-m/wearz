@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme)=>({
         objectFit:'cover'
     },
     bannerContainer:{
-        minHeight:'50%',
+        height:'40%',
+        minHeight:'300px',
         width:'100%',
         position:'relative',
         maxHeight:'400px'

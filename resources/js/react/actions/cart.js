@@ -5,9 +5,7 @@ import { setCookie,getCookie } from './../cookie';
 export const newCart = (customerId) => async dispatch => {
     try{
         const res = await axios.post('/newUserCart',{'customerId':customerId});
-        console.log(res);
-        let cart =  res.data.cart;
-        console.log(cart)
+        let cart =  []
         dispatch({
             type:SET_CART,
             payload:cart
@@ -29,10 +27,8 @@ export const newGuestCart = () =>{
 //add new product to cart
 
 const updateGuestCart = (cart) => {
-    console.log(cart)
     let guestCart = cart.map((product)=>({product:product.product.id,pivot:{size:product.pivot.size,quantity:product.pivot.quantity}}));
     guestCart = JSON.stringify(guestCart)
-    console.log(guestCart)
     setCookie('guestCart',guestCart);
 }
 
@@ -42,10 +38,16 @@ export const getCart = () => async (dispatch,getState) => {
         if(getState().auth.user){
             let res = await axios.get('/getUserCart');
             let cart = res.data.cart;
-            dispatch({
-                type:SET_CART,
-                payload:cart
-            })
+            if(cart === null){
+                dispatch(newCart(getState().auth.user.id))
+            }
+            else{
+                dispatch({
+                    type:SET_CART,
+                    payload:cart
+                })
+            }
+            
         }
         else{
             let guestCart = getCookie('guestCart');
@@ -57,7 +59,6 @@ export const getCart = () => async (dispatch,getState) => {
         }
     }
     catch(err){
-        console.log(err.response)
         dispatch({
             type:CART_ERROR,
         })
@@ -82,7 +83,6 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
         //check if existing product is of the same size if it is not of the same size add the product as a new product
         (cartProduct.product.id == productData.product.id && cartProduct.pivot.size == productData.pivot.size )|| 
         (cartProduct.product == productData.product.id && cartProduct.pivot.size == productData.pivot.size));
-        console.log(productIndex)
         if(productIndex < 0 ){
             if(getState().auth.user){
                 const res = await axios.post(`/addToCart`,{'productId':productData.pivot.product_id,'size':productData.pivot.size,'quantity':productData.pivot.quantity},config);
@@ -117,7 +117,6 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
        }
     }
     catch(err){
-        console.log(err)
         dispatch({
             type:CART_ERROR,
         })
@@ -128,43 +127,44 @@ export const addProductToCart = (productData) => async (dispatch,getState) => {
  
 //get full details of the products in the cart
 export const getCartItems = () => async (dispatch,getState) =>{
-    //as we are adding the products directly to the cart state when the user clicks on add cart
-    //we should only get details from the backend if the details are already not present in the cart
-    let productIds = getState().cart.products.map((cartItems)=>{
-        if(typeof cartItems.product !== 'object'){//check to see if the product details are already present
-            return cartItems.product
-        }
-    })  //get only the products ids
-    if(productIds.length >0){
     try{
-        dispatch({type:LOADING_CART});
-        let products = [];
-        let res = await axios.post('/getCartItems',{'productIds':productIds});
-        products = res.data.products
-        //replace the items with the just the product id with the complete details of the products
-        let cart = getState().cart.products.map((cartItem,index)=>{
-            let productItem = products.findIndex((product)=>product.id == cartItem.product);
-            if(productItem >=0){
-            return {...cartItem,product:products[productItem]}
+        let cart = getState().cart.products;
+        //as we are adding the products directly to the cart state when the user clicks on add cart
+        //we should only get details from the backend if the details are already not present in the cart
+        let productIds = cart.map((cartItems)=>{
+            if(typeof cartItems.product !== 'object'){//check to see if the product details are already present
+                return cartItems.product
             }
-            else{
-                return cartItem
-            }
-        })
-        dispatch({
-            type:SET_CART,
-            payload:cart
-        })
+        })  //get only the products ids
+        if(productIds.length >0){
+            dispatch({type:LOADING_CART});
+            let products = [];
+            let res = await axios.post('/getCartItems',{'productIds':productIds});
+            products = res.data.products
+            //replace the items with the just the product id with the complete details of the products
+            cart = cart.map((cartItem,index)=>{
+                let productItem = products.findIndex((product)=>product.id == cartItem.product);
+                if(productItem >=0){
+                return {...cartItem,product:products[productItem]}
+                }
+                else{
+                    return cartItem
+                }
+            })
+            dispatch({
+                type:SET_CART,
+                payload:cart
+            })
+        }
     }
     catch(err){
-        console.log(err.response)
         dispatch({
             type:CART_ERROR,
         })
         dispatch(setAlert('Error with retreiving items', 'error'));
     }
 }
-}
+
 
 //update the product's size or quantity in the cart
 export const updateCartProduct = (positionInCart,option) => async (dispatch,getState) => {
@@ -197,6 +197,7 @@ export const deleteCartProduct = (productDetails,positionInCart) => async (dispa
     try{
     let cart = getState().cart.products;
     cart.splice(positionInCart,1);
+    dispatch({type:LOADING_CART});
     if(getState().auth.user){
     const res = await axios.delete(`/deleteProductFromCart`,{data:{productDetails}});
     }

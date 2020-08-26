@@ -1,4 +1,5 @@
 import { SET_PRODUCT_TYPES } from './types.js';
+import { setAlert } from './alert';
 
 export const getProductTypes = () => async dispatch => {
     try{
@@ -10,6 +11,6 @@ export const getProductTypes = () => async dispatch => {
     })
     }
     catch(err){
-        console.log(err);
+        dispatch(setAlert('Something went wrong try reloading the page','error'));
     }
 }

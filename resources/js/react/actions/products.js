@@ -1,4 +1,5 @@
 import { SET_PRODUCTS,LOADING_PRODUCTS } from './types.js';
+import { setAlert } from './alert';
 
 export const getProducts = (searchTerm="",brands="",types="",price="") => async dispatch => {
     try{
@@ -11,6 +12,6 @@ export const getProducts = (searchTerm="",brands="",types="",price="") => async 
         })
     }
     catch(err){
-        console.log(err.response.data);
+        dispatch(setAlert('Error displaying the products','error'));
     }
 }
