@@ -1,4 +1,4 @@
-import { SET_CART, CART_ERROR,LOADING_CART  } from '../actions/types'
+import { SET_CART, CART_ERROR, LOADING_CART, CLEAR_CART  } from '../actions/types'
 
 const initialState = {products:[],loading:true};
 export default function brand(state = initialState, action) {
@@ -9,6 +9,7 @@ export default function brand(state = initialState, action) {
         case LOADING_CART:
             return {...state,loading:true};
         case CART_ERROR:
+        case CLEAR_CART:
             return {products:[],loading:false}
         default:
             return state;

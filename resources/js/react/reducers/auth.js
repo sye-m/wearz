@@ -4,7 +4,7 @@ const initialState = {
     user: null,
     isAuthenticated: false,
     loading:true,
-    guestId:''
+    guestId:null
 };
 export default function auth(state = initialState, action) {
     const { payload, type } = action;

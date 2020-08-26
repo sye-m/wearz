@@ -1,6 +1,5 @@
 import React, { useState,useEffect,useRef,Fragment } from 'react';
-import ReactDOM from 'react-dom';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link,withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { register } from '../../actions/auth';
 import { connect } from 'react-redux';
@@ -8,6 +7,8 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import LinearLoader from './../loaders/LinearLoader';
+import queryString from 'query-string';
+
 const useStyles = makeStyles((theme)=>({
     registerContainer:{
         top: '50%',
@@ -41,13 +42,11 @@ const useStyles = makeStyles((theme)=>({
         marginTop:'1.5em'
     }
 }));
-const Register = ({auth,register}) => {
+const Register = ({auth,register,history,location}) => {
     if(auth.isAuthenticated){
         return <Redirect push to="/"/>
     }
     const isInitialMount = useRef(true); //when the component is initially mounted set useRef to true
-
-
     const [formErrors,setFormErrors] = useState({
         name:'',
         email:'',
@@ -97,7 +96,18 @@ const Register = ({auth,register}) => {
 
     const registerUser = async (e)=>{
         e.preventDefault();
-        register({name,email,password})
+        let query = queryString.parse(location.search)
+        let ifFromOrder = false;
+        if(query.confirm_order){
+            ifFromOrder = true
+        }
+        try{
+            await register({name,email,password},ifFromOrder)
+            ifFromOrder ? history.push('/confirm_order') : history.push('/')
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 
     const isValidated = !Object.values(formErrors).some(x => (x !== null && x !== ''));
@@ -135,5 +145,5 @@ const mapStateToProps = state => ({
     auth:state.auth
 })
 
-export default connect(mapStateToProps,{register})(Register);
+export default connect(mapStateToProps,{register})(withRouter(Register));
 

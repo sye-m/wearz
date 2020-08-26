@@ -25,9 +25,12 @@ const useStyles = makeStyles((theme) => ({
     minWidth:'200px',
     maxWidth:'450px',
     minHeight:'350px',
-    maxHeight:'600px',
+    maxHeight:'450px',
     ['@media(max-width:700px)']:{
-        width:'100%'
+        width:'100%',
+        height:'40%',
+        minHeight:'300px',
+        maxHeight:'400px'
     }
   },
   productImage:{

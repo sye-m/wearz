@@ -21,6 +21,12 @@ Route::get('getProductTypes','ProductTypeController@index');
 Route::get('getProducts','ProductController@index');
 Route::get('getProduct/{productId}','ProductController@show');
 Route::post('getCartItems','ProductController@getCartItems');
+Route::get('refreshToken',function (Request $request)
+{
+     return response()->json([
+        "token"=>csrf_token()],
+      200);
+});
 
 Route::group(['middleware' => 'auth:web'],function(){
     Route::get('getUser','CustomerController@index');

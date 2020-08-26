@@ -127,7 +127,6 @@ const Product = ({match:{params},product:{product,loading},getProduct,addProduct
     })
 
     const onInputChange = (e) => {
-        console.log(e.target.name)
         setProductData({...productData,pivot:{...productData.pivot,[e.target.name]:e.target.value}})
     }
 

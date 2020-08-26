@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         width: '85%',
         minHeight:'100%',
         padding: '20px',
-        minWidth: '300px',
+        minWidth: '200px',
         border: '1px solid lightgray',
         borderRadius: '10px',
     },
@@ -155,9 +155,11 @@ const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProdu
 
     const getCartTotalPrice = () => {
         let cartTotal = 0;
-        products && products.forEach((cartProduct)=>{
+        if(products.length > 0){
+        products.forEach((cartProduct)=>{
             cartTotal = cartTotal + cartProduct.product.price*cartProduct.pivot.quantity
         })
+    }
         return cartTotal;
     }
 
@@ -170,10 +172,12 @@ const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProdu
     }
 
     const orderCartProducts = () =>{
+        //if user has logged in order the products and redirect the user
         if(auth.user){
         setOrderedProducts();
         history.push('/confirm_order');
         }
+        //if user has not logged in 
         else{
             history.push('/login?confirm_order=true');
         }

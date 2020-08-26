@@ -10,7 +10,12 @@ class CartController extends Controller
 
     public function getUserCart(){
         $cart = Cart::where('customer_id',auth()->user()->id)->get();
-        return response()->json(['cart'=>$cart[0]->products()->get(['product_id as product','cart_id'])]);
+        if(count($cart) > 0){
+            return response()->json(['cart'=>$cart[0]->products()->get(['product_id as product','cart_id'])]);
+        }
+        else {
+            return response()->json(['cart'=>NULL],200);
+        }
     }
 
 

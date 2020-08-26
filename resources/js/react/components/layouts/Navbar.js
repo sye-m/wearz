@@ -177,7 +177,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                         <Fragment>
                         <Button className={classes.userButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                           <AccountCircleIcon className={classes.userIcon}/>
-                          {auth.user && auth.user.name.length>3? auth.user.name.substring(0,4)+"..":auth.user.name}
+                          {auth.user && auth.user.name.length>3? auth.user.name.substring(0,3)+"..":auth.user.name}
                         </Button>
                         <Menu
                           id="simple-menu"
