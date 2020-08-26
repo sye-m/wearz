@@ -1,3 +1,6 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const webpack = require('webpack');
 const mix = require('laravel-mix');
 
 /*
@@ -13,3 +16,50 @@ const mix = require('laravel-mix');
 
 mix.react('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+    mix.options({
+        optimization: {
+            minimizer: [new UglifyJsPlugin({
+                sourceMap:false,
+                uglifyOptions: {
+
+                    warnings: false,
+                    parse: {},
+                    compress: {
+                        warnings:false,
+                    },
+                    mangle: true, // Note `mangle.properties` is `false` by default.
+                    output: null,
+                    toplevel: false,
+                    nameCache: null,
+                    ie8: false,
+                    keep_fnames: false,
+                  },
+            })
+        ],
+            
+          },
+        devtool:
+        {
+            eval: 'cheap-source-map'
+          },
+          processCssUrls: false,
+          uglify:true
+    }).webpackConfig({
+        
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                  'NODE_ENV': JSON.stringify('production')
+                },
+              }),
+              new CompressionPlugin({
+                filename: '[path].gz[query]',
+                algorithm: 'gzip',
+                test: /\.js$|\.css$|\.html$|\.svg$/,
+                threshold: 10240,
+                minRatio: 0.8,
+              }),
+          ]
+          
+    }); 

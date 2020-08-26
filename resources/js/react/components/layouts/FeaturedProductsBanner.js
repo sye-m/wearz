@@ -73,10 +73,10 @@ x[slideIndex-1].style.display = "inline-block";
 
     return (
             <div className={classes.bannerContainer}>
-            <img className={classes.bannerImage} src="storage/featured_products/1.jpg" />
-            <img className={classes.bannerImage} src="storage/featured_products/2.jpg" />
-            <img className={classes.bannerImage} src="storage/featured_products/3.jpg"/>
-            <img className={classes.bannerImage} src="storage/featured_products/4.jpg" />
+            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/1.jpg" alt="Product Image"/>
+            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/2.jpg" alt="Product Image"/>
+            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/3.jpg" alt="Product Image"/>
+            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/4.jpg" alt="Product Image"/>
 
             <Button className={classes.prevImageButton} onClick={()=>plusDivs(-1)}>&#10094;</Button>
             <Button className={classes.nextImageButton} onClick={()=>plusDivs(1)}>&#10095;</Button>

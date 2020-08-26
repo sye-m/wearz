@@ -1,4 +1,4 @@
-import React, { Fragment,useEffect } from 'react';
+import React, { Fragment,useEffect, Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -9,15 +9,16 @@ import { getCart } from './actions/cart.js';
 import store from './store.js';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Navbar from './components/layouts/Navbar.js';
-import Landing from './components/layouts/Landing.js';
-import Register from './components/auth/Register';
-import Login from './components/auth/Login';
-import AlertBar from './components/layouts/AlertBar';
-import Products from './components/products/Products';
-import Product from './components/product/Product';
-import Cart from './components/cart/Cart';
-import Orders from './components/order/Orders';
-import ConfirmOrder from './components/order/ConfirmOrder';
+import CircularLoader from './components/loaders/CircularLoader';
+const Landing  = lazy(()=>import('./components/layouts/Landing.js')) ;
+const Register = lazy(()=> import('./components/auth/Register'));
+const Login = lazy(()=>import('./components/auth/Login'));
+const AlertBar = lazy(()=>import('./components/layouts/AlertBar'));
+const Products = lazy(()=>import('./components/products/Products'));
+const Product = lazy(()=>import('./components/product/Product'));
+const Cart = lazy(()=>import('./components/cart/Cart'));
+const Orders = lazy(()=>import('./components/order/Orders'));
+const ConfirmOrder = lazy(()=>import('./components/order/ConfirmOrder'));
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -51,26 +52,32 @@ const App = (prop) => {
     },[]);
     return (
         <Fragment>
-          <Provider store={store}>    
-              <Router>
-                <ThemeProvider theme={theme}>
-                    <Navbar/>
-                    <div id="container">
-                        <AlertBar />        
-                        <Switch>
-                            <Route exact path="/" component={Landing}/>
-                            <Route exact path="/register" component={Register} />
-                            <Route exact path="/login" component={Login} />
-                            <Route exact path="/products" component={Products} />
-                            <Route exact path="/product/:product_id" component={Product} />
-                            <Route exact path="/cart" component={Cart} />
-                            <PrivateRoute exact path="/orders" component={Orders} />
-                            <PrivateRoute exact path="/confirm_order" component={ConfirmOrder} />
-                        </Switch>
-                    </div>
-                </ThemeProvider>
-            </Router>
+
+          <Provider store={store}>
+                <Router>
+                  <ThemeProvider theme={theme}>
+                      <Navbar/>
+                      <div id="container">
+                    <Suspense fallback={<CircularLoader loading={true}/>}>    
+
+                          <AlertBar />        
+                          <Switch>
+                              <Route exact path="/" component={Landing}/>
+                              <Route exact path="/register" component={Register} />
+                              <Route exact path="/login" component={Login} />
+                              <Route exact path="/products" component={Products} />
+                              <Route exact path="/product/:product_id" component={Product} />
+                              <Route exact path="/cart" component={Cart} />
+                              <PrivateRoute exact path="/orders" component={Orders} />
+                              <PrivateRoute exact path="/confirm_order" component={ConfirmOrder} />
+                          </Switch>
+                        </Suspense>
+
+                      </div>
+                  </ThemeProvider>
+              </Router>
           </Provider>
+
         </Fragment>
             );
 }

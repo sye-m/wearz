@@ -148,7 +148,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
             <Grid container>
                 <Grid item xl={2} lg={2} xs={2} sm={3}>
                     <Link to="/" style={{textDecoration:'none'}}>
-                        <img className={classes.brandIcon} src="/storage/icons/footIcon.png"/>
+                        <img className={classes.brandIcon} alt="Wearz Icon"src="/storage/icons/footIcon.png"/>
                         <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline',xl:'inline'}} className={classes.shopName}>Wearz</Box>
                     </Link>
 
