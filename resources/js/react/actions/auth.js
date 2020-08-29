@@ -8,6 +8,7 @@ import { setOrderedProducts } from './order';
 const getUser = async () => {
     try{
     let res = await axios.get('/getUser');
+    console.log(res)
     let user = res.data.user
     return user;
     }
@@ -15,7 +16,55 @@ const getUser = async () => {
         return null
     }
 }
+ 
+export const addAddress = (address) => async(dispatch) => {
+    try{
+        const res = await axios.post('/addAddress',{address});
+        console.log(res)
+        dispatch(setAlert('Address added successfully','success')); 
+    }
+    catch(err){
+        console.log(err.response)
+    }
+}
+export const editDefaultAddress = (id) => async (dispatch) => {
+try{
+    const res = await axios.post('/editDefaultAddress',{addressId:id});
+    let user = res.data.user
+    dispatch({
+        type:LOAD_USER,
+        payload:user
+    })
+}
+ catch(err){
+     console.log(err.response)
+ }
+}
 
+export const updateAddress = (address) => async(dispatch) => {
+    try{
+        await axios.post(`/updateAddress/${address.id}`,{address});
+        dispatch(setAlert('Address updated successfully','success')); 
+    }
+    catch(err){
+        console.log(err.response)
+    }
+}
+
+export const deleteAddress = (addressId) => async(dispatch) => {
+    try{
+        const res = await axios.delete(`/deleteAddress/${addressId}`);
+        let user = res.data.user
+        dispatch({
+            type:LOAD_USER,
+            payload:user
+        })
+        dispatch(setAlert('Address removed successfully','success')); 
+    }
+    catch(err){
+        console.log(err.response);
+    }
+}
 export const loadUser = () => async dispatch => {
     try{
         let user = await getUser();
@@ -26,16 +75,16 @@ export const loadUser = () => async dispatch => {
             })
         }
         else {
-        let guestId = getCookie('guestId');
-        if(guestId === null){
-            guestId = uuidv4()
-            setCookie('guestId',guestId);
-            newGuestCart()
-        }
-        dispatch({
-            type: SET_GUEST,
-            payload:guestId
-        })
+            let guestId = getCookie('guestId');
+            if(guestId === null){
+                guestId = uuidv4()
+                setCookie('guestId',guestId);
+                newGuestCart()
+            }
+            dispatch({
+                type: SET_GUEST,
+                payload:guestId
+            })
         }
     }
     catch(err){

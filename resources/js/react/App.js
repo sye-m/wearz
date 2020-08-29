@@ -19,25 +19,20 @@ const Product = lazy(()=>import('./components/product/Product'));
 const Cart = lazy(()=>import('./components/cart/Cart'));
 const Orders = lazy(()=>import('./components/order/Orders'));
 const ConfirmOrder = lazy(()=>import('./components/order/ConfirmOrder'));
+const ViewUser = lazy(()=>import('./components/user/ViewUser'));
+const EditAddress = lazy(()=>import('./components/address/EditAddress'));
+const NewAddress = lazy(()=>import('./components/address/NewAddress'));
+
+
 const theme = createMuiTheme({
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
       main: '#4a148c',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
       main: '#ba68c8',
-      // dark: will be calculated from palette.secondary.main,
     },
-   
-    // Used by `getContrastText()` to maximize the contrast between
-    // the background and the text.
     contrastThreshold: 3,
-    // Used by the functions below to shift a color's luminance by approximately
-    // two indexes within its tonal palette.
-    // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2,
   },
 });
@@ -52,14 +47,12 @@ const App = (prop) => {
     },[]);
     return (
         <Fragment>
-
           <Provider store={store}>
                 <Router>
                   <ThemeProvider theme={theme}>
                       <Navbar/>
                       <div id="container">
-                    <Suspense fallback={<CircularLoader loading={true}/>}>    
-
+                        <Suspense fallback={<CircularLoader loading={true}/>}>    
                           <AlertBar />        
                           <Switch>
                               <Route exact path="/" component={Landing}/>
@@ -70,14 +63,16 @@ const App = (prop) => {
                               <Route exact path="/cart" component={Cart} />
                               <PrivateRoute exact path="/orders" component={Orders} />
                               <PrivateRoute exact path="/confirm_order" component={ConfirmOrder} />
+                              <PrivateRoute exact path="/user/:user_name" component={ViewUser} />
+                              <PrivateRoute exact path="/user/:user_name/address" component={EditAddress} />
+                              <PrivateRoute exact path="/user/:user_name/new_address" component={NewAddress} />
+
                           </Switch>
                         </Suspense>
-
                       </div>
                   </ThemeProvider>
               </Router>
           </Provider>
-
         </Fragment>
             );
 }
@@ -85,7 +80,5 @@ const App = (prop) => {
 export default App;
 
 if (document.getElementById('app')) {    
-    const element = document.getElementById('app');
-    const props = Object.assign({},element.dataset);
-    ReactDOM.render(<App {...props}/>, document.getElementById('app'));
+    ReactDOM.render(<App/>, document.getElementById('app'));
 }

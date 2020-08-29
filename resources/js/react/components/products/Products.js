@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
    },
    options:{
         width:'24%',
-        minHeight: '100%',
+        height:'fit-content',
         borderRight: '1px solid lightgray',
         padding: '2%',
         maxWidth: '250px',

@@ -22,17 +22,13 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     displayCart:{
-        margin: '20px 0px',
         width: '85%',
         minHeight:'100%',
-        padding: '20px',
         minWidth: '200px',
-        border: '1px solid lightgray',
-        borderRadius: '10px',
     },
     cartDescription:{
         display:'flex',
-        borderBottom: '1px solid lightgray',
+        borderBottom: '1px solid #dadce0',
     },
     cartTotal:{
         fontSize:'1.3em',
@@ -46,24 +42,26 @@ const useStyles = makeStyles((theme) => ({
         width:'80px',
         marginRight:'10px',
         ['@media(max-width:700px)']:{
-            width:'70px'
+            width:'60px'
         }
     },
     cartProducts:{
         minHeight:'100%',
         display:'flex',
-        flexDirection:'column'
+        flexDirection:'column',
+        marginTop:'10px'
     },
     cartProduct:{
-        maxHeight: '300px',
-        height: '40%',
+        border: '1px solid #dadce0',
+        padding:'10px',
+        margin:'10px 0px',
+        borderRadius:'8px',
+        maxHeight: '270px',
         minHeight: '200px',
         display: 'grid',
         gap:'1em',
-        padding:'10px 0px',
         gridTemplateColumns: '1fr 1fr 1fr',
         gridTemplateRows: '1fr 1fr 1fr',
-        borderBottom:'1px solid lightgray',
         
     },
     cartTitle:{
@@ -193,7 +191,7 @@ const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProdu
             <div className={classes.displayCart}>
             <CircularLoader loading={loading}/>
                 <div className={classes.cartDescription}>
-                    <p className={classes.cartTitle}>Shopping Cart</p>
+                    <p className={classes.cartTitle}>Cart</p>
                     <p className={classes.cartTotal}>Total = {`${getSymbolFromCurrency('INR')} ${Math.round(getCartTotalPrice())}`}</p>
                 </div>
                 <div className={classes.cartProducts}>

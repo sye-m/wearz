@@ -106,10 +106,9 @@ const useStyles = makeStyles((theme) => ({
         color:'#000000'
     },
     loginButton:{
-      '& a':{
         textDecoration:'none',
-        color:'#000000'
-      }
+        color:'#000000',
+        cursor:'pointer'
     }
   }));
 const Navbar = ({history,location,auth,cart:{products},logout}) => {
@@ -144,7 +143,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
       }
     }
     return (
-            <Box className={classes.navBar} color="text.primary">
+            <header className={classes.navBar} color="text.primary">
             <Grid container>
                 <Grid item xl={2} lg={2} xs={2} sm={3}>
                     <Link to="/" style={{textDecoration:'none'}}>
@@ -170,46 +169,51 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                   </div>
                 </Grid>
                 <Grid item xl={2} lg={2} xs={3} sm={2} className={classes.user}>
-                  <div>
+                  <Box>
                     <Box color="text.secondary" className={classes.userText}>
                       {auth.user?
                       (
                         <Fragment>
-                        <Button className={classes.userButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                          <AccountCircleIcon className={classes.userIcon}/>
-                          {auth.user && auth.user.name.length>3? auth.user.name.substring(0,3)+"..":auth.user.name}
-                        </Button>
-                        <Menu
-                          id="simple-menu"
-                          anchorEl={anchorEl}
-                          keepMounted
-                          open={Boolean(anchorEl)}
-                          onClose={handleClose}
-                        >
-                          <MenuItem onClick={handleClose}>{auth.user && auth.user.name}</MenuItem>
-                            <Link to="/orders"  className={classes.ordersOption}>
-                              <MenuItem>
-                                Orders
+                          <Button className={classes.userButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                            <AccountCircleIcon className={classes.userIcon}/>
+                            {auth.user && auth.user.name.length>3? auth.user.name.substring(0,3)+"..":auth.user.name}
+                          </Button>
+                          <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                          >
+                            <Link to={`/user/${auth.user.name}`}>
+                              <MenuItem onClick={handleClose}>
+                                {auth.user && auth.user.name}
                               </MenuItem>
                             </Link>
-                          <MenuItem onClick={logoutUser}>Logout</MenuItem>
-                        </Menu>
-                        </Fragment>):(<Button className={classes.loginButton}><Link to="/login">Login</Link></Button>)}
+                            
+                              <Link to="/orders"  className={classes.ordersOption}>
+                                <MenuItem>
+                                  Orders
+                                </MenuItem>
+                              </Link>
+                            <MenuItem onClick={logoutUser}>Logout</MenuItem>
+                          </Menu>
+                        </Fragment>):(<Link to="/login" className={classes.loginButton}>Login</Link>)}
                     </Box>
-                  </div>
+                  </Box>
                 </Grid>
                 <Grid item xl={2} lg={2}  xs={2} sm={2} className={classes.cart}>
                     <Link to="/cart">
-                          <div>
+                          <Box>
                             <Badge badgeContent={products && products.length} color="error">
                               <ShoppingCartIcon className={classes.cartIcon}/> 
                             </Badge>
                             <Box display={{xs:'none',md:'inline',sm:'inline', lg:'inline'}} className={classes.cartText}>Cart</Box>
-                          </div>
+                          </Box>
                     </Link>
                   </Grid>
             </Grid>
-            </Box>
+            </header>
             );
 }
 Navbar.propTypes = {

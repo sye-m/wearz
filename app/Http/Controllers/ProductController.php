@@ -18,7 +18,7 @@ class ProductController extends Controller
         $brands = request()->query('brands') != "" ? explode(',',request()->query('brands')): [];
         $types = request()->query('types') != "" ? explode(',',request()->query('types')): [];
         //get products with the name like the search term than get the product based on brand and type
-        $filteredProducts = Product::where('name','LIKE',$searchTerm."%")
+        $filteredProducts = Product::where('name','LIKE',"%".$searchTerm."%")
         ->whereHas('brand',
                 function($query) use ($brands,$searchTerm){
             //where has depends upon the relationship of product and brand table

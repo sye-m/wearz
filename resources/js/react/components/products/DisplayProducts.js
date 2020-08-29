@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
       position:'relative'
   },
   productCard:{
-    height:'20%',
+    height:'40%',
     width:'43%',
     margin:'1em',
     minWidth:'200px',
     maxWidth:'450px',
     minHeight:'350px',
-    maxHeight:'450px',
+    maxHeight:'400px',
     ['@media(max-width:700px)']:{
         width:'100%',
         height:'40%',

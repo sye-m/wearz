@@ -21,31 +21,33 @@ const useStyles = makeStyles((theme) => ({
         width:'40%'
     },
     displayOrders:{
-        margin: '20px 0px',
         width: '85%',
         minHeight:'100%',
         padding: '20px',
         minWidth: '300px',
-        border: '1px solid lightgray',
         borderRadius: '10px',
     },
     ordersDescription:{
         display:'flex',
         fontWeight:'bold',
-        borderBottom: '1px solid lightgray',
+        borderBottom: '1px solid #dadce0',
     },
     orders:{
         minHeight:'100%',
         display:'flex',
-        flexDirection:'column'
+        flexDirection:'column',
+        marginTop:'10px'
     },
     orderedProduct:{
-        maxHeight: '300px',
-        height: '40%',
+        border: '1px solid #dadce0',
+        padding:'10px',
+        margin:'10px 0px',
+        borderRadius:'8px',
+        maxHeight: '270px',
+        height: '30%',
         minHeight: '200px',
         display: 'grid',
         gap:'1em',
-        padding:'10px 0px',
         gridTemplateColumns: '1fr 1fr 1fr',
         gridTemplateRows: '1fr 1fr 1fr',
         borderBottom:'1px solid lightgray',
@@ -130,7 +132,6 @@ const Orders = ({auth:{user},orders:{products,loading},getOrders,cancelOrder}) =
             <div className={classes.displayOrders}>
                 <div className={classes.ordersDescription}>
                     <p className={classes.orderTitle}>Orders</p>
-
                 </div>
                 <div className={classes.orders}>
                     <CircularLoader loading={loading}/> 

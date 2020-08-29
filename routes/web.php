@@ -31,6 +31,11 @@ Route::get('refreshToken',function (Request $request)
 Route::group(['middleware' => 'auth:web'],function(){
     Route::get('getUser','CustomerController@index');
     Route::get('logoutCustomer','Auth\LoginController@logout');
+    Route::get('getAddress/{addressId}','AddressController@getAddress');
+    Route::post('addAddress','AddressController@addAddress');
+    Route::post('editDefaultAddress','CustomerController@editDefaultAddress');
+    Route::post('updateAddress/{addressId}','AddressController@updateAddress');
+    Route::delete('deleteAddress/{addressId}','AddressController@destroy');
     Route::post('newUserCart','CartController@store');
     Route::post('addToCart','CartController@addToCart');
     Route::get('getUserCart','CartController@getUserCart');

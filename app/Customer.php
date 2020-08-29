@@ -37,7 +37,6 @@ class Customer extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $with = ['defaultAddress','addresses'];
 
     protected $table = 'customers'; // add this line with your table name
 

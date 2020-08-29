@@ -1,1 +1,374 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{188:function(e,r,t){"use strict";t.r(r);var a=t(7),n=t.n(a),o=t(0),i=t.n(o),l=t(12),c=t(15),u=t(63),d=t(43),s=t(10),m=t(3),f=t.n(m),b=t(24),p=t(39),v=t(68),g=t(28),h=t.n(g);function y(e,r,t,a,n,o,i){try{var l=e[o](i),c=l.value}catch(e){return void t(e)}l.done?r(c):Promise.resolve(c).then(a,n)}function O(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);r&&(a=a.filter((function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable}))),t.push.apply(t,a)}return t}function j(e){for(var r=1;r<arguments.length;r++){var t=null!=arguments[r]?arguments[r]:{};r%2?O(Object(t),!0).forEach((function(r){w(e,r,t[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):O(Object(t)).forEach((function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(t,r))}))}return e}function w(e,r,t){return r in e?Object.defineProperty(e,r,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[r]=t,e}function x(e,r){return function(e){if(Array.isArray(e))return e}(e)||function(e,r){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var t=[],a=!0,n=!1,o=void 0;try{for(var i,l=e[Symbol.iterator]();!(a=(i=l.next()).done)&&(t.push(i.value),!r||t.length!==r);a=!0);}catch(e){n=!0,o=e}finally{try{a||null==l.return||l.return()}finally{if(n)throw o}}return t}(e,r)||function(e,r){if(!e)return;if("string"==typeof e)return P(e,r);var t=Object.prototype.toString.call(e).slice(8,-1);"Object"===t&&e.constructor&&(t=e.constructor.name);if("Map"===t||"Set"===t)return Array.from(e);if("Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t))return P(e,r)}(e,r)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function P(e,r){(null==r||r>e.length)&&(r=e.length);for(var t=0,a=new Array(r);t<r;t++)a[t]=e[t];return a}var E=Object(u.a)((function(e){return{loginContainer:{top:"50%",left:"50%",transform:"translate(-50%, -50%)",position:"absolute",padding:"1.3em",border:"1px solid lightgray",borderRadius:"10px",width:"40%",minWidth:"300px",maxWidth:"450px",textAlign:"center"},formInput:{border:"0",margin:"0",padding:"0",position:"relative",minWidth:"0",verticalAlign:"top",display:"block",flex:"none",color:"black",marginBottom:"30px"},formTitle:{fontSize:"1.3em"},joinInSection:{marginTop:"1.5em"}}})),k=function(e){var r=e.auth,t=e.history,a=e.location,u=e.login;if(r.isAuthenticated)return i.a.createElement(l.a,{push:!0,to:"/"});var d=E(),s=x(Object(o.useState)({email:"",password:""}),2),m=s[0],f=s[1],g=m.email,O=m.password,P=function(e){f(j(j({},m),{},w({},e.target.name,e.target.value)))},k=function(){var e,r=(e=n.a.mark((function e(r){var o,i;return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return o=h.a.parse(a.search),i=!1,o.confirm_order&&(i=!0),r.preventDefault(),e.prev=4,e.next=7,u({email:g,password:O},i);case 7:e.sent,i?t.push("/confirm_order"):t.push("/"),e.next=14;break;case 11:e.prev=11,e.t0=e.catch(4),console.log(e.t0);case 14:case"end":return e.stop()}}),e,null,[[4,11]])})),function(){var r=this,t=arguments;return new Promise((function(a,n){var o=e.apply(r,t);function i(e){y(o,a,n,i,l,"next",e)}function l(e){y(o,a,n,i,l,"throw",e)}i(void 0)}))});return function(e){return r.apply(this,arguments)}}();return i.a.createElement(o.Fragment,null,i.a.createElement("div",{className:d.loginContainer},i.a.createElement("p",{className:d.formTitle},"Login"),i.a.createElement("hr",null),i.a.createElement("form",{onSubmit:function(e){return k(e)},autoComplete:"off"},i.a.createElement(b.a,{type:"email",fullWidth:!0,className:d.formInput,id:"email",required:!0,name:"email",label:"Email",variant:"outlined",onChange:function(e){return P(e)},value:g}),i.a.createElement(b.a,{type:"password",fullWidth:!0,className:d.formInput,required:!0,id:"password",name:"password",label:"Password",variant:"outlined",onChange:function(e){return P(e)},value:O}),i.a.createElement(p.a,{variant:"contained",fullWidth:!0,color:"primary",type:"submit"},"Login"),i.a.createElement("div",{className:d.joinInSection},"Don't have an account with us?",i.a.createElement(c.b,{to:function(){return h.a.parse(a.search).confirm_order?"/register?confirm_order=true":"/register"}}," Join Now")))),i.a.createElement(v.a,{loading:r.loading}))};k.propTypes={auth:f.a.object.isRequired,login:f.a.func.isRequired};r.default=Object(s.b)((function(e){return{auth:e.auth}}),{login:d.b})(Object(l.g)(k))},24:function(e,r,t){"use strict";var a=t(1),n=t(2),o=t(0),i=(t(3),t(4)),l=t(186),c=t(187),u=t(196),d=t(116),s=t(113),m=t(26),f=t(25),b=t(6),p=o.forwardRef((function(e,r){var t=e.children,l=e.classes,c=e.className,u=e.component,d=void 0===u?"p":u,s=(e.disabled,e.error,e.filled,e.focused,e.margin,e.required,e.variant,Object(n.a)(e,["children","classes","className","component","disabled","error","filled","focused","margin","required","variant"])),b=Object(f.a)(),p=Object(m.a)({props:e,muiFormControl:b,states:["variant","margin","disabled","error","filled","focused","required"]});return o.createElement(d,Object(a.a)({className:Object(i.a)(l.root,("filled"===p.variant||"outlined"===p.variant)&&l.contained,c,p.disabled&&l.disabled,p.error&&l.error,p.filled&&l.filled,p.focused&&l.focused,p.required&&l.required,"dense"===p.margin&&l.marginDense),ref:r},s)," "===t?o.createElement("span",{dangerouslySetInnerHTML:{__html:"&#8203;"}}):t)})),v=Object(b.a)((function(e){return{root:Object(a.a)({color:e.palette.text.secondary},e.typography.caption,{textAlign:"left",marginTop:3,margin:0,"&$disabled":{color:e.palette.text.disabled},"&$error":{color:e.palette.error.main}}),error:{},disabled:{},marginDense:{marginTop:4},contained:{marginLeft:14,marginRight:14},focused:{},filled:{},required:{}}}),{name:"MuiFormHelperText"})(p),g=t(115),h={standard:l.a,filled:c.a,outlined:u.a},y=o.forwardRef((function(e,r){var t=e.autoComplete,l=e.autoFocus,c=void 0!==l&&l,u=e.children,m=e.classes,f=e.className,b=e.color,p=void 0===b?"primary":b,y=e.defaultValue,O=e.disabled,j=void 0!==O&&O,w=e.error,x=void 0!==w&&w,P=e.FormHelperTextProps,E=e.fullWidth,k=void 0!==E&&E,C=e.helperText,I=e.hiddenLabel,S=e.id,q=e.InputLabelProps,N=e.inputProps,T=e.InputProps,F=e.inputRef,A=e.label,R=e.multiline,B=void 0!==R&&R,D=e.name,L=e.onBlur,W=e.onChange,M=e.onFocus,z=e.placeholder,$=e.required,_=void 0!==$&&$,H=e.rows,J=e.rowsMax,V=e.select,X=void 0!==V&&V,U=e.SelectProps,G=e.type,K=e.value,Q=e.variant,Y=void 0===Q?"standard":Q,Z=Object(n.a)(e,["autoComplete","autoFocus","children","classes","className","color","defaultValue","disabled","error","FormHelperTextProps","fullWidth","helperText","hiddenLabel","id","InputLabelProps","inputProps","InputProps","inputRef","label","multiline","name","onBlur","onChange","onFocus","placeholder","required","rows","rowsMax","select","SelectProps","type","value","variant"]);var ee={};if("outlined"===Y&&(q&&void 0!==q.shrink&&(ee.notched=q.shrink),A)){var re,te=null!==(re=null==q?void 0:q.required)&&void 0!==re?re:_;ee.label=o.createElement(o.Fragment,null,A,te&&" *")}X&&(U&&U.native||(ee.id=void 0),ee["aria-describedby"]=void 0);var ae=C&&S?"".concat(S,"-helper-text"):void 0,ne=A&&S?"".concat(S,"-label"):void 0,oe=h[Y],ie=o.createElement(oe,Object(a.a)({"aria-describedby":ae,autoComplete:t,autoFocus:c,defaultValue:y,fullWidth:k,multiline:B,name:D,rows:H,rowsMax:J,type:G,value:K,id:S,inputRef:F,onBlur:L,onChange:W,onFocus:M,placeholder:z,inputProps:N},ee,T));return o.createElement(s.a,Object(a.a)({className:Object(i.a)(m.root,f),disabled:j,error:x,fullWidth:k,hiddenLabel:I,ref:r,required:_,color:p,variant:Y},Z),A&&o.createElement(d.a,Object(a.a)({htmlFor:S,id:ne},q),A),X?o.createElement(g.a,Object(a.a)({"aria-describedby":ae,id:S,labelId:ne,value:K,input:ie},U),u):ie,C&&o.createElement(v,Object(a.a)({id:ae},P),C))}));r.a=Object(b.a)({root:{}},{name:"MuiTextField"})(y)},68:function(e,r,t){"use strict";var a=t(0),n=t.n(a),o=t(3),i=t.n(o),l=t(1),c=t(2),u=t(4),d=t(8),s=t(6),m=t(16),f=t(42),b=a.forwardRef((function(e,r){var t=e.classes,n=e.className,o=e.color,i=void 0===o?"primary":o,s=e.value,m=e.valueBuffer,b=e.variant,p=void 0===b?"indeterminate":b,v=Object(c.a)(e,["classes","className","color","value","valueBuffer","variant"]),g=Object(f.a)(),h={},y={bar1:{},bar2:{}};if("determinate"===p||"buffer"===p)if(void 0!==s){h["aria-valuenow"]=Math.round(s),h["aria-valuemin"]=0,h["aria-valuemax"]=100;var O=s-100;"rtl"===g.direction&&(O=-O),y.bar1.transform="translateX(".concat(O,"%)")}else 0;if("buffer"===p)if(void 0!==m){var j=(m||0)-100;"rtl"===g.direction&&(j=-j),y.bar2.transform="translateX(".concat(j,"%)")}else 0;return a.createElement("div",Object(l.a)({className:Object(u.a)(t.root,t["color".concat(Object(d.a)(i))],n,{determinate:t.determinate,indeterminate:t.indeterminate,buffer:t.buffer,query:t.query}[p]),role:"progressbar"},h,{ref:r},v),"buffer"===p?a.createElement("div",{className:Object(u.a)(t.dashed,t["dashedColor".concat(Object(d.a)(i))])}):null,a.createElement("div",{className:Object(u.a)(t.bar,t["barColor".concat(Object(d.a)(i))],("indeterminate"===p||"query"===p)&&t.bar1Indeterminate,{determinate:t.bar1Determinate,buffer:t.bar1Buffer}[p]),style:y.bar1}),"determinate"===p?null:a.createElement("div",{className:Object(u.a)(t.bar,("indeterminate"===p||"query"===p)&&t.bar2Indeterminate,"buffer"===p?[t["color".concat(Object(d.a)(i))],t.bar2Buffer]:t["barColor".concat(Object(d.a)(i))]),style:y.bar2}))})),p=Object(s.a)((function(e){var r=function(r){return"light"===e.palette.type?Object(m.d)(r,.62):Object(m.a)(r,.5)},t=r(e.palette.primary.main),a=r(e.palette.secondary.main);return{root:{position:"relative",overflow:"hidden",height:4,"@media print":{colorAdjust:"exact"}},colorPrimary:{backgroundColor:t},colorSecondary:{backgroundColor:a},determinate:{},indeterminate:{},buffer:{backgroundColor:"transparent"},query:{transform:"rotate(180deg)"},dashed:{position:"absolute",marginTop:0,height:"100%",width:"100%",animation:"$buffer 3s infinite linear"},dashedColorPrimary:{backgroundImage:"radial-gradient(".concat(t," 0%, ").concat(t," 16%, transparent 42%)"),backgroundSize:"10px 10px",backgroundPosition:"0 -23px"},dashedColorSecondary:{backgroundImage:"radial-gradient(".concat(a," 0%, ").concat(a," 16%, transparent 42%)"),backgroundSize:"10px 10px",backgroundPosition:"0 -23px"},bar:{width:"100%",position:"absolute",left:0,bottom:0,top:0,transition:"transform 0.2s linear",transformOrigin:"left"},barColorPrimary:{backgroundColor:e.palette.primary.main},barColorSecondary:{backgroundColor:e.palette.secondary.main},bar1Indeterminate:{width:"auto",animation:"$indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite"},bar1Determinate:{transition:"transform .".concat(4,"s linear")},bar1Buffer:{zIndex:1,transition:"transform .".concat(4,"s linear")},bar2Indeterminate:{width:"auto",animation:"$indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite"},bar2Buffer:{transition:"transform .".concat(4,"s linear")},"@keyframes indeterminate1":{"0%":{left:"-35%",right:"100%"},"60%":{left:"100%",right:"-90%"},"100%":{left:"100%",right:"-90%"}},"@keyframes indeterminate2":{"0%":{left:"-200%",right:"100%"},"60%":{left:"107%",right:"-8%"},"100%":{left:"107%",right:"-8%"}},"@keyframes buffer":{"0%":{opacity:1,backgroundPosition:"0 -23px"},"50%":{opacity:0,backgroundPosition:"0 -23px"},"100%":{opacity:1,backgroundPosition:"-200px -23px"}}}}),{name:"MuiLinearProgress"})(b),v=function(e){var r=e.loading;return n.a.createElement(a.Fragment,null,r&&n.a.createElement(p,null))};v.propTypes={loading:i.a.bool.isRequired};r.a=v}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
+
+/***/ "./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js ***!
+  \*****************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _styles_useTheme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/useTheme */ "./node_modules/@material-ui/core/esm/styles/useTheme.js");
+
+
+
+
+
+
+
+
+
+var TRANSITION_DURATION = 4; // seconds
+
+var styles = function styles(theme) {
+  var getColor = function getColor(color) {
+    return theme.palette.type === 'light' ? Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["lighten"])(color, 0.62) : Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["darken"])(color, 0.5);
+  };
+
+  var backgroundPrimary = getColor(theme.palette.primary.main);
+  var backgroundSecondary = getColor(theme.palette.secondary.main);
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative',
+      overflow: 'hidden',
+      height: 4,
+      '@media print': {
+        colorAdjust: 'exact'
+      }
+    },
+
+    /* Styles applied to the root and bar2 element if `color="primary"`; bar2 if `variant="buffer"`. */
+    colorPrimary: {
+      backgroundColor: backgroundPrimary
+    },
+
+    /* Styles applied to the root and bar2 elements if `color="secondary"`; bar2 if `variant="buffer"`. */
+    colorSecondary: {
+      backgroundColor: backgroundSecondary
+    },
+
+    /* Styles applied to the root element if `variant="determinate"`. */
+    determinate: {},
+
+    /* Styles applied to the root element if `variant="indeterminate"`. */
+    indeterminate: {},
+
+    /* Styles applied to the root element if `variant="buffer"`. */
+    buffer: {
+      backgroundColor: 'transparent'
+    },
+
+    /* Styles applied to the root element if `variant="query"`. */
+    query: {
+      transform: 'rotate(180deg)'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"`. */
+    dashed: {
+      position: 'absolute',
+      marginTop: 0,
+      height: '100%',
+      width: '100%',
+      animation: '$buffer 3s infinite linear'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` and `color="primary"`. */
+    dashedColorPrimary: {
+      backgroundImage: "radial-gradient(".concat(backgroundPrimary, " 0%, ").concat(backgroundPrimary, " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0 -23px'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` and `color="secondary"`. */
+    dashedColorSecondary: {
+      backgroundImage: "radial-gradient(".concat(backgroundSecondary, " 0%, ").concat(backgroundSecondary, " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0 -23px'
+    },
+
+    /* Styles applied to the layered bar1 and bar2 elements. */
+    bar: {
+      width: '100%',
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      top: 0,
+      transition: 'transform 0.2s linear',
+      transformOrigin: 'left'
+    },
+
+    /* Styles applied to the bar elements if `color="primary"`; bar2 if `variant` not "buffer". */
+    barColorPrimary: {
+      backgroundColor: theme.palette.primary.main
+    },
+
+    /* Styles applied to the bar elements if `color="secondary"`; bar2 if `variant` not "buffer". */
+    barColorSecondary: {
+      backgroundColor: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the bar1 element if `variant="indeterminate or query"`. */
+    bar1Indeterminate: {
+      width: 'auto',
+      animation: '$indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite'
+    },
+
+    /* Styles applied to the bar1 element if `variant="determinate"`. */
+    bar1Determinate: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar1 element if `variant="buffer"`. */
+    bar1Buffer: {
+      zIndex: 1,
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar2 element if `variant="indeterminate or query"`. */
+    bar2Indeterminate: {
+      width: 'auto',
+      animation: '$indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite'
+    },
+
+    /* Styles applied to the bar2 element if `variant="buffer"`. */
+    bar2Buffer: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+    // Legends:
+    // || represents the viewport
+    // -  represents a light background
+    // x  represents a dark background
+    '@keyframes indeterminate1': {
+      //  |-----|---x-||-----||-----|
+      '0%': {
+        left: '-35%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||xxxx-|
+      '60%': {
+        left: '100%',
+        right: '-90%'
+      },
+      '100%': {
+        left: '100%',
+        right: '-90%'
+      }
+    },
+    '@keyframes indeterminate2': {
+      //  |xxxxx|xxxxx||-----||-----|
+      '0%': {
+        left: '-200%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||-x----|
+      '60%': {
+        left: '107%',
+        right: '-8%'
+      },
+      '100%': {
+        left: '107%',
+        right: '-8%'
+      }
+    },
+    '@keyframes buffer': {
+      '0%': {
+        opacity: 1,
+        backgroundPosition: '0 -23px'
+      },
+      '50%': {
+        opacity: 0,
+        backgroundPosition: '0 -23px'
+      },
+      '100%': {
+        opacity: 1,
+        backgroundPosition: '-200px -23px'
+      }
+    }
+  };
+};
+/**
+ * ## ARIA
+ *
+ * If the progress bar is describing the loading progress of a particular region of a page,
+ * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+ * attribute to `true` on that region until it has finished loading.
+ */
+
+var LinearProgress = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function LinearProgress(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      value = props.value,
+      valueBuffer = props.valueBuffer,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'indeterminate' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "color", "value", "valueBuffer", "variant"]);
+
+  var theme = Object(_styles_useTheme__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  var rootProps = {};
+  var inlineStyles = {
+    bar1: {},
+    bar2: {}
+  };
+
+  if (variant === 'determinate' || variant === 'buffer') {
+    if (value !== undefined) {
+      rootProps['aria-valuenow'] = Math.round(value);
+      rootProps['aria-valuemin'] = 0;
+      rootProps['aria-valuemax'] = 100;
+      var transform = value - 100;
+
+      if (theme.direction === 'rtl') {
+        transform = -transform;
+      }
+
+      inlineStyles.bar1.transform = "translateX(".concat(transform, "%)");
+    } else if (true) {
+      console.error('Material-UI: You need to provide a value prop ' + 'when using the determinate or buffer variant of LinearProgress .');
+    }
+  }
+
+  if (variant === 'buffer') {
+    if (valueBuffer !== undefined) {
+      var _transform = (valueBuffer || 0) - 100;
+
+      if (theme.direction === 'rtl') {
+        _transform = -_transform;
+      }
+
+      inlineStyles.bar2.transform = "translateX(".concat(_transform, "%)");
+    } else if (true) {
+      console.error('Material-UI: You need to provide a valueBuffer prop ' + 'when using the buffer variant of LinearProgress.');
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes["color".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], className, {
+      'determinate': classes.determinate,
+      'indeterminate': classes.indeterminate,
+      'buffer': classes.buffer,
+      'query': classes.query
+    }[variant]),
+    role: "progressbar"
+  }, rootProps, {
+    ref: ref
+  }, other), variant === 'buffer' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.dashed, classes["dashedColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))])
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.bar, classes["barColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], (variant === 'indeterminate' || variant === 'query') && classes.bar1Indeterminate, {
+      'determinate': classes.bar1Determinate,
+      'buffer': classes.bar1Buffer
+    }[variant]),
+    style: inlineStyles.bar1
+  }), variant === 'determinate' ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.bar, (variant === 'indeterminate' || variant === 'query') && classes.bar2Indeterminate, variant === 'buffer' ? [classes["color".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], classes.bar2Buffer] : classes["barColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))]),
+    style: inlineStyles.bar2
+  }));
+});
+ true ? LinearProgress.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['primary', 'secondary']),
+
+  /**
+   * The value of the progress indicator for the determinate and buffer variants.
+   * Value between 0 and 100.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The value for the buffer variant.
+   * Value between 0 and 100.
+   */
+  valueBuffer: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The variant to use.
+   * Use indeterminate or query when there is no progress value.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['buffer', 'determinate', 'indeterminate', 'query'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__["default"])(styles, {
+  name: 'MuiLinearProgress'
+})(LinearProgress));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/LinearProgress/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/LinearProgress/index.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LinearProgress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LinearProgress */ "./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _LinearProgress__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/react/components/loaders/LinearLoader.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/react/components/loaders/LinearLoader.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/LinearProgress */ "./node_modules/@material-ui/core/esm/LinearProgress/index.js");
+
+
+
+
+var LinearLoader = function LinearLoader(_ref) {
+  var loading = _ref.loading;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+};
+
+LinearLoader.propTypes = {
+  loading: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (LinearLoader);
+
+/***/ })
+
+}]);

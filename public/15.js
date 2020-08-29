@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[15],{
 
-/***/ "./resources/js/react/components/order/ConfirmOrder.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/react/components/order/ConfirmOrder.js ***!
-  \*************************************************************/
+/***/ "./resources/js/react/components/auth/Login.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/react/components/auth/Login.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,18 +13,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _actions_order__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/order */ "./resources/js/react/actions/order.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _actions_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/auth */ "./resources/js/react/actions/auth.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js");
-/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "./node_modules/@material-ui/core/esm/FormGroup/index.js");
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/esm/FormControlLabel/index.js");
+/* harmony import */ var _loaders_LinearLoader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../loaders/LinearLoader */ "./resources/js/react/components/loaders/LinearLoader.js");
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(query_string__WEBPACK_IMPORTED_MODULE_10__);
 
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -44,9 +48,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -57,30 +58,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
   return {
-    ordersShippingContainer: {
-      width: '100%',
-      minHeight: '100%',
-      display: 'flex',
-      justifyContent: 'center'
-    },
-    orderShippingTitle: {
-      fontSize: '1.5em',
-      fontWeight: 'bold',
-      width: '100%',
-      borderBottom: '1px solid lightgray'
-    },
-    displayShippingDetails: {
-      margin: '20px 0px',
-      width: '85%',
-      minHeight: '100%',
-      padding: '20px',
-      minWidth: '300px',
+    loginContainer: {
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      position: 'absolute',
+      padding: '1.3em',
       border: '1px solid lightgray',
-      borderRadius: '10px'
+      borderRadius: '10px',
+      width: '40%',
+      minWidth: '300px',
+      maxWidth: '450px',
+      textAlign: 'center'
     },
     formInput: {
       border: '0',
@@ -94,305 +85,159 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["ma
       color: 'black',
       marginBottom: '30px'
     },
-    shippingAddress: {
-      width: '45%',
-      padding: '0px 2%',
-      borderRight: '1px solid lightgray',
-      '@media(max-width:800px)': {
-        order: '1',
-        width: '100%',
-        padding: '2% 0px',
-        borderRight: '0px'
-      }
+    formTitle: {
+      fontSize: '1.3em'
     },
-    customerAddress: {
-      width: '45%',
-      padding: '0px 2%',
-      '@media(max-width:800px)': {
-        order: '2',
-        width: '100%',
-        padding: '2% 0px',
-        borderBottom: '1px solid lightgray'
-      }
-    },
-    customerAddressTitle: {
-      fontSize: '1.2em',
-      fontWeight: 'bold'
-    },
-    shippingAddressTitle: {
-      fontSize: '1.2em',
-      fontWeight: 'bold'
-    },
-    addressInformation: {
-      display: 'flex',
-      flexWrap: 'wrap'
+    joinInSection: {
+      marginTop: '1.5em'
     }
   };
 });
 
-var ConfirmOrder = function ConfirmOrder(_ref) {
-  var user = _ref.auth.user,
+var Login = function Login(_ref) {
+  var auth = _ref.auth,
       history = _ref.history,
-      orderProducts = _ref.orderProducts,
-      getOrderedProducts = _ref.getOrderedProducts;
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    var fromCookieGetProducts = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var orderedProducts;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!user) {
-                  _context.next = 5;
-                  break;
-                }
+      location = _ref.location,
+      login = _ref.login;
 
-                _context.next = 3;
-                return getOrderedProducts();
-
-              case 3:
-                orderedProducts = _context.sent;
-
-                //check if the user has already selected products to buy if not then redirect them to cart page
-                if (orderedProducts.length === 0) {
-                  history.push('/cart');
-                }
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function fromCookieGetProducts() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-
-    fromCookieGetProducts();
-  }, [user]);
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      sameAsDefaultAddress = _useState2[0],
-      setSameAsDefaultAddress = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
-    name: '',
-    addrLine1: '',
-    addrLine2: '',
-    landmark: '',
-    state: '',
-    zipCode: '',
-    phone: ''
-  }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      shippingAddressForm = _useState4[0],
-      setShippingAddressForm = _useState4[1]; //set the address form state
-
-
-  var onShippingInputChange = function onShippingInputChange(e) {
-    setShippingAddressForm(_objectSpread(_objectSpread({}, shippingAddressForm), {}, _defineProperty({}, e.target.name, e.target.value)));
-  }; //set the shipping address as the user's default address
-
-
-  var setShippingAsDefaultAddress = function setShippingAsDefaultAddress() {
-    var ifDefaultAddress = !sameAsDefaultAddress;
-    setShippingAddress(ifDefaultAddress);
-    setSameAsDefaultAddress(ifDefaultAddress);
-  }; //set the shipping address form state
-
-
-  var setShippingAddress = function setShippingAddress(ifDefaultAddress) {
-    setShippingAddressForm({
-      name: ifDefaultAddress ? user.defaultAddress.name : '',
-      addrLine1: ifDefaultAddress ? user.defaultAddress.address_line_1 : '',
-      addrLine2: ifDefaultAddress ? user.defaultAddress.address_line_2 : '',
-      landmark: ifDefaultAddress ? user.defaultAddress.landmark : '',
-      state: ifDefaultAddress ? user.defaultAddress.state : '',
-      zipCode: ifDefaultAddress ? user.defaultAddress.zip_code : '',
-      phone: ifDefaultAddress ? user.defaultAddress.phone : ''
+  if (auth.isAuthenticated) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+      push: true,
+      to: "/"
     });
+  }
+
+  var doSomething = function doSomething() {};
+
+  var classess = useStyles();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
+    email: '',
+    password: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      formData = _useState2[0],
+      setFormData = _useState2[1];
+
+  var email = formData.email,
+      password = formData.password;
+
+  var onInputChange = function onInputChange(e) {
+    setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
 
-  var orderConfirmed = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var orderedProducts;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+  var loginUser = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+      var query, ifFromOrder, res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context.prev = _context.next) {
             case 0:
+              query = query_string__WEBPACK_IMPORTED_MODULE_10___default.a.parse(location.search);
+              ifFromOrder = false;
+
+              if (query.confirm_order) {
+                ifFromOrder = true;
+              }
+
               e.preventDefault();
-              _context2.next = 3;
-              return getOrderedProducts();
+              _context.prev = 4;
+              _context.next = 7;
+              return login({
+                email: email,
+                password: password
+              }, ifFromOrder);
 
-            case 3:
-              orderedProducts = _context2.sent;
-              orderProducts(orderedProducts, shippingAddressForm, sameAsDefaultAddress);
-              history.push('/orders');
+            case 7:
+              res = _context.sent;
+              ifFromOrder ? history.push('/confirm_order') : history.push('/');
+              _context.next = 14;
+              break;
 
-            case 6:
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](4);
+              console.log(_context.t0);
+
+            case 14:
             case "end":
-              return _context2.stop();
+              return _context.stop();
           }
         }
-      }, _callee2);
+      }, _callee, null, [[4, 11]]);
     }));
 
-    return function orderConfirmed(_x) {
-      return _ref3.apply(this, arguments);
+    return function loginUser(_x) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
-  var name = shippingAddressForm.name,
-      addrLine1 = shippingAddressForm.addrLine1,
-      addrLine2 = shippingAddressForm.addrLine2,
-      landmark = shippingAddressForm.landmark,
-      state = shippingAddressForm.state,
-      zipCode = shippingAddressForm.zipCode,
-      phone = shippingAddressForm.phone;
-  var classes = useStyles();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.ordersShippingContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.displayShippingDetails
+  var registerQuery = function registerQuery() {
+    var query = query_string__WEBPACK_IMPORTED_MODULE_10___default.a.parse(location.search);
+    var qString = '';
+
+    if (query.confirm_order) {
+      qString = '/register?confirm_order=true';
+    } else {
+      qString = '/register';
+    }
+
+    return qString;
+  }; //check if the form is validated by checking if the formErrors attributes are empty
+
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classess.loginContainer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: classes.orderShippingTitle
-  }, "Shipping Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.addressInformation
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.shippingAddress
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: classes.shippingAddressTitle
-  }, "Shipping Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
-    autoComplete: "off",
-    onSubmit: orderConfirmed
-  }, user && user.defaultAddress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_10__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      onChange: setShippingAsDefaultAddress,
-      name: "defaultAddressCheckbox"
-    }),
-    label: "Same as Current Address"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
+    className: classess.formTitle
+  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+    onSubmit: function onSubmit(e) {
+      return loginUser(e);
+    },
+    autoComplete: "off"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    type: "email",
     fullWidth: true,
-    className: classes.formInput,
+    className: classess.formInput,
+    id: "email",
     required: true,
-    name: "name",
-    label: "Building Name",
+    name: "email",
+    label: "Email",
     variant: "outlined",
     onChange: function onChange(e) {
-      return onShippingInputChange(e);
+      return onInputChange(e);
     },
-    value: name
+    value: email
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "text",
+    type: "password",
     fullWidth: true,
-    className: classes.formInput,
+    className: classess.formInput,
     required: true,
-    name: "addrLine1",
-    label: "Address Line 1",
+    id: "password",
+    name: "password",
+    label: "Password",
     variant: "outlined",
     onChange: function onChange(e) {
-      return onShippingInputChange(e);
+      return onInputChange(e);
     },
-    value: addrLine1,
-    autoComplete: "shipping address-line1"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "text",
-    fullWidth: true,
-    className: classes.formInput,
-    required: true,
-    name: "addrLine2",
-    label: "Address Line 2",
-    variant: "outlined",
-    onChange: function onChange(e) {
-      return onShippingInputChange(e);
-    },
-    value: addrLine2,
-    autoComplete: "shipping address-line2"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "text",
-    fullWidth: true,
-    className: classes.formInput,
-    name: "landmark",
-    label: "Landmark",
-    variant: "outlined",
-    onChange: function onChange(e) {
-      return onShippingInputChange(e);
-    },
-    value: landmark
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "text",
-    fullWidth: true,
-    className: classes.formInput,
-    required: true,
-    name: "state",
-    label: "State",
-    variant: "outlined",
-    onChange: function onChange(e) {
-      return onShippingInputChange(e);
-    },
-    value: state,
-    autoComplete: "shipping address-level1"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "text",
-    fullWidth: true,
-    className: classes.formInput,
-    required: true,
-    name: "zipCode",
-    label: "Zip Code",
-    variant: "outlined",
-    onChange: function onChange(e) {
-      return onShippingInputChange(e);
-    },
-    value: zipCode,
-    autoComplete: "shipping postal-code"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    disabled: sameAsDefaultAddress,
-    type: "tel",
-    fullWidth: true,
-    className: classes.formInput,
-    name: "phone",
-    label: "Phone No.",
-    placeholder: "888 888 8888",
-    pattern: "[0-9]{3} [0-9]{3} [0-9]{4}",
-    maxLength: "12",
-    title: "Ten digits code",
-    required: true,
-    variant: "outlined",
-    onChange: function onChange(e) {
-      return onShippingInputChange(e);
-    },
-    value: phone,
-    autoComplete: "tel"
+    value: password
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
     variant: "contained",
+    fullWidth: true,
     color: "primary",
     type: "submit"
-  }, "Confirm Order"), " \xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    variant: "contained",
-    color: "default",
-    type: "reset",
-    disabled: sameAsDefaultAddress
-  }, "Clear Form"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: classes.customerAddress
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: classes.customerAddressTitle
-  }, "Current Address"), user && user.defaultAddress ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Name:", user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Phone: ", user.defaultAddress.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Addresss: ", "".concat(user.defaultAddress.name, " ").concat(user.defaultAddress.address_line_1, " ").concat(user.defaultAddress.address_line_2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "".concat(user.defaultAddress.state, " ").concat(user.defaultAddress.zip_code))) : 'No address'))));
+  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classess.joinInSection
+  }, "Don't have an account with us?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: registerQuery
+  }, " Join Now")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_loaders_LinearLoader__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    loading: auth.loading
+  }));
 };
 
-ConfirmOrder.propTypes = {
-  orderProducts: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
-  auth: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+Login.propTypes = {
+  auth: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.object.isRequired,
+  login: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.func.isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -401,10 +246,9 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
-  orderProducts: _actions_order__WEBPACK_IMPORTED_MODULE_5__["orderProducts"],
-  getOrderedProducts: _actions_order__WEBPACK_IMPORTED_MODULE_5__["getOrderedProducts"]
-})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(ConfirmOrder)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps, {
+  login: _actions_auth__WEBPACK_IMPORTED_MODULE_4__["login"]
+})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Login)));
 
 /***/ })
 

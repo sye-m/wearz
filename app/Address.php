@@ -9,7 +9,7 @@ class Address extends Model
     protected $fillable = ['name','address_line_1','address_line_2','street','landmark', 'state', 'zip_code', 'phone','customer_id'];
 
     public function customer() {
-        return $this->belongsTo('App\Customer');
+        return $this->belongsTo('App\Customer','customer_id');
     }
 
     public function defaultCustomerAddress(){

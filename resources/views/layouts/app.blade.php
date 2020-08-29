@@ -20,9 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        html,body {
+        body {
             width: 100%;
-            height:100%;
+            min-height:100vh;
             margin: 0px;
             padding: 0px;
             font-family:Lato,Roboto,Helvetica,sans-serif;

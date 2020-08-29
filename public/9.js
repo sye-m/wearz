@@ -1,1 +1,789 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{185:function(e,r,t){"use strict";t.r(r);var a=t(7),n=t.n(a),o=t(0),i=t.n(o),l=t(12),c=t(15),s=t(63),d=t(43),u=t(10),m=t(3),f=t.n(m),p=t(24),b=t(39),h=t(68),g=t(28),v=t.n(g);function y(e,r,t,a,n,o,i){try{var l=e[o](i),c=l.value}catch(e){return void t(e)}l.done?r(c):Promise.resolve(c).then(a,n)}function w(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);r&&(a=a.filter((function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable}))),t.push.apply(t,a)}return t}function O(e){for(var r=1;r<arguments.length;r++){var t=null!=arguments[r]?arguments[r]:{};r%2?w(Object(t),!0).forEach((function(r){j(e,r,t[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):w(Object(t)).forEach((function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(t,r))}))}return e}function j(e,r,t){return r in e?Object.defineProperty(e,r,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[r]=t,e}function P(e,r){return function(e){if(Array.isArray(e))return e}(e)||function(e,r){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var t=[],a=!0,n=!1,o=void 0;try{for(var i,l=e[Symbol.iterator]();!(a=(i=l.next()).done)&&(t.push(i.value),!r||t.length!==r);a=!0);}catch(e){n=!0,o=e}finally{try{a||null==l.return||l.return()}finally{if(n)throw o}}return t}(e,r)||function(e,r){if(!e)return;if("string"==typeof e)return x(e,r);var t=Object.prototype.toString.call(e).slice(8,-1);"Object"===t&&e.constructor&&(t=e.constructor.name);if("Map"===t||"Set"===t)return Array.from(e);if("Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t))return x(e,r)}(e,r)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function x(e,r){(null==r||r>e.length)&&(r=e.length);for(var t=0,a=new Array(r);t<r;t++)a[t]=e[t];return a}var E=Object(s.a)((function(e){return{registerContainer:{top:"50%",left:"50%",transform:"translate(-50%, -50%)",position:"relative",padding:"1.3em",border:"1px solid lightgray",borderRadius:"10px",width:"40%",minWidth:"300px",maxWidth:"450px",textAlign:"center"},formInput:{border:"0",margin:"0",padding:"0",position:"relative",minWidth:"0",verticalAlign:"top",display:"block",flex:"none",color:"black",marginBottom:"30px"},formTitle:{fontSize:"1.3em"},logInSection:{marginTop:"1.5em"}}})),C=function(e){var r=e.auth,t=e.register,a=e.history,s=e.location;if(r.isAuthenticated)return i.a.createElement(l.a,{push:!0,to:"/"});var d=Object(o.useRef)(!0),u=P(Object(o.useState)({name:"",email:"",password:"",rePassword:""}),2),m=u[0],f=u[1],g=P(Object(o.useState)({name:"",email:"",password:"",rePassword:""}),2),w=g[0],x=g[1];Object(o.useEffect)((function(){d.current?d.current=!1:S()}),[w]);var C=w.name,k=w.email,I=w.password,q=w.rePassword,S=function(){var e={name:"",password:"",rePassword:"",email:""};C.length>0&&C.length<3?e.name="Name should be at least 3 characters long":e.name="",I.length>0&&I.length<8?e.password="Password should be at least 8 characters long":e.password="",I.length>0&&q.length>0&&I!==q?e.rePassword="Passwords do not match":e.rePassword="",f(e)},N=function(e){x(O(O({},w),{},j({},e.target.name,e.target.value)))},T=function(){var e,r=(e=n.a.mark((function e(r){var o,i;return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return r.preventDefault(),o=v.a.parse(s.search),i=!1,o.confirm_order&&(i=!0),e.prev=4,e.next=7,t({name:C,email:k,password:I},i);case 7:i?a.push("/confirm_order"):a.push("/"),e.next=13;break;case 10:e.prev=10,e.t0=e.catch(4),console.log(e.t0);case 13:case"end":return e.stop()}}),e,null,[[4,10]])})),function(){var r=this,t=arguments;return new Promise((function(a,n){var o=e.apply(r,t);function i(e){y(o,a,n,i,l,"next",e)}function l(e){y(o,a,n,i,l,"throw",e)}i(void 0)}))});return function(e){return r.apply(this,arguments)}}(),F=!Object.values(m).some((function(e){return null!==e&&""!==e})),A=E();return i.a.createElement(o.Fragment,null,i.a.createElement(h.a,{loading:r.loading}),i.a.createElement("div",{className:A.registerContainer},i.a.createElement("p",{className:A.formTitle},"Create Account"),i.a.createElement("hr",null),i.a.createElement("form",{onSubmit:function(e){return T(e)},autoComplete:"off"},i.a.createElement(p.a,{fullWidth:!0,error:m.name.length>0,className:A.formInput,id:"name",required:!0,name:"name",label:"Name",variant:"outlined",onChange:function(e){return N(e)},helperText:m.name}),i.a.createElement(p.a,{type:"email",fullWidth:!0,error:m.email.length>0,className:A.formInput,id:"email",required:!0,name:"email",label:"Email",variant:"outlined",onChange:function(e){return N(e)},value:k,helperText:m.email}),i.a.createElement(p.a,{type:"password",fullWidth:!0,error:m.password.length>0,className:A.formInput,required:!0,id:"password",name:"password",label:"Password",variant:"outlined",onChange:function(e){return N(e)},value:I,helperText:m.password}),i.a.createElement(p.a,{type:"password",fullWidth:!0,error:m.rePassword.length>0,className:A.formInput,required:!0,id:"rePassword",name:"rePassword",label:"Confirm Password",variant:"outlined",onChange:function(e){return N(e)},value:q,helperText:m.rePassword}),i.a.createElement(b.a,{disabled:!F,variant:"contained",fullWidth:!0,color:"primary",type:"submit"},"Create Account")),i.a.createElement("div",{className:A.logInSection},"Already have an account?",i.a.createElement(c.b,{to:"/login"}," Login"))))};C.propTypes={auth:f.a.object.isRequired,register:f.a.func.isRequired};r.default=Object(u.b)((function(e){return{auth:e.auth}}),{register:d.d})(Object(l.g)(C))},24:function(e,r,t){"use strict";var a=t(1),n=t(2),o=t(0),i=(t(3),t(4)),l=t(186),c=t(187),s=t(196),d=t(116),u=t(113),m=t(26),f=t(25),p=t(6),b=o.forwardRef((function(e,r){var t=e.children,l=e.classes,c=e.className,s=e.component,d=void 0===s?"p":s,u=(e.disabled,e.error,e.filled,e.focused,e.margin,e.required,e.variant,Object(n.a)(e,["children","classes","className","component","disabled","error","filled","focused","margin","required","variant"])),p=Object(f.a)(),b=Object(m.a)({props:e,muiFormControl:p,states:["variant","margin","disabled","error","filled","focused","required"]});return o.createElement(d,Object(a.a)({className:Object(i.a)(l.root,("filled"===b.variant||"outlined"===b.variant)&&l.contained,c,b.disabled&&l.disabled,b.error&&l.error,b.filled&&l.filled,b.focused&&l.focused,b.required&&l.required,"dense"===b.margin&&l.marginDense),ref:r},u)," "===t?o.createElement("span",{dangerouslySetInnerHTML:{__html:"&#8203;"}}):t)})),h=Object(p.a)((function(e){return{root:Object(a.a)({color:e.palette.text.secondary},e.typography.caption,{textAlign:"left",marginTop:3,margin:0,"&$disabled":{color:e.palette.text.disabled},"&$error":{color:e.palette.error.main}}),error:{},disabled:{},marginDense:{marginTop:4},contained:{marginLeft:14,marginRight:14},focused:{},filled:{},required:{}}}),{name:"MuiFormHelperText"})(b),g=t(115),v={standard:l.a,filled:c.a,outlined:s.a},y=o.forwardRef((function(e,r){var t=e.autoComplete,l=e.autoFocus,c=void 0!==l&&l,s=e.children,m=e.classes,f=e.className,p=e.color,b=void 0===p?"primary":p,y=e.defaultValue,w=e.disabled,O=void 0!==w&&w,j=e.error,P=void 0!==j&&j,x=e.FormHelperTextProps,E=e.fullWidth,C=void 0!==E&&E,k=e.helperText,I=e.hiddenLabel,q=e.id,S=e.InputLabelProps,N=e.inputProps,T=e.InputProps,F=e.inputRef,A=e.label,R=e.multiline,W=void 0!==R&&R,B=e.name,D=e.onBlur,L=e.onChange,M=e.onFocus,z=e.placeholder,$=e.required,H=void 0!==$&&$,_=e.rows,V=e.rowsMax,J=e.select,X=void 0!==J&&J,U=e.SelectProps,G=e.type,K=e.value,Q=e.variant,Y=void 0===Q?"standard":Q,Z=Object(n.a)(e,["autoComplete","autoFocus","children","classes","className","color","defaultValue","disabled","error","FormHelperTextProps","fullWidth","helperText","hiddenLabel","id","InputLabelProps","inputProps","InputProps","inputRef","label","multiline","name","onBlur","onChange","onFocus","placeholder","required","rows","rowsMax","select","SelectProps","type","value","variant"]);var ee={};if("outlined"===Y&&(S&&void 0!==S.shrink&&(ee.notched=S.shrink),A)){var re,te=null!==(re=null==S?void 0:S.required)&&void 0!==re?re:H;ee.label=o.createElement(o.Fragment,null,A,te&&" *")}X&&(U&&U.native||(ee.id=void 0),ee["aria-describedby"]=void 0);var ae=k&&q?"".concat(q,"-helper-text"):void 0,ne=A&&q?"".concat(q,"-label"):void 0,oe=v[Y],ie=o.createElement(oe,Object(a.a)({"aria-describedby":ae,autoComplete:t,autoFocus:c,defaultValue:y,fullWidth:C,multiline:W,name:B,rows:_,rowsMax:V,type:G,value:K,id:q,inputRef:F,onBlur:D,onChange:L,onFocus:M,placeholder:z,inputProps:N},ee,T));return o.createElement(u.a,Object(a.a)({className:Object(i.a)(m.root,f),disabled:O,error:P,fullWidth:C,hiddenLabel:I,ref:r,required:H,color:b,variant:Y},Z),A&&o.createElement(d.a,Object(a.a)({htmlFor:q,id:ne},S),A),X?o.createElement(g.a,Object(a.a)({"aria-describedby":ae,id:q,labelId:ne,value:K,input:ie},U),s):ie,k&&o.createElement(h,Object(a.a)({id:ae},x),k))}));r.a=Object(p.a)({root:{}},{name:"MuiTextField"})(y)},68:function(e,r,t){"use strict";var a=t(0),n=t.n(a),o=t(3),i=t.n(o),l=t(1),c=t(2),s=t(4),d=t(8),u=t(6),m=t(16),f=t(42),p=a.forwardRef((function(e,r){var t=e.classes,n=e.className,o=e.color,i=void 0===o?"primary":o,u=e.value,m=e.valueBuffer,p=e.variant,b=void 0===p?"indeterminate":p,h=Object(c.a)(e,["classes","className","color","value","valueBuffer","variant"]),g=Object(f.a)(),v={},y={bar1:{},bar2:{}};if("determinate"===b||"buffer"===b)if(void 0!==u){v["aria-valuenow"]=Math.round(u),v["aria-valuemin"]=0,v["aria-valuemax"]=100;var w=u-100;"rtl"===g.direction&&(w=-w),y.bar1.transform="translateX(".concat(w,"%)")}else 0;if("buffer"===b)if(void 0!==m){var O=(m||0)-100;"rtl"===g.direction&&(O=-O),y.bar2.transform="translateX(".concat(O,"%)")}else 0;return a.createElement("div",Object(l.a)({className:Object(s.a)(t.root,t["color".concat(Object(d.a)(i))],n,{determinate:t.determinate,indeterminate:t.indeterminate,buffer:t.buffer,query:t.query}[b]),role:"progressbar"},v,{ref:r},h),"buffer"===b?a.createElement("div",{className:Object(s.a)(t.dashed,t["dashedColor".concat(Object(d.a)(i))])}):null,a.createElement("div",{className:Object(s.a)(t.bar,t["barColor".concat(Object(d.a)(i))],("indeterminate"===b||"query"===b)&&t.bar1Indeterminate,{determinate:t.bar1Determinate,buffer:t.bar1Buffer}[b]),style:y.bar1}),"determinate"===b?null:a.createElement("div",{className:Object(s.a)(t.bar,("indeterminate"===b||"query"===b)&&t.bar2Indeterminate,"buffer"===b?[t["color".concat(Object(d.a)(i))],t.bar2Buffer]:t["barColor".concat(Object(d.a)(i))]),style:y.bar2}))})),b=Object(u.a)((function(e){var r=function(r){return"light"===e.palette.type?Object(m.d)(r,.62):Object(m.a)(r,.5)},t=r(e.palette.primary.main),a=r(e.palette.secondary.main);return{root:{position:"relative",overflow:"hidden",height:4,"@media print":{colorAdjust:"exact"}},colorPrimary:{backgroundColor:t},colorSecondary:{backgroundColor:a},determinate:{},indeterminate:{},buffer:{backgroundColor:"transparent"},query:{transform:"rotate(180deg)"},dashed:{position:"absolute",marginTop:0,height:"100%",width:"100%",animation:"$buffer 3s infinite linear"},dashedColorPrimary:{backgroundImage:"radial-gradient(".concat(t," 0%, ").concat(t," 16%, transparent 42%)"),backgroundSize:"10px 10px",backgroundPosition:"0 -23px"},dashedColorSecondary:{backgroundImage:"radial-gradient(".concat(a," 0%, ").concat(a," 16%, transparent 42%)"),backgroundSize:"10px 10px",backgroundPosition:"0 -23px"},bar:{width:"100%",position:"absolute",left:0,bottom:0,top:0,transition:"transform 0.2s linear",transformOrigin:"left"},barColorPrimary:{backgroundColor:e.palette.primary.main},barColorSecondary:{backgroundColor:e.palette.secondary.main},bar1Indeterminate:{width:"auto",animation:"$indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite"},bar1Determinate:{transition:"transform .".concat(4,"s linear")},bar1Buffer:{zIndex:1,transition:"transform .".concat(4,"s linear")},bar2Indeterminate:{width:"auto",animation:"$indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite"},bar2Buffer:{transition:"transform .".concat(4,"s linear")},"@keyframes indeterminate1":{"0%":{left:"-35%",right:"100%"},"60%":{left:"100%",right:"-90%"},"100%":{left:"100%",right:"-90%"}},"@keyframes indeterminate2":{"0%":{left:"-200%",right:"100%"},"60%":{left:"107%",right:"-8%"},"100%":{left:"107%",right:"-8%"}},"@keyframes buffer":{"0%":{opacity:1,backgroundPosition:"0 -23px"},"50%":{opacity:0,backgroundPosition:"0 -23px"},"100%":{opacity:1,backgroundPosition:"-200px -23px"}}}}),{name:"MuiLinearProgress"})(p),h=function(e){var r=e.loading;return n.a.createElement(a.Fragment,null,r&&n.a.createElement(b,null))};h.propTypes={loading:i.a.bool.isRequired};r.a=h}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
+
+/***/ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js ***!
+  \*****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/index.js");
+/* harmony import */ var _internal_SwitchBase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/SwitchBase */ "./node_modules/@material-ui/core/esm/internal/SwitchBase.js");
+/* harmony import */ var _internal_svg_icons_CheckBoxOutlineBlank__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../internal/svg-icons/CheckBoxOutlineBlank */ "./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js");
+/* harmony import */ var _internal_svg_icons_CheckBox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/svg-icons/CheckBox */ "./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _internal_svg_icons_IndeterminateCheckBox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../internal/svg-icons/IndeterminateCheckBox */ "./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      color: theme.palette.text.secondary
+    },
+
+    /* Pseudo-class applied to the root element if `checked={true}`. */
+    checked: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `indeterminate={true}`. */
+    indeterminate: {},
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      '&$checked': {
+        color: theme.palette.primary.main,
+        '&:hover': {
+          backgroundColor: Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_9__["fade"])(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        }
+      },
+      '&$disabled': {
+        color: theme.palette.action.disabled
+      }
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      '&$checked': {
+        color: theme.palette.secondary.main,
+        '&:hover': {
+          backgroundColor: Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_9__["fade"])(theme.palette.secondary.main, theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        }
+      },
+      '&$disabled': {
+        color: theme.palette.action.disabled
+      }
+    }
+  };
+};
+var defaultCheckedIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_CheckBox__WEBPACK_IMPORTED_MODULE_8__["default"], null);
+var defaultIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_CheckBoxOutlineBlank__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+var defaultIndeterminateIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_IndeterminateCheckBox__WEBPACK_IMPORTED_MODULE_10__["default"], null);
+var Checkbox = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function Checkbox(props, ref) {
+  var _props$checkedIcon = props.checkedIcon,
+      checkedIcon = _props$checkedIcon === void 0 ? defaultCheckedIcon : _props$checkedIcon,
+      classes = props.classes,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'secondary' : _props$color,
+      _props$icon = props.icon,
+      iconProp = _props$icon === void 0 ? defaultIcon : _props$icon,
+      _props$indeterminate = props.indeterminate,
+      indeterminate = _props$indeterminate === void 0 ? false : _props$indeterminate,
+      _props$indeterminateI = props.indeterminateIcon,
+      indeterminateIconProp = _props$indeterminateI === void 0 ? defaultIndeterminateIcon : _props$indeterminateI,
+      inputProps = props.inputProps,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["checkedIcon", "classes", "color", "icon", "indeterminate", "indeterminateIcon", "inputProps", "size"]);
+
+  var icon = indeterminate ? indeterminateIconProp : iconProp;
+  var indeterminateIcon = indeterminate ? indeterminateIconProp : checkedIcon;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_SwitchBase__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    type: "checkbox",
+    classes: {
+      root: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes["color".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_11__["default"])(color))], indeterminate && classes.indeterminate),
+      checked: classes.checked,
+      disabled: classes.disabled
+    },
+    color: color,
+    inputProps: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      'data-indeterminate': indeterminate
+    }, inputProps),
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](icon, {
+      fontSize: icon.props.fontSize === undefined && size === "small" ? size : icon.props.fontSize
+    }),
+    checkedIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](indeterminateIcon, {
+      fontSize: indeterminateIcon.props.fontSize === undefined && size === "small" ? size : indeterminateIcon.props.fontSize
+    }),
+    ref: ref
+  }, other));
+});
+ true ? Checkbox.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * If `true`, the component is checked.
+   */
+  checked: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The icon to display when the component is checked.
+   */
+  checkedIcon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'primary', 'secondary']),
+
+  /**
+   * If `true`, the checkbox will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the ripple effect will be disabled.
+   */
+  disableRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The icon to display when the component is unchecked.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * The id of the `input` element.
+   */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * If `true`, the component appears indeterminate.
+   * This does not set the native input element to indeterminate due
+   * to inconsistent behavior across browsers.
+   * However, we set a `data-indeterminate` attribute on the input.
+   */
+  indeterminate: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The icon to display when the component is indeterminate.
+   */
+  indeterminateIcon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
+   */
+  inputProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * Pass a ref to the `input` element.
+   */
+  inputRef: _material_ui_utils__WEBPACK_IMPORTED_MODULE_5__["refType"],
+
+  /**
+   * Callback fired when the state is changed.
+   *
+   * @param {object} event The event source of the callback.
+   * You can pull out the new checked state by accessing `event.target.checked` (boolean).
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * If `true`, the `input` element will be required.
+   */
+  required: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The size of the checkbox.
+   * `small` is equivalent to the dense checkbox styling.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['medium', 'small']),
+
+  /**
+   * The value of the component. The DOM API casts this to a string.
+   * The browser uses "on" as the default value.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.any
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_12__["default"])(styles, {
+  name: 'MuiCheckbox'
+})(Checkbox));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Checkbox/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Checkbox/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Checkbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Checkbox__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+}), 'CheckBox'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+}), 'CheckBoxOutlineBlank'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
+}), 'IndeterminateCheckBox'));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/forms/AddressForm.js":
+/*!************************************************************!*\
+  !*** ./resources/js/react/components/forms/AddressForm.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
+  return {
+    formInput: {
+      border: '0',
+      margin: '0',
+      padding: '0',
+      position: 'relative',
+      minWidth: '0',
+      verticalAlign: 'top',
+      display: 'block',
+      flex: 'none',
+      color: 'black',
+      marginBottom: '15px'
+    }
+  };
+});
+
+var AddressForm = function AddressForm(_ref) {
+  var formButtonText = _ref.formButtonText,
+      address = _ref.address,
+      onChange = _ref.onChange,
+      sameAsDefaultAddress = _ref.sameAsDefaultAddress;
+  var classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 60
+    },
+    disabled: sameAsDefaultAddress,
+    fullWidth: true,
+    className: classes.formInput,
+    required: true,
+    name: "name",
+    label: "Building Name",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.name
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 60
+    },
+    disabled: sameAsDefaultAddress,
+    type: "text",
+    fullWidth: true,
+    className: classes.formInput,
+    required: true,
+    name: "addrLine1",
+    label: "Address Line 1",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.addrLine1,
+    autoComplete: "shipping address-line1"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 60
+    },
+    disabled: sameAsDefaultAddress,
+    type: "text",
+    fullWidth: true,
+    className: classes.formInput,
+    required: true,
+    name: "addrLine2",
+    label: "Address Line 2",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.addrLine2,
+    autoComplete: "shipping address-line2"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 60
+    },
+    disabled: sameAsDefaultAddress,
+    type: "text",
+    fullWidth: true,
+    className: classes.formInput,
+    name: "landmark",
+    label: "Landmark",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.landmark
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 60
+    },
+    disabled: sameAsDefaultAddress,
+    type: "text",
+    fullWidth: true,
+    className: classes.formInput,
+    required: true,
+    name: "state",
+    label: "State",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.state,
+    autoComplete: "shipping address-level1"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 6
+    },
+    disabled: sameAsDefaultAddress,
+    type: "text",
+    fullWidth: true,
+    className: classes.formInput,
+    required: true,
+    name: "zipCode",
+    label: "Zip Code",
+    variant: "outlined",
+    onChange: onChange,
+    value: address.zipCode,
+    placeholder: "6 digits [0-9] PIN code",
+    autoComplete: "shipping postal-code"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    inputProps: {
+      maxLength: 10
+    },
+    disabled: sameAsDefaultAddress,
+    type: "tel",
+    fullWidth: true,
+    className: classes.formInput,
+    name: "phone",
+    required: true,
+    variant: "outlined",
+    label: "Phone No.",
+    onChange: onChange,
+    value: address.phone,
+    placeholder: "10 digits number without prefixes",
+    autoComplete: "tel"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variant: "contained",
+    color: "primary",
+    type: "submit"
+  }, formButtonText), " \xA0");
+};
+
+AddressForm.propTypes = {
+  address: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (AddressForm);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/order/ConfirmOrder.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/react/components/order/ConfirmOrder.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _actions_order__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/order */ "./resources/js/react/actions/order.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _forms_AddressForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../forms/AddressForm */ "./resources/js/react/components/forms/AddressForm.js");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js");
+/* harmony import */ var _material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormGroup */ "./node_modules/@material-ui/core/esm/FormGroup/index.js");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/esm/FormControlLabel/index.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
+  return {
+    ordersShippingContainer: {
+      width: '100%',
+      minHeight: '100%',
+      display: 'flex',
+      justifyContent: 'center'
+    },
+    orderShippingTitle: {
+      fontSize: '1.5em',
+      fontWeight: 'bold',
+      width: '100%',
+      borderBottom: '1px solid #dadce0',
+      padding: '10px 0px'
+    },
+    displayShippingDetails: {
+      margin: '20px 0px',
+      width: '85%',
+      minHeight: '100%',
+      padding: '20px',
+      minWidth: '300px',
+      borderRadius: '10px'
+    },
+    formInput: {
+      border: '0',
+      margin: '0',
+      padding: '0',
+      position: 'relative',
+      minWidth: '0',
+      verticalAlign: 'top',
+      display: 'block',
+      flex: 'none',
+      color: 'black',
+      marginBottom: '30px'
+    },
+    shippingAddress: {
+      width: '45%',
+      padding: '0px 2%',
+      '@media(max-width:800px)': {
+        order: '2',
+        width: '100%',
+        padding: '2% 0px',
+        borderRight: '0px'
+      }
+    },
+    customerAddress: {
+      width: '45%',
+      padding: '0px 2%',
+      '@media(max-width:800px)': {
+        order: '1',
+        width: '100%',
+        padding: '2% 0px',
+        borderBottom: '1px solid #dadce0'
+      }
+    },
+    customerAddressTitle: {
+      fontSize: '1.2em',
+      fontWeight: 'bold'
+    },
+    shippingAddressTitle: {
+      fontSize: '1.2em',
+      fontWeight: 'bold'
+    },
+    addressInformation: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    }
+  };
+});
+
+var ConfirmOrder = function ConfirmOrder(_ref) {
+  var user = _ref.auth.user,
+      history = _ref.history,
+      orderProducts = _ref.orderProducts,
+      getOrderedProducts = _ref.getOrderedProducts;
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var fromCookieGetProducts = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var orderedProducts;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!user) {
+                  _context.next = 5;
+                  break;
+                }
+
+                _context.next = 3;
+                return getOrderedProducts();
+
+              case 3:
+                orderedProducts = _context.sent;
+
+                //check if the user has already selected products to buy if not then redirect them to cart page
+                if (orderedProducts.length === 0) {
+                  history.push('/cart');
+                }
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function fromCookieGetProducts() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    fromCookieGetProducts();
+  }, [user]);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      sameAsDefaultAddress = _useState2[0],
+      setSameAsDefaultAddress = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
+    name: '',
+    addrLine1: '',
+    addrLine2: '',
+    landmark: '',
+    state: '',
+    zipCode: '',
+    phone: ''
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      shippingAddressForm = _useState4[0],
+      setShippingAddressForm = _useState4[1]; //set the address form state
+
+
+  var onShippingInputChange = function onShippingInputChange(e) {
+    setShippingAddressForm(_objectSpread(_objectSpread({}, shippingAddressForm), {}, _defineProperty({}, e.target.name, e.target.value)));
+  }; //set the shipping address as the user's default address
+
+
+  var setShippingAsDefaultAddress = function setShippingAsDefaultAddress() {
+    var ifDefaultAddress = !sameAsDefaultAddress;
+    setShippingAddress(ifDefaultAddress);
+    setSameAsDefaultAddress(ifDefaultAddress);
+  }; //set the shipping address form state
+
+
+  var setShippingAddress = function setShippingAddress(ifDefaultAddress) {
+    setShippingAddressForm({
+      name: ifDefaultAddress ? user.defaultAddress.name : '',
+      addrLine1: ifDefaultAddress ? user.defaultAddress.address_line_1 : '',
+      addrLine2: ifDefaultAddress ? user.defaultAddress.address_line_2 : '',
+      landmark: ifDefaultAddress ? user.defaultAddress.landmark : '',
+      state: ifDefaultAddress ? user.defaultAddress.state : '',
+      zipCode: ifDefaultAddress ? user.defaultAddress.zip_code : '',
+      phone: ifDefaultAddress ? user.defaultAddress.phone : ''
+    });
+  };
+
+  var orderConfirmed = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var orderedProducts;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              _context2.next = 3;
+              return getOrderedProducts();
+
+            case 3:
+              orderedProducts = _context2.sent;
+              orderProducts(orderedProducts, shippingAddressForm, sameAsDefaultAddress);
+              history.push('/orders');
+
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function orderConfirmed(_x) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var name = shippingAddressForm.name,
+      addrLine1 = shippingAddressForm.addrLine1,
+      addrLine2 = shippingAddressForm.addrLine2,
+      landmark = shippingAddressForm.landmark,
+      state = shippingAddressForm.state,
+      zipCode = shippingAddressForm.zipCode,
+      phone = shippingAddressForm.phone;
+  var classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.ordersShippingContainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.displayShippingDetails
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.orderShippingTitle
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Shipping Details")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.addressInformation
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.shippingAddress
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: classes.shippingAddressTitle
+  }, "Shipping Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+    autoComplete: "off",
+    onSubmit: orderConfirmed
+  }, user && user.defaultAddress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_FormGroup__WEBPACK_IMPORTED_MODULE_9__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      onChange: setShippingAsDefaultAddress,
+      name: "defaultAddressCheckbox"
+    }),
+    label: "Same as Current Address"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_forms_AddressForm__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    formButtonText: "Confirm Order",
+    sameAsDefaultAddress: sameAsDefaultAddress,
+    onChange: function onChange(e) {
+      return onShippingInputChange(e);
+    },
+    address: shippingAddressForm
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.customerAddress
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: classes.customerAddressTitle
+  }, "Current Address"), user && user.defaultAddress ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Name:", user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Phone: ", user.defaultAddress.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Addresss: ", "".concat(user.defaultAddress.name, " ").concat(user.defaultAddress.address_line_1, " ").concat(user.defaultAddress.address_line_2, " ").concat(user.defaultAddress.landmark && user.defaultAddress.landmark)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "".concat(user.defaultAddress.state, " ").concat(user.defaultAddress.zip_code))) : 'No address'))));
+};
+
+ConfirmOrder.propTypes = {
+  orderProducts: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
+  auth: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
+  orderProducts: _actions_order__WEBPACK_IMPORTED_MODULE_5__["orderProducts"],
+  getOrderedProducts: _actions_order__WEBPACK_IMPORTED_MODULE_5__["getOrderedProducts"]
+})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(ConfirmOrder)));
+
+/***/ })
+
+}]);

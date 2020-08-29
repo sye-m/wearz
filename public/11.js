@@ -1,1 +1,496 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{191:function(e,t,r){"use strict";r.r(t);var a=r(7),n=r.n(a),i=r(0),d=r.n(i),o=r(3),l=r.n(o),s=r(10),u=r(63),c=r(32),p=r(12),m=r(24),f=r(39),h=r(171),b=r(169),g=r(172);function v(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);t&&(a=a.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,a)}return r}function y(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?v(Object(r),!0).forEach((function(t){x(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):v(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function x(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function O(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var r=[],a=!0,n=!1,i=void 0;try{for(var d,o=e[Symbol.iterator]();!(a=(d=o.next()).done)&&(r.push(d.value),!t||r.length!==t);a=!0);}catch(e){n=!0,i=e}finally{try{a||null==o.return||o.return()}finally{if(n)throw i}}return r}(e,t)||function(e,t){if(!e)return;if("string"==typeof e)return w(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);"Object"===r&&e.constructor&&(r=e.constructor.name);if("Map"===r||"Set"===r)return Array.from(e);if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return w(e,t)}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function w(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,a=new Array(t);r<t;r++)a[r]=e[r];return a}function j(e,t,r,a,n,i,d){try{var o=e[i](d),l=o.value}catch(e){return void r(e)}o.done?t(l):Promise.resolve(l).then(a,n)}function A(e){return function(){var t=this,r=arguments;return new Promise((function(a,n){var i=e.apply(t,r);function d(e){j(i,a,n,d,o,"next",e)}function o(e){j(i,a,n,d,o,"throw",e)}d(void 0)}))}}var E=Object(u.a)((function(e){return{ordersShippingContainer:{width:"100%",minHeight:"100%",display:"flex",justifyContent:"center"},orderShippingTitle:{fontSize:"1.5em",fontWeight:"bold",width:"100%",borderBottom:"1px solid lightgray"},displayShippingDetails:{margin:"20px 0px",width:"85%",minHeight:"100%",padding:"20px",minWidth:"300px",border:"1px solid lightgray",borderRadius:"10px"},formInput:{border:"0",margin:"0",padding:"0",position:"relative",minWidth:"0",verticalAlign:"top",display:"block",flex:"none",color:"black",marginBottom:"30px"},shippingAddress:{width:"45%",padding:"0px 2%",borderRight:"1px solid lightgray","@media(max-width:800px)":{order:"1",width:"100%",padding:"2% 0px",borderRight:"0px"}},customerAddress:{width:"45%",padding:"0px 2%","@media(max-width:800px)":{order:"2",width:"100%",padding:"2% 0px",borderBottom:"1px solid lightgray"}},customerAddressTitle:{fontSize:"1.2em",fontWeight:"bold"},shippingAddressTitle:{fontSize:"1.2em",fontWeight:"bold"},addressInformation:{display:"flex",flexWrap:"wrap"}}})),C=function(e){var t=e.auth.user,r=e.history,a=e.orderProducts,o=e.getOrderedProducts;Object(i.useEffect)((function(){(function(){var e=A(n.a.mark((function e(){return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!t){e.next=5;break}return e.next=3,o();case 3:0===e.sent.length&&r.push("/cart");case 5:case"end":return e.stop()}}),e)})));return function(){return e.apply(this,arguments)}})()()}),[t]);var l=O(Object(i.useState)(!1),2),s=l[0],u=l[1],c=O(Object(i.useState)({name:"",addrLine1:"",addrLine2:"",landmark:"",state:"",zipCode:"",phone:""}),2),p=c[0],v=c[1],w=function(e){v(y(y({},p),{},x({},e.target.name,e.target.value)))},j=function(e){v({name:e?t.defaultAddress.name:"",addrLine1:e?t.defaultAddress.address_line_1:"",addrLine2:e?t.defaultAddress.address_line_2:"",landmark:e?t.defaultAddress.landmark:"",state:e?t.defaultAddress.state:"",zipCode:e?t.defaultAddress.zip_code:"",phone:e?t.defaultAddress.phone:""})},C=function(){var e=A(n.a.mark((function e(t){var i;return n.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return t.preventDefault(),e.next=3,o();case 3:i=e.sent,a(i,p,s),r.push("/orders");case 6:case"end":return e.stop()}}),e)})));return function(t){return e.apply(this,arguments)}}(),P=p.name,S=p.addrLine1,N=p.addrLine2,I=p.landmark,L=p.state,q=p.zipCode,T=p.phone,k=E();return d.a.createElement("div",{className:k.ordersShippingContainer},d.a.createElement("div",{className:k.displayShippingDetails},d.a.createElement("p",{className:k.orderShippingTitle},"Shipping Details"),d.a.createElement("div",{className:k.addressInformation},d.a.createElement("div",{className:k.shippingAddress},d.a.createElement("p",{className:k.shippingAddressTitle},"Shipping Address"),d.a.createElement("form",{autoComplete:"off",onSubmit:C},t&&t.defaultAddress&&d.a.createElement(b.a,null,d.a.createElement(g.a,{control:d.a.createElement(h.a,{onChange:function(){var e=!s;j(e),u(e)},name:"defaultAddressCheckbox"}),label:"Same as Current Address"})),d.a.createElement(m.a,{disabled:s,fullWidth:!0,className:k.formInput,required:!0,name:"name",label:"Building Name",variant:"outlined",onChange:function(e){return w(e)},value:P}),d.a.createElement(m.a,{disabled:s,type:"text",fullWidth:!0,className:k.formInput,required:!0,name:"addrLine1",label:"Address Line 1",variant:"outlined",onChange:function(e){return w(e)},value:S,autoComplete:"shipping address-line1"}),d.a.createElement(m.a,{disabled:s,type:"text",fullWidth:!0,className:k.formInput,required:!0,name:"addrLine2",label:"Address Line 2",variant:"outlined",onChange:function(e){return w(e)},value:N,autoComplete:"shipping address-line2"}),d.a.createElement(m.a,{disabled:s,type:"text",fullWidth:!0,className:k.formInput,name:"landmark",label:"Landmark",variant:"outlined",onChange:function(e){return w(e)},value:I}),d.a.createElement(m.a,{disabled:s,type:"text",fullWidth:!0,className:k.formInput,required:!0,name:"state",label:"State",variant:"outlined",onChange:function(e){return w(e)},value:L,autoComplete:"shipping address-level1"}),d.a.createElement(m.a,{disabled:s,type:"text",fullWidth:!0,className:k.formInput,required:!0,name:"zipCode",label:"Zip Code",variant:"outlined",onChange:function(e){return w(e)},value:q,autoComplete:"shipping postal-code"}),d.a.createElement(m.a,{disabled:s,type:"tel",fullWidth:!0,className:k.formInput,name:"phone",label:"Phone No.",placeholder:"888 888 8888",pattern:"[0-9]{3} [0-9]{3} [0-9]{4}",maxLength:"12",title:"Ten digits code",required:!0,variant:"outlined",onChange:function(e){return w(e)},value:T,autoComplete:"tel"}),d.a.createElement(f.a,{variant:"contained",color:"primary",type:"submit"},"Confirm Order"),"  ",d.a.createElement(f.a,{variant:"contained",color:"default",type:"reset",disabled:s},"Clear Form"))),d.a.createElement("div",{className:k.customerAddress},d.a.createElement("p",{className:k.customerAddressTitle},"Current Address"),t&&t.defaultAddress?d.a.createElement(i.Fragment,null,d.a.createElement("p",null,"Name:",t.name),d.a.createElement("p",null,"Phone: ",t.defaultAddress.phone),d.a.createElement("p",null,"Addresss: ","".concat(t.defaultAddress.name," ").concat(t.defaultAddress.address_line_1," ").concat(t.defaultAddress.address_line_2)),d.a.createElement("p",null,"".concat(t.defaultAddress.state," ").concat(t.defaultAddress.zip_code))):"No address"))))};C.propTypes={orderProducts:l.a.func.isRequired,auth:l.a.object.isRequired};t.default=Object(s.b)((function(e){return{auth:e.auth}}),{orderProducts:c.d,getOrderedProducts:c.b})(Object(p.g)(C))},24:function(e,t,r){"use strict";var a=r(1),n=r(2),i=r(0),d=(r(3),r(4)),o=r(186),l=r(187),s=r(196),u=r(116),c=r(113),p=r(26),m=r(25),f=r(6),h=i.forwardRef((function(e,t){var r=e.children,o=e.classes,l=e.className,s=e.component,u=void 0===s?"p":s,c=(e.disabled,e.error,e.filled,e.focused,e.margin,e.required,e.variant,Object(n.a)(e,["children","classes","className","component","disabled","error","filled","focused","margin","required","variant"])),f=Object(m.a)(),h=Object(p.a)({props:e,muiFormControl:f,states:["variant","margin","disabled","error","filled","focused","required"]});return i.createElement(u,Object(a.a)({className:Object(d.a)(o.root,("filled"===h.variant||"outlined"===h.variant)&&o.contained,l,h.disabled&&o.disabled,h.error&&o.error,h.filled&&o.filled,h.focused&&o.focused,h.required&&o.required,"dense"===h.margin&&o.marginDense),ref:t},c)," "===r?i.createElement("span",{dangerouslySetInnerHTML:{__html:"&#8203;"}}):r)})),b=Object(f.a)((function(e){return{root:Object(a.a)({color:e.palette.text.secondary},e.typography.caption,{textAlign:"left",marginTop:3,margin:0,"&$disabled":{color:e.palette.text.disabled},"&$error":{color:e.palette.error.main}}),error:{},disabled:{},marginDense:{marginTop:4},contained:{marginLeft:14,marginRight:14},focused:{},filled:{},required:{}}}),{name:"MuiFormHelperText"})(h),g=r(115),v={standard:o.a,filled:l.a,outlined:s.a},y=i.forwardRef((function(e,t){var r=e.autoComplete,o=e.autoFocus,l=void 0!==o&&o,s=e.children,p=e.classes,m=e.className,f=e.color,h=void 0===f?"primary":f,y=e.defaultValue,x=e.disabled,O=void 0!==x&&x,w=e.error,j=void 0!==w&&w,A=e.FormHelperTextProps,E=e.fullWidth,C=void 0!==E&&E,P=e.helperText,S=e.hiddenLabel,N=e.id,I=e.InputLabelProps,L=e.inputProps,q=e.InputProps,T=e.inputRef,k=e.label,W=e.multiline,F=void 0!==W&&W,_=e.name,R=e.onBlur,D=e.onChange,z=e.onFocus,B=e.placeholder,M=e.required,H=void 0!==M&&M,V=e.rows,$=e.rowsMax,J=e.select,U=void 0!==J&&J,Z=e.SelectProps,G=e.type,K=e.value,Q=e.variant,X=void 0===Q?"standard":Q,Y=Object(n.a)(e,["autoComplete","autoFocus","children","classes","className","color","defaultValue","disabled","error","FormHelperTextProps","fullWidth","helperText","hiddenLabel","id","InputLabelProps","inputProps","InputProps","inputRef","label","multiline","name","onBlur","onChange","onFocus","placeholder","required","rows","rowsMax","select","SelectProps","type","value","variant"]);var ee={};if("outlined"===X&&(I&&void 0!==I.shrink&&(ee.notched=I.shrink),k)){var te,re=null!==(te=null==I?void 0:I.required)&&void 0!==te?te:H;ee.label=i.createElement(i.Fragment,null,k,re&&" *")}U&&(Z&&Z.native||(ee.id=void 0),ee["aria-describedby"]=void 0);var ae=P&&N?"".concat(N,"-helper-text"):void 0,ne=k&&N?"".concat(N,"-label"):void 0,ie=v[X],de=i.createElement(ie,Object(a.a)({"aria-describedby":ae,autoComplete:r,autoFocus:l,defaultValue:y,fullWidth:C,multiline:F,name:_,rows:V,rowsMax:$,type:G,value:K,id:N,inputRef:T,onBlur:R,onChange:D,onFocus:z,placeholder:B,inputProps:L},ee,q));return i.createElement(c.a,Object(a.a)({className:Object(d.a)(p.root,m),disabled:O,error:j,fullWidth:C,hiddenLabel:S,ref:t,required:H,color:h,variant:X},Y),k&&i.createElement(u.a,Object(a.a)({htmlFor:N,id:ne},I),k),U?i.createElement(g.a,Object(a.a)({"aria-describedby":ae,id:N,labelId:ne,value:K,input:de},Z),s):de,P&&i.createElement(b,Object(a.a)({id:ae},A),P))}));t.a=Object(f.a)({root:{}},{name:"MuiTextField"})(y)}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
+
+/***/ "./node_modules/@material-ui/icons/AddShoppingCart.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/AddShoppingCart.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"
+}), 'AddShoppingCart');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Delete.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Delete.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+}), 'Delete');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/currency-symbol-map/currency-symbol-map.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/currency-symbol-map/currency-symbol-map.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var currencySymbolMap = __webpack_require__(/*! ./map */ "./node_modules/currency-symbol-map/map.js")
+
+module.exports = function getSymbolFromCurrency (currencyCode) {
+  if (typeof currencyCode !== 'string') return undefined
+  var code = currencyCode.toUpperCase()
+  if (!currencySymbolMap.hasOwnProperty(code)) return undefined
+  return currencySymbolMap[code]
+}
+
+module.exports.currencySymbolMap = currencySymbolMap
+
+
+/***/ }),
+
+/***/ "./node_modules/currency-symbol-map/map.js":
+/*!*************************************************!*\
+  !*** ./node_modules/currency-symbol-map/map.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  'AED': 'د.إ',
+  'AFN': '؋',
+  'ALL': 'L',
+  'AMD': '֏',
+  'ANG': 'ƒ',
+  'AOA': 'Kz',
+  'ARS': '$',
+  'AUD': '$',
+  'AWG': 'ƒ',
+  'AZN': '₼',
+  'BAM': 'KM',
+  'BBD': '$',
+  'BDT': '৳',
+  'BGN': 'лв',
+  'BHD': '.د.ب',
+  'BIF': 'FBu',
+  'BMD': '$',
+  'BND': '$',
+  'BOB': '$b',
+  'BRL': 'R$',
+  'BSD': '$',
+  'BTC': '฿',
+  'BTN': 'Nu.',
+  'BWP': 'P',
+  'BYR': 'Br',
+  'BYN': 'Br',
+  'BZD': 'BZ$',
+  'CAD': '$',
+  'CDF': 'FC',
+  'CHF': 'CHF',
+  'CLP': '$',
+  'CNY': '¥',
+  'COP': '$',
+  'CRC': '₡',
+  'CUC': '$',
+  'CUP': '₱',
+  'CVE': '$',
+  'CZK': 'Kč',
+  'DJF': 'Fdj',
+  'DKK': 'kr',
+  'DOP': 'RD$',
+  'DZD': 'دج',
+  'EEK': 'kr',
+  'EGP': '£',
+  'ERN': 'Nfk',
+  'ETB': 'Br',
+  'ETH': 'Ξ',
+  'EUR': '€',
+  'FJD': '$',
+  'FKP': '£',
+  'GBP': '£',
+  'GEL': '₾',
+  'GGP': '£',
+  'GHC': '₵',
+  'GHS': 'GH₵',
+  'GIP': '£',
+  'GMD': 'D',
+  'GNF': 'FG',
+  'GTQ': 'Q',
+  'GYD': '$',
+  'HKD': '$',
+  'HNL': 'L',
+  'HRK': 'kn',
+  'HTG': 'G',
+  'HUF': 'Ft',
+  'IDR': 'Rp',
+  'ILS': '₪',
+  'IMP': '£',
+  'INR': '₹',
+  'IQD': 'ع.د',
+  'IRR': '﷼',
+  'ISK': 'kr',
+  'JEP': '£',
+  'JMD': 'J$',
+  'JOD': 'JD',
+  'JPY': '¥',
+  'KES': 'KSh',
+  'KGS': 'лв',
+  'KHR': '៛',
+  'KMF': 'CF',
+  'KPW': '₩',
+  'KRW': '₩',
+  'KWD': 'KD',
+  'KYD': '$',
+  'KZT': 'лв',
+  'LAK': '₭',
+  'LBP': '£',
+  'LKR': '₨',
+  'LRD': '$',
+  'LSL': 'M',
+  'LTC': 'Ł',
+  'LTL': 'Lt',
+  'LVL': 'Ls',
+  'LYD': 'LD',
+  'MAD': 'MAD',
+  'MDL': 'lei',
+  'MGA': 'Ar',
+  'MKD': 'ден',
+  'MMK': 'K',
+  'MNT': '₮',
+  'MOP': 'MOP$',
+  'MRO': 'UM',
+  'MRU': 'UM',
+  'MUR': '₨',
+  'MVR': 'Rf',
+  'MWK': 'MK',
+  'MXN': '$',
+  'MYR': 'RM',
+  'MZN': 'MT',
+  'NAD': '$',
+  'NGN': '₦',
+  'NIO': 'C$',
+  'NOK': 'kr',
+  'NPR': '₨',
+  'NZD': '$',
+  'OMR': '﷼',
+  'PAB': 'B/.',
+  'PEN': 'S/.',
+  'PGK': 'K',
+  'PHP': '₱',
+  'PKR': '₨',
+  'PLN': 'zł',
+  'PYG': 'Gs',
+  'QAR': '﷼',
+  'RMB': '￥',
+  'RON': 'lei',
+  'RSD': 'Дин.',
+  'RUB': '₽',
+  'RWF': 'R₣',
+  'SAR': '﷼',
+  'SBD': '$',
+  'SCR': '₨',
+  'SDG': 'ج.س.',
+  'SEK': 'kr',
+  'SGD': '$',
+  'SHP': '£',
+  'SLL': 'Le',
+  'SOS': 'S',
+  'SRD': '$',
+  'SSP': '£',
+  'STD': 'Db',
+  'STN': 'Db',
+  'SVC': '$',
+  'SYP': '£',
+  'SZL': 'E',
+  'THB': '฿',
+  'TJS': 'SM',
+  'TMT': 'T',
+  'TND': 'د.ت',
+  'TOP': 'T$',
+  'TRL': '₤',
+  'TRY': '₺',
+  'TTD': 'TT$',
+  'TVD': '$',
+  'TWD': 'NT$',
+  'TZS': 'TSh',
+  'UAH': '₴',
+  'UGX': 'USh',
+  'USD': '$',
+  'UYU': '$U',
+  'UZS': 'лв',
+  'VEF': 'Bs',
+  'VND': '₫',
+  'VUV': 'VT',
+  'WST': 'WS$',
+  'XAF': 'FCFA',
+  'XBT': 'Ƀ',
+  'XCD': '$',
+  'XOF': 'CFA',
+  'XPF': '₣',
+  'YER': '﷼',
+  'ZAR': 'R',
+  'ZWD': 'Z$'
+}
+
+
+/***/ }),
+
+/***/ "./resources/js/react/components/order/Orders.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/react/components/order/Orders.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/order */ "./resources/js/react/actions/order.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! currency-symbol-map */ "./node_modules/currency-symbol-map/currency-symbol-map.js");
+/* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(currency_symbol_map__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/icons/AddShoppingCart */ "./node_modules/@material-ui/icons/AddShoppingCart.js");
+/* harmony import */ var _material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _loaders_CircularLoader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../loaders/CircularLoader */ "./resources/js/react/components/loaders/CircularLoader.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
+  var _productDetails;
+
+  return {
+    ordersContainer: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center'
+    },
+    orderTitle: {
+      fontSize: '1.5em',
+      fontWeight: 'bold',
+      width: '40%'
+    },
+    displayOrders: {
+      width: '85%',
+      minHeight: '100%',
+      padding: '20px',
+      minWidth: '300px',
+      borderRadius: '10px'
+    },
+    ordersDescription: {
+      display: 'flex',
+      fontWeight: 'bold',
+      borderBottom: '1px solid #dadce0'
+    },
+    orders: {
+      minHeight: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      marginTop: '10px'
+    },
+    orderedProduct: {
+      border: '1px solid #dadce0',
+      padding: '10px',
+      margin: '10px 0px',
+      borderRadius: '8px',
+      maxHeight: '270px',
+      height: '30%',
+      minHeight: '200px',
+      display: 'grid',
+      gap: '1em',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateRows: '1fr 1fr 1fr',
+      borderBottom: '1px solid lightgray'
+    },
+    productImage: _defineProperty({
+      width: '100%',
+      minWidth: '200px',
+      maxWidth: '300px',
+      maxHeight: '200px',
+      height: '100%',
+      gridColumnStart: '1',
+      gridColumnEnd: '1',
+      gridRowStart: '1',
+      gridRowEnd: '4',
+      '& img': {
+        height: '100%',
+        width: '100%',
+        objectFit: 'cover',
+        borderRadius: '10px'
+      }
+    }, '@media(max-width:600px)', {
+      minWidth: '100px',
+      gridRowEnd: '3',
+      gridRowStart: '1',
+      gridColumnStart: '1',
+      gridColumnEnd: '3'
+    }),
+    productName: {
+      fontSize: '1.2em',
+      textDecoration: 'none',
+      color: 'black'
+    },
+    productDetails: (_productDetails = {
+      gridRowStart: '2',
+      gridColumnStart: '2'
+    }, _defineProperty(_productDetails, '@media(max-width:600px)', {
+      gridRowStart: '3',
+      gridColumnStart: '1',
+      gridColumnEnd: '3'
+    }), _defineProperty(_productDetails, '& p', {
+      display: 'inline-block',
+      marginRight: '5px'
+    }), _productDetails),
+    productPrice: _defineProperty({
+      fontWeight: 'bold',
+      fontSize: '1.2em',
+      textAlign: 'end',
+      gridColumnStart: '4'
+    }, '@media(max-width:600px)', {
+      gridRowStart: '2',
+      gridColumnStart: '3',
+      textAlign: 'start'
+    }),
+    orderActions: _defineProperty({
+      gridRowStart: '3',
+      gridColumnStart: '2'
+    }, '@media(max-width:600px)', {
+      gridRowStart: '3',
+      gridColumnStart: '3'
+    }),
+    cancelOrderButton: {
+      backgroundColor: theme.palette.error.main,
+      color: '#fff',
+      '&:hover': {
+        backgroundColor: theme.palette.error.dark
+      }
+    }
+  };
+});
+
+var Orders = function Orders(_ref) {
+  var user = _ref.auth.user,
+      _ref$orders = _ref.orders,
+      products = _ref$orders.products,
+      loading = _ref$orders.loading,
+      getOrders = _ref.getOrders,
+      cancelOrder = _ref.cancelOrder;
+  var classes = useStyles();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    getOrders();
+  }, [user]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.ordersContainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.displayOrders
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.ordersDescription
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: classes.orderTitle
+  }, "Orders")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.orders
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_loaders_CircularLoader__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    loading: loading
+  }), products.length > 0 ? products.map(function (order, orderIndex) {
+    return order.map(function (product, productIndex) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.orderedProduct,
+        key: productIndex
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.productImage
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: product.image,
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
+        to: "/product/".concat(product.id),
+        className: classes.productName
+      }, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.productDetails
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Size:", product.pivot.size), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Quantity:", product.pivot.quantity)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.orderActions
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        variant: "contained",
+        className: classes.cancelOrderButton,
+        startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_8___default.a, null),
+        onClick: function onClick() {
+          return cancelOrder(orderIndex, productIndex, product.pivot);
+        }
+      }, "Cancel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classes.productPrice
+      }, "".concat(currency_symbol_map__WEBPACK_IMPORTED_MODULE_5___default()('INR'), " ").concat(Math.round(product.price * product.pivot.quantity))));
+    });
+  }) : !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "No Products here.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
+    to: "/products"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    variant: "contained",
+    color: "primary",
+    startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_9___default.a, null)
+  }, "Shop Now"))))));
+};
+
+Orders.propTypes = {
+  orders: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    orders: state.orders,
+    auth: state.auth
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
+  getOrders: _actions_order__WEBPACK_IMPORTED_MODULE_2__["getOrders"],
+  cancelOrder: _actions_order__WEBPACK_IMPORTED_MODULE_2__["cancelOrder"]
+})(Orders));
+
+/***/ })
+
+}]);
