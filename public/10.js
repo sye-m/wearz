@@ -296,6 +296,7 @@ var FeaturedProductsBanner = function FeaturedProductsBanner(prop) {
       key: index,
       to: "/product/".concat(featuredProduct.id)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+      title: featuredProduct.name,
       className: classes.bannerImage,
       src: featuredProduct.image,
       alt: featuredProduct.name

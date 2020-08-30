@@ -1,23 +1,29 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[16],{
 
-/***/ "./resources/js/react/components/address/NewAddress.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/react/components/address/NewAddress.js ***!
-  \*************************************************************/
+/***/ "./resources/js/react/components/address/EditAddress.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/react/components/address/EditAddress.js ***!
+  \**************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _forms_AddressForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../forms/AddressForm */ "./resources/js/react/components/forms/AddressForm.js");
-/* harmony import */ var _actions_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/auth */ "./resources/js/react/actions/auth.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _forms_AddressForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../forms/AddressForm */ "./resources/js/react/components/forms/AddressForm.js");
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(query_string__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_auth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../actions/auth */ "./resources/js/react/actions/auth.js");
+
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -36,6 +42,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -43,9 +52,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
   return {
-    addAddressContainer: {
+    editAddressContainer: {
       width: '100%',
       display: 'flex',
       justifyContent: 'center'
@@ -53,12 +64,13 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
     displayAddress: {
       width: '85%',
       minHeight: '100%',
-      minWidth: '300px'
+      minWidth: '300px',
+      borderRadius: '10px'
     },
     addressDescription: {
       display: 'flex',
       fontWeight: 'bold',
-      borderBottom: '1px solid #dadce0'
+      borderBottom: '1px solid lightgray'
     },
     addressForm: {
       marginTop: '15px'
@@ -66,12 +78,53 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
   };
 });
 
-var NewAddress = function NewAddress(_ref) {
-  var user = _ref.auth.user,
-      history = _ref.history,
-      addAddress = _ref.addAddress;
+var EditAddress = function EditAddress(_ref) {
+  var location = _ref.location,
+      updateAddress = _ref.updateAddress;
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var getAddress = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(addressId) {
+        var res, address;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/getAddress/".concat(addressId));
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+              case 2:
+                res = _context.sent;
+                address = res.data.address;
+                setAddress({
+                  id: address.id,
+                  name: address ? address.name : '',
+                  addrLine1: address ? address.address_line_1 : '',
+                  addrLine2: address ? address.address_line_2 : '',
+                  landmark: address ? address.landmark : '',
+                  state: address ? address.state : '',
+                  zipCode: address ? address.zip_code : '',
+                  phone: address ? address.phone : ''
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function getAddress(_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    var query = query_string__WEBPACK_IMPORTED_MODULE_6___default.a.parse(location.search);
+    console.log(query);
+    getAddress(query.a);
+  }, []);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     id: '',
     name: '',
     addrLine1: '',
@@ -89,25 +142,24 @@ var NewAddress = function NewAddress(_ref) {
     setAddress(_objectSpread(_objectSpread({}, address), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
 
-  var newAddress = function newAddress(e) {
+  var editAddress = function editAddress(e) {
     e.preventDefault();
-    addAddress(address);
-    history.push("/user/".concat(user.name));
+    updateAddress(address);
   };
 
   var classes = useStyles();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.addAddressContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: classes.editAddressContainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.displayAddress
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.addressDescription
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add Address")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, "Edit Address")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.addressForm
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: newAddress
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AddressForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    formButtonText: "Add address",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+    onSubmit: editAddress
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_forms_AddressForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    formButtonText: "Save changes",
     address: address,
     sameAsDefaultAddress: null,
     onChange: function onChange(e) {
@@ -116,20 +168,12 @@ var NewAddress = function NewAddress(_ref) {
   })))));
 };
 
-NewAddress.propTypes = {
-  auth: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
-  addAddress: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+EditAddress.propTypes = {
+  updateAddress: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
 };
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
-  addAddress: _actions_auth__WEBPACK_IMPORTED_MODULE_5__["addAddress"]
-})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(NewAddress)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(null, {
+  updateAddress: _actions_auth__WEBPACK_IMPORTED_MODULE_8__["updateAddress"]
+})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(EditAddress)));
 
 /***/ }),
 

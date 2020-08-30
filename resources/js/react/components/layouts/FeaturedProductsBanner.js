@@ -87,7 +87,7 @@ const FeaturedProductsBanner = (prop) => {
             <div className={classes.bannerContainer}>
             {featuredProducts.length>0 && featuredProducts.map((featuredProduct,index)=>(
                 <Link key={index} to={`/product/${featuredProduct.id}`}>
-                    <img  className={classes.bannerImage} src={featuredProduct.image} alt={featuredProduct.name}/>
+                    <img  title={featuredProduct.name} className={classes.bannerImage} src={featuredProduct.image} alt={featuredProduct.name}/>
                 </Link>
             ))}
             
