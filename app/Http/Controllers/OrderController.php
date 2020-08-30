@@ -24,6 +24,16 @@ class OrderController extends Controller
         return response()->json(['orders'=>$orders]);
     }
 
+    public function getOrderDetails(Request $request)
+    {
+        $orderId = $request->query('orderId');
+        $orderedProductId = $request->query('orderedProductId');
+        $order = auth()->user()->orders()->where('id',$orderId)->first();
+        $product = $order->products()->where('order_product.id',$orderedProductId)->first();
+        $order = (object) ['id' => $order->id,'shipping_address' => $order->shippingAddress , 'product' =>(object)['name'=>$product->name, 'image' => $product->image, 'size'=>$product->pivot->size, 'quantity' => $product->pivot->quantity, 'price'=>$product->pivot->price],'ordered_at'=>$order->created_at];
+        return response(['order'=>$order],200);
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -44,7 +54,7 @@ class OrderController extends Controller
             $order = Order::create(['customer_id'=>auth()->user()->id,'shipping_id'=>$address_id]);
         }
         foreach($products as $product){
-            $order->products()->attach($product['product_id'],['size'=>$product['size'],'quantity'=>$product['quantity']]);
+            $order->products()->attach($product['product_id'],['size'=>$product['size'],'quantity'=>$product['quantity'],'price'=>$product['price']]);
         }
         
         return response()->json(['allProducts'=>$order],200);

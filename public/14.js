@@ -191,12 +191,18 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
     border: '1px solid #dadce0',
     padding: '0px 10px 10px 10px',
     margin: '10px',
-    borderRadius: '8px'
+    borderRadius: '8px',
+    '& span': {
+      display: 'block'
+    }
   }), _defineProperty(_ref, "contactInfoContainer", {
     border: '1px solid #dadce0',
     padding: '0px 10px 10px 10px',
     margin: '10px',
-    borderRadius: '8px'
+    borderRadius: '8px',
+    '& span': {
+      display: 'block'
+    }
   }), _defineProperty(_ref, "addressOptionContainer", {
     display: 'flex',
     margin: '10px 0px'
@@ -240,9 +246,6 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
     backgroundColor: theme.palette.primary.main,
     color: '#fff',
     margin: '10px 0px',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark
-    },
     '& svg': {
       fontSize: '1.2rem'
     }
@@ -285,9 +288,9 @@ var ViewUser = function ViewUser(_ref2) {
     className: classes.userDetails
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.contactInfoContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Contact Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name"), ":", user.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Email-Id"), ": ", user.email))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Contact Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name"), ":", user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Email-Id"), ": ", user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.defaultAddressContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Default Address"), user.defaultAddress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Residence Name"), ": ", user.defaultAddress.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Addresss"), ": ", "".concat(user.defaultAddress.name, " ").concat(user.defaultAddress.address_line_1, " ").concat(user.defaultAddress.address_line_2, " ").concat(user.defaultAddress.landmark && user.defaultAddress.landmark)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(user.defaultAddress.state, " ").concat(user.defaultAddress.zip_code)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Phone"), ": ", user.defaultAddress.phone))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Default Address"), user.defaultAddress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Residence Name"), ": ", user.defaultAddress.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Addresss"), ": ", "".concat(user.defaultAddress.name, " ").concat(user.defaultAddress.address_line_1, " ").concat(user.defaultAddress.address_line_2, " ").concat(user.defaultAddress.landmark && user.defaultAddress.landmark, " ").concat(user.defaultAddress.state, " ").concat(user.defaultAddress.zip_code)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Phone"), ": ", user.defaultAddress.phone))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.manageAddressContainer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Manage Addresses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_6__["default"], {
     "aria-label": "addresses",

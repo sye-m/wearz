@@ -58,14 +58,19 @@ const useStyles = makeStyles((theme) => ({
         border:'1px solid #dadce0',
         padding:'0px 10px 10px 10px',
         margin:'10px',
-        borderRadius:'8px'
-
+        borderRadius:'8px',
+        '& span':{
+            display:'block'
+        }
     },
     contactInfoContainer:{
         border:'1px solid #dadce0',
         padding:'0px 10px 10px 10px',
         margin:'10px',
-        borderRadius:'8px'
+        borderRadius:'8px',
+        '& span':{
+            display:'block'
+        }
     },
     addressOptionContainer:{
         display:'flex',
@@ -115,9 +120,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:theme.palette.primary.main,
         color:'#fff',
         margin:'10px 0px',
-        '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
-          },
         '& svg':{
             fontSize:'1.2rem'
         }
@@ -147,8 +149,8 @@ const ViewUser = ({auth:{user,loading},editDefaultAddress, deleteAddress,loadUse
                 <div className={classes.userDetails}>
                     <div className={classes.contactInfoContainer}>
                         <h3>Contact Info</h3>
-                        <div><span><b>Name</b>:{user.name}</span></div>
-                        <div><span><b>Email-Id</b>: {user.email}</span></div>
+                        <span><b>Name</b>:{user.name}</span>
+                        <span><b>Email-Id</b>: {user.email}</span>
                     </div>
                     <div className={classes.defaultAddressContainer}>
                         <h3>Default Address</h3>
@@ -156,9 +158,7 @@ const ViewUser = ({auth:{user,loading},editDefaultAddress, deleteAddress,loadUse
                         <Fragment>
                         <span><b>Residence Name</b>: {user.defaultAddress.name}</span>
                         <br/>
-                        <span><b>Addresss</b>: {`${user.defaultAddress.name} ${user.defaultAddress.address_line_1} ${user.defaultAddress.address_line_2} ${user.defaultAddress.landmark && user.defaultAddress.landmark}`}</span>            
-                        <br/>
-                        <span>{`${user.defaultAddress.state} ${user.defaultAddress.zip_code}`}</span>
+                        <span><b>Addresss</b>: {`${user.defaultAddress.name} ${user.defaultAddress.address_line_1} ${user.defaultAddress.address_line_2} ${user.defaultAddress.landmark && user.defaultAddress.landmark} ${user.defaultAddress.state} ${user.defaultAddress.zip_code}`}</span>
                         <br/>
                         <span><b>Phone</b>: {user.defaultAddress.phone}</span>
                         </Fragment>}

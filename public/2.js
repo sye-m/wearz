@@ -1,605 +1,614 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ "./node_modules/@material-ui/icons/AddShoppingCart.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@material-ui/icons/AddShoppingCart.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js ***!
+  \*****************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _FormControl_formControlState__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../FormControl/formControlState */ "./node_modules/@material-ui/core/esm/FormControl/formControlState.js");
+/* harmony import */ var _FormControl_useFormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../FormControl/useFormControl */ "./node_modules/@material-ui/core/esm/FormControl/useFormControl.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      color: theme.palette.text.secondary
+    }, theme.typography.caption, {
+      textAlign: 'left',
+      marginTop: 3,
+      margin: 0,
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      },
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    }),
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `margin="dense"`. */
+    marginDense: {
+      marginTop: 4
+    },
+
+    /* Styles applied to the root element if `variant="filled"` or `variant="outlined"`. */
+    contained: {
+      marginLeft: 14,
+      marginRight: 14
+    },
+
+    /* Pseudo-class applied to the root element if `focused={true}`. */
+    focused: {},
+
+    /* Pseudo-class applied to the root element if `filled={true}`. */
+    filled: {},
+
+    /* Pseudo-class applied to the root element if `required={true}`. */
+    required: {}
+  };
+};
+var FormHelperText = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function FormHelperText(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'p' : _props$component,
+      disabled = props.disabled,
+      error = props.error,
+      filled = props.filled,
+      focused = props.focused,
+      margin = props.margin,
+      required = props.required,
+      variant = props.variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["children", "classes", "className", "component", "disabled", "error", "filled", "focused", "margin", "required", "variant"]);
+
+  var muiFormControl = Object(_FormControl_useFormControl__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  var fcs = Object(_FormControl_formControlState__WEBPACK_IMPORTED_MODULE_5__["default"])({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['variant', 'margin', 'disabled', 'error', 'filled', 'focused', 'required']
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, (fcs.variant === 'filled' || fcs.variant === 'outlined') && classes.contained, className, fcs.disabled && classes.disabled, fcs.error && classes.error, fcs.filled && classes.filled, fcs.focused && classes.focused, fcs.required && classes.required, fcs.margin === 'dense' && classes.marginDense),
+    ref: ref
+  }, other), children === ' ' ?
+  /*#__PURE__*/
+  // eslint-disable-next-line react/no-danger
+  react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+    dangerouslySetInnerHTML: {
+      __html: '&#8203;'
+    }
+  }) : children);
 });
-exports.default = void 0;
+ true ? FormHelperText.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+  /**
+   * The content of the component.
+   *
+   * If `' '` is provided, the component reserves one line height for displaying a future message.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
-var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
-  d: "M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"
-}), 'AddShoppingCart');
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
 
-exports.default = _default;
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a
+  /* @typescript-to-proptypes-ignore */
+  .elementType,
 
-/***/ }),
+  /**
+   * If `true`, the helper text should be displayed in a disabled state.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-/***/ "./node_modules/@material-ui/icons/Delete.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@material-ui/icons/Delete.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  /**
+   * If `true`, helper text should be displayed in an error state.
+   */
+  error: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-"use strict";
+  /**
+   * If `true`, the helper text should use filled classes key.
+   */
+  filled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
+  /**
+   * If `true`, the helper text should use focused classes key.
+   */
+  focused: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+  /**
+   * If `dense`, will adjust vertical spacing. This is normally obtained via context from
+   * FormControl.
+   */
+  margin: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['dense']),
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+  /**
+   * If `true`, the helper text should use required classes key.
+   */
+  required: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
-
-var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
-  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-}), 'Delete');
-
-exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/currency-symbol-map/currency-symbol-map.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/currency-symbol-map/currency-symbol-map.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var currencySymbolMap = __webpack_require__(/*! ./map */ "./node_modules/currency-symbol-map/map.js")
-
-module.exports = function getSymbolFromCurrency (currencyCode) {
-  if (typeof currencyCode !== 'string') return undefined
-  var code = currencyCode.toUpperCase()
-  if (!currencySymbolMap.hasOwnProperty(code)) return undefined
-  return currencySymbolMap[code]
-}
-
-module.exports.currencySymbolMap = currencySymbolMap
-
-
-/***/ }),
-
-/***/ "./node_modules/currency-symbol-map/map.js":
-/*!*************************************************!*\
-  !*** ./node_modules/currency-symbol-map/map.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = {
-  'AED': 'د.إ',
-  'AFN': '؋',
-  'ALL': 'L',
-  'AMD': '֏',
-  'ANG': 'ƒ',
-  'AOA': 'Kz',
-  'ARS': '$',
-  'AUD': '$',
-  'AWG': 'ƒ',
-  'AZN': '₼',
-  'BAM': 'KM',
-  'BBD': '$',
-  'BDT': '৳',
-  'BGN': 'лв',
-  'BHD': '.د.ب',
-  'BIF': 'FBu',
-  'BMD': '$',
-  'BND': '$',
-  'BOB': '$b',
-  'BRL': 'R$',
-  'BSD': '$',
-  'BTC': '฿',
-  'BTN': 'Nu.',
-  'BWP': 'P',
-  'BYR': 'Br',
-  'BYN': 'Br',
-  'BZD': 'BZ$',
-  'CAD': '$',
-  'CDF': 'FC',
-  'CHF': 'CHF',
-  'CLP': '$',
-  'CNY': '¥',
-  'COP': '$',
-  'CRC': '₡',
-  'CUC': '$',
-  'CUP': '₱',
-  'CVE': '$',
-  'CZK': 'Kč',
-  'DJF': 'Fdj',
-  'DKK': 'kr',
-  'DOP': 'RD$',
-  'DZD': 'دج',
-  'EEK': 'kr',
-  'EGP': '£',
-  'ERN': 'Nfk',
-  'ETB': 'Br',
-  'ETH': 'Ξ',
-  'EUR': '€',
-  'FJD': '$',
-  'FKP': '£',
-  'GBP': '£',
-  'GEL': '₾',
-  'GGP': '£',
-  'GHC': '₵',
-  'GHS': 'GH₵',
-  'GIP': '£',
-  'GMD': 'D',
-  'GNF': 'FG',
-  'GTQ': 'Q',
-  'GYD': '$',
-  'HKD': '$',
-  'HNL': 'L',
-  'HRK': 'kn',
-  'HTG': 'G',
-  'HUF': 'Ft',
-  'IDR': 'Rp',
-  'ILS': '₪',
-  'IMP': '£',
-  'INR': '₹',
-  'IQD': 'ع.د',
-  'IRR': '﷼',
-  'ISK': 'kr',
-  'JEP': '£',
-  'JMD': 'J$',
-  'JOD': 'JD',
-  'JPY': '¥',
-  'KES': 'KSh',
-  'KGS': 'лв',
-  'KHR': '៛',
-  'KMF': 'CF',
-  'KPW': '₩',
-  'KRW': '₩',
-  'KWD': 'KD',
-  'KYD': '$',
-  'KZT': 'лв',
-  'LAK': '₭',
-  'LBP': '£',
-  'LKR': '₨',
-  'LRD': '$',
-  'LSL': 'M',
-  'LTC': 'Ł',
-  'LTL': 'Lt',
-  'LVL': 'Ls',
-  'LYD': 'LD',
-  'MAD': 'MAD',
-  'MDL': 'lei',
-  'MGA': 'Ar',
-  'MKD': 'ден',
-  'MMK': 'K',
-  'MNT': '₮',
-  'MOP': 'MOP$',
-  'MRO': 'UM',
-  'MRU': 'UM',
-  'MUR': '₨',
-  'MVR': 'Rf',
-  'MWK': 'MK',
-  'MXN': '$',
-  'MYR': 'RM',
-  'MZN': 'MT',
-  'NAD': '$',
-  'NGN': '₦',
-  'NIO': 'C$',
-  'NOK': 'kr',
-  'NPR': '₨',
-  'NZD': '$',
-  'OMR': '﷼',
-  'PAB': 'B/.',
-  'PEN': 'S/.',
-  'PGK': 'K',
-  'PHP': '₱',
-  'PKR': '₨',
-  'PLN': 'zł',
-  'PYG': 'Gs',
-  'QAR': '﷼',
-  'RMB': '￥',
-  'RON': 'lei',
-  'RSD': 'Дин.',
-  'RUB': '₽',
-  'RWF': 'R₣',
-  'SAR': '﷼',
-  'SBD': '$',
-  'SCR': '₨',
-  'SDG': 'ج.س.',
-  'SEK': 'kr',
-  'SGD': '$',
-  'SHP': '£',
-  'SLL': 'Le',
-  'SOS': 'S',
-  'SRD': '$',
-  'SSP': '£',
-  'STD': 'Db',
-  'STN': 'Db',
-  'SVC': '$',
-  'SYP': '£',
-  'SZL': 'E',
-  'THB': '฿',
-  'TJS': 'SM',
-  'TMT': 'T',
-  'TND': 'د.ت',
-  'TOP': 'T$',
-  'TRL': '₤',
-  'TRY': '₺',
-  'TTD': 'TT$',
-  'TVD': '$',
-  'TWD': 'NT$',
-  'TZS': 'TSh',
-  'UAH': '₴',
-  'UGX': 'USh',
-  'USD': '$',
-  'UYU': '$U',
-  'UZS': 'лв',
-  'VEF': 'Bs',
-  'VND': '₫',
-  'VUV': 'VT',
-  'WST': 'WS$',
-  'XAF': 'FCFA',
-  'XBT': 'Ƀ',
-  'XCD': '$',
-  'XOF': 'CFA',
-  'XPF': '₣',
-  'YER': '﷼',
-  'ZAR': 'R',
-  'ZWD': 'Z$'
-}
-
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['filled', 'outlined', 'standard'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__["default"])(styles, {
+  name: 'MuiFormHelperText'
+})(FormHelperText));
 
 /***/ }),
 
-/***/ "./resources/js/react/components/cart/Cart.js":
-/*!****************************************************!*\
-  !*** ./resources/js/react/components/cart/Cart.js ***!
-  \****************************************************/
+/***/ "./node_modules/@material-ui/core/esm/FormHelperText/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/FormHelperText/index.js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! currency-symbol-map */ "./node_modules/currency-symbol-map/currency-symbol-map.js");
-/* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(currency_symbol_map__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _actions_cart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../actions/cart */ "./resources/js/react/actions/cart.js");
-/* harmony import */ var _actions_order__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../actions/order */ "./resources/js/react/actions/order.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "./node_modules/@material-ui/core/esm/InputLabel/index.js");
-/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/index.js");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
-/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/icons/AddShoppingCart */ "./node_modules/@material-ui/icons/AddShoppingCart.js");
-/* harmony import */ var _material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _loaders_CircularLoader__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../loaders/CircularLoader */ "./resources/js/react/components/loaders/CircularLoader.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var _FormHelperText__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormHelperText */ "./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _FormHelperText__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 
 
+/***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/TextField/TextField.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TextField/TextField.js ***!
+  \*******************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-
-
-
-
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/index.js");
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Input */ "./node_modules/@material-ui/core/esm/Input/index.js");
+/* harmony import */ var _FilledInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../FilledInput */ "./node_modules/@material-ui/core/esm/FilledInput/index.js");
+/* harmony import */ var _OutlinedInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../OutlinedInput */ "./node_modules/@material-ui/core/esm/OutlinedInput/index.js");
+/* harmony import */ var _InputLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../InputLabel */ "./node_modules/@material-ui/core/esm/InputLabel/index.js");
+/* harmony import */ var _FormControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../FormControl */ "./node_modules/@material-ui/core/esm/FormControl/index.js");
+/* harmony import */ var _FormHelperText__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../FormHelperText */ "./node_modules/@material-ui/core/esm/FormHelperText/index.js");
+/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
 
 
 
 
 
 
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
-  return {
-    cartContainer: {
-      width: '100%',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center'
-    },
-    displayCart: {
-      width: '85%',
-      minHeight: '100%',
-      minWidth: '200px'
-    },
-    cartDescription: {
-      display: 'flex',
-      borderBottom: '1px solid #dadce0'
-    },
-    cartTotal: {
-      fontSize: '1.3em',
-      fontWeight: 'bold',
-      width: '60%',
-      textAlign: 'end',
-      alignSelf: 'center',
-      color: [theme.palette.error.light]
-    },
-    productInput: _defineProperty({
-      width: '80px',
-      marginRight: '10px'
-    }, '@media(max-width:700px)', {
-      width: '60px'
-    }),
-    cartProducts: {
-      minHeight: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      marginTop: '10px'
-    },
-    cartProduct: {
-      border: '1px solid #dadce0',
-      padding: '10px',
-      margin: '10px 0px',
-      borderRadius: '8px',
-      maxHeight: '270px',
-      minHeight: '200px',
-      display: 'grid',
-      gap: '1em',
-      gridTemplateColumns: '1fr 1fr 1fr',
-      gridTemplateRows: '1fr 1fr 1fr'
-    },
-    cartTitle: {
-      fontSize: '1.5em',
-      fontWeight: 'bold',
-      width: '40%'
-    },
-    productDetails: {
-      width: '60%'
-    },
-    productPrice: _defineProperty({
-      fontWeight: 'bold',
-      fontSize: '1.2em',
-      gridColumnStart: '4'
-    }, '@media(max-width:700px)', {
-      gridRowStart: '2',
-      gridColumnStart: '3'
-    }),
-    productImage: _defineProperty({
-      width: '100%',
-      minWidth: '200px',
-      maxWidth: '300px',
-      maxHeight: '200px',
-      height: '100%',
-      gridColumnStart: '1',
-      gridColumnEnd: '1',
-      gridRowStart: '1',
-      gridRowEnd: '4',
-      '& img': {
-        height: '100%',
-        width: '100%',
-        objectFit: 'cover',
-        borderRadius: '10px'
-      }
-    }, '@media(max-width:600px)', {
-      minWidth: '100px',
-      gridRowEnd: '3',
-      gridRowStart: '1',
-      gridColumnStart: '1',
-      gridColumnEnd: '3'
-    }),
-    productName: {
-      fontSize: '1.2em',
-      textDecoration: 'none',
-      color: 'black'
-    },
-    productActions: _defineProperty({
-      gridRowStart: '2',
-      gridColumnStart: '2',
-      gridColumnEnd: '4'
-    }, '@media(max-width:600px)', {
-      gridRowStart: '3',
-      gridColumnStart: '1',
-      gridColumnEnd: '3'
-    }),
-    cartActions: _defineProperty({
-      gridRowStart: '3',
-      gridColumnStart: '2'
-    }, '@media(max-width:600px)', {
-      gridRowStart: '3',
-      gridColumnStart: '3'
-    }),
-    orderButton: {
-      marginTop: '10px',
-      width: '90%',
-      '& a': {
-        textDecoration: 'none',
-        color: '#000000'
-      }
+
+
+
+
+
+
+
+
+var variantComponent = {
+  standard: _Input__WEBPACK_IMPORTED_MODULE_6__["default"],
+  filled: _FilledInput__WEBPACK_IMPORTED_MODULE_7__["default"],
+  outlined: _OutlinedInput__WEBPACK_IMPORTED_MODULE_8__["default"]
+};
+var styles = {
+  /* Styles applied to the root element. */
+  root: {}
+};
+/**
+ * The `TextField` is a convenience wrapper for the most common cases (80%).
+ * It cannot be all things to all people, otherwise the API would grow out of control.
+ *
+ * ## Advanced Configuration
+ *
+ * It's important to understand that the text field is a simple abstraction
+ * on top of the following components:
+ *
+ * - [FormControl](/api/form-control/)
+ * - [InputLabel](/api/input-label/)
+ * - [FilledInput](/api/filled-input/)
+ * - [OutlinedInput](/api/outlined-input/)
+ * - [Input](/api/input/)
+ * - [FormHelperText](/api/form-helper-text/)
+ *
+ * If you wish to alter the props applied to the `input` element, you can do so as follows:
+ *
+ * ```jsx
+ * const inputProps = {
+ *   step: 300,
+ * };
+ *
+ * return <TextField id="time" type="time" inputProps={inputProps} />;
+ * ```
+ *
+ * For advanced cases, please look at the source of TextField by clicking on the
+ * "Edit this page" button above. Consider either:
+ *
+ * - using the upper case props for passing values directly to the components
+ * - using the underlying components directly as shown in the demos
+ */
+
+var TextField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function TextField(props, ref) {
+  var autoComplete = props.autoComplete,
+      _props$autoFocus = props.autoFocus,
+      autoFocus = _props$autoFocus === void 0 ? false : _props$autoFocus,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      defaultValue = props.defaultValue,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$error = props.error,
+      error = _props$error === void 0 ? false : _props$error,
+      FormHelperTextProps = props.FormHelperTextProps,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      helperText = props.helperText,
+      hiddenLabel = props.hiddenLabel,
+      id = props.id,
+      InputLabelProps = props.InputLabelProps,
+      inputProps = props.inputProps,
+      InputProps = props.InputProps,
+      inputRef = props.inputRef,
+      label = props.label,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      name = props.name,
+      onBlur = props.onBlur,
+      onChange = props.onChange,
+      onFocus = props.onFocus,
+      placeholder = props.placeholder,
+      _props$required = props.required,
+      required = _props$required === void 0 ? false : _props$required,
+      rows = props.rows,
+      rowsMax = props.rowsMax,
+      _props$select = props.select,
+      select = _props$select === void 0 ? false : _props$select,
+      SelectProps = props.SelectProps,
+      type = props.type,
+      value = props.value,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["autoComplete", "autoFocus", "children", "classes", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "hiddenLabel", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "rowsMax", "select", "SelectProps", "type", "value", "variant"]);
+
+  if (true) {
+    if (select && !children) {
+      console.error('Material-UI: `children` must be passed when using the `TextField` component with `select`.');
     }
-  };
+  }
+
+  var InputMore = {};
+
+  if (variant === 'outlined') {
+    if (InputLabelProps && typeof InputLabelProps.shrink !== 'undefined') {
+      InputMore.notched = InputLabelProps.shrink;
+    }
+
+    if (label) {
+      var _InputLabelProps$requ;
+
+      var displayRequired = (_InputLabelProps$requ = InputLabelProps === null || InputLabelProps === void 0 ? void 0 : InputLabelProps.required) !== null && _InputLabelProps$requ !== void 0 ? _InputLabelProps$requ : required;
+      InputMore.label = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, label, displayRequired && "\xA0*");
+    }
+  }
+
+  if (select) {
+    // unset defaults from textbox inputs
+    if (!SelectProps || !SelectProps.native) {
+      InputMore.id = undefined;
+    }
+
+    InputMore['aria-describedby'] = undefined;
+  }
+
+  var helperTextId = helperText && id ? "".concat(id, "-helper-text") : undefined;
+  var inputLabelId = label && id ? "".concat(id, "-label") : undefined;
+  var InputComponent = variantComponent[variant];
+  var InputElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](InputComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-describedby": helperTextId,
+    autoComplete: autoComplete,
+    autoFocus: autoFocus,
+    defaultValue: defaultValue,
+    fullWidth: fullWidth,
+    multiline: multiline,
+    name: name,
+    rows: rows,
+    rowsMax: rowsMax,
+    type: type,
+    value: value,
+    id: id,
+    inputRef: inputRef,
+    onBlur: onBlur,
+    onChange: onChange,
+    onFocus: onFocus,
+    placeholder: placeholder,
+    inputProps: inputProps
+  }, InputMore, InputProps));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    disabled: disabled,
+    error: error,
+    fullWidth: fullWidth,
+    hiddenLabel: hiddenLabel,
+    ref: ref,
+    required: required,
+    color: color,
+    variant: variant
+  }, other), label && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_InputLabel__WEBPACK_IMPORTED_MODULE_9__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    htmlFor: id,
+    id: inputLabelId
+  }, InputLabelProps), label), select ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_Select__WEBPACK_IMPORTED_MODULE_12__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-describedby": helperTextId,
+    id: id,
+    labelId: inputLabelId,
+    value: value,
+    input: InputElement
+  }, SelectProps), children) : InputElement, helperText && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_FormHelperText__WEBPACK_IMPORTED_MODULE_11__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    id: helperTextId
+  }, FormHelperTextProps), helperText));
 });
+ true ? TextField.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
 
-var Cart = function Cart(_ref) {
-  var auth = _ref.auth,
-      _ref$cart = _ref.cart,
-      products = _ref$cart.products,
-      loading = _ref$cart.loading,
-      history = _ref.history,
-      getCartItems = _ref.getCartItems,
-      updateCartProduct = _ref.updateCartProduct,
-      deleteCartProduct = _ref.deleteCartProduct,
-      orderProducts = _ref.orderProducts,
-      setOrderedProducts = _ref.setOrderedProducts;
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    getCartItems();
-  }, [products.length]);
-  var classes = useStyles();
+  /**
+   * This prop helps users to fill forms faster, especially on mobile devices.
+   * The name can be confusing, as it's more like an autofill.
+   * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+   */
+  autoComplete: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
 
-  var onProductChange = function onProductChange(e, positionInCart) {
-    var option = _defineProperty({}, e.target.name, e.target.value);
+  /**
+   * If `true`, the `input` element will be focused during the first mount.
+   */
+  autoFocus: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-    updateCartProduct(positionInCart, option);
-  };
+  /**
+   * @ignore
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
-  var getCartTotalPrice = function getCartTotalPrice() {
-    var cartTotal = 0;
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
-    if (products.length > 0) {
-      products.forEach(function (cartProduct) {
-        cartTotal = cartTotal + cartProduct.product.price * cartProduct.pivot.quantity;
-      });
-    }
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
 
-    return cartTotal;
-  };
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['primary', 'secondary']),
 
-  var getCartTotalItems = function getCartTotalItems() {
-    var cartTotalItems = 0;
-    products && products.forEach(function (cartProduct) {
-      cartTotalItems = cartTotalItems + cartProduct.pivot.quantity;
-    });
-    return cartTotalItems;
-  };
+  /**
+   * The default value of the `input` element.
+   */
+  defaultValue: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.any,
 
-  var orderCartProducts = function orderCartProducts() {
-    //if user has logged in order the products and redirect the user
-    if (auth.user) {
-      setOrderedProducts();
-      history.push('/confirm_order');
-    } //if user has not logged in 
-    else {
-        history.push('/login?confirm_order=true');
-      }
-  };
+  /**
+   * If `true`, the `input` element will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.cartContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.orderButton
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    color: "primary",
-    variant: "contained",
-    onClick: orderCartProducts
-  }, "Order Total(".concat(getCartTotalItems(), ") items"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.displayCart
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_loaders_CircularLoader__WEBPACK_IMPORTED_MODULE_15__["default"], {
-    loading: loading
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.cartDescription
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: classes.cartTitle
-  }, "Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: classes.cartTotal
-  }, "Total = ", "".concat(currency_symbol_map__WEBPACK_IMPORTED_MODULE_4___default()('INR'), " ").concat(Math.round(getCartTotalPrice())))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: classes.cartProducts
-  }, !loading && products.length > 0 ? products.map(function (cartProduct, index) {
-    return _typeof(cartProduct.product) == 'object' ?
-    /*#__PURE__*/
-    //if the product does not exist do not display it
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: classes.cartProduct,
-      key: index
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: classes.productImage
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: cartProduct.product.image,
-      alt: cartProduct.product.name
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
-      to: "/product/".concat(cartProduct.product.id),
-      className: classes.productName
-    }, cartProduct.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: classes.productActions
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
-      className: classes.productInput
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      id: "productSize"
-    }, "Size"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      name: "size",
-      labelId: "productSize",
-      value: cartProduct.pivot.size || '',
-      onChange: function onChange(e) {
-        return onProductChange(e, index);
-      }
-    }, cartProduct.product && cartProduct.product.size && cartProduct.product.size.split(',').map(function (size, index) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        key: index,
-        value: size
-      }, size);
-    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
-      className: classes.productInput
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      id: "productQuantity"
-    }, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      name: "quantity",
-      labelId: "productQuantiy",
-      value: cartProduct.pivot.quantity || '',
-      onChange: function onChange(e) {
-        return onProductChange(e, index);
-      }
-    }, cartProduct.product && Array.from(Array(10), function (_, i) {
-      return i + 1;
-    }).map(function (quantity, index) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        key: index,
-        value: quantity
-      }, quantity);
-    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: classes.cartActions
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
-      variant: "contained",
-      color: "secondary",
-      startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_13___default.a, null),
-      onClick: function onClick() {
-        return deleteCartProduct(cartProduct.pivot, index);
-      }
-    }, "Delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: classes.productPrice
-    }, "".concat(currency_symbol_map__WEBPACK_IMPORTED_MODULE_4___default()('INR'), " ").concat(cartProduct.product.price))) : '';
-  }) : !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "No Products here.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
-    to: "/products"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    variant: "contained",
-    color: "primary",
-    startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14___default.a, null)
-  }, "Shop Now"))))));
-};
+  /**
+   * If `true`, the label will be displayed in an error state.
+   */
+  error: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-Cart.propTypes = {
-  cart: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
-  getCartItems: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  updateCartProduct: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  deleteCartProduct: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
-};
+  /**
+   * Props applied to the [`FormHelperText`](/api/form-helper-text/) element.
+   */
+  FormHelperTextProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    cart: state.cart,
-    auth: state.auth
-  };
-};
+  /**
+   * If `true`, the input will take up the full width of its container.
+   */
+  fullWidth: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, {
-  getCartItems: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["getCartItems"],
-  updateCartProduct: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["updateCartProduct"],
-  deleteCartProduct: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["deleteCartProduct"],
-  setOrderedProducts: _actions_order__WEBPACK_IMPORTED_MODULE_6__["setOrderedProducts"]
-})(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(Cart)));
+  /**
+   * The helper text content.
+   */
+  helperText: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * @ignore
+   */
+  hiddenLabel: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The id of the `input` element.
+   * Use this prop to make `label` and `helperText` accessible for screen readers.
+   */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Props applied to the [`InputLabel`](/api/input-label/) element.
+   */
+  InputLabelProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
+   */
+  inputProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * Props applied to the Input element.
+   * It will be a [`FilledInput`](/api/filled-input/),
+   * [`OutlinedInput`](/api/outlined-input/) or [`Input`](/api/input/)
+   * component depending on the `variant` prop value.
+   */
+  InputProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * Pass a ref to the `input` element.
+   */
+  inputRef: _material_ui_utils__WEBPACK_IMPORTED_MODULE_5__["refType"],
+
+  /**
+   * The label content.
+   */
+  label: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
+   */
+  margin: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['dense', 'none', 'normal']),
+
+  /**
+   * If `true`, a textarea element will be rendered instead of an input.
+   */
+  multiline: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Name attribute of the `input` element.
+   */
+  name: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * @ignore
+   */
+  onBlur: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * Callback fired when the value is changed.
+   *
+   * @param {object} event The event source of the callback.
+   * You can pull out the new value by accessing `event.target.value` (string).
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onFocus: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The short hint displayed in the input before the user enters a value.
+   */
+  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * If `true`, the label is displayed as required and the `input` element` will be required.
+   */
+  required: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Number of rows to display when multiline option is set to true.
+   */
+  rows: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string]),
+
+  /**
+   * Maximum number of rows to display when multiline option is set to true.
+   */
+  rowsMax: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string]),
+
+  /**
+   * Render a [`Select`](/api/select/) element while passing the Input element to `Select` as `input` parameter.
+   * If this option is set you must pass the options of the select as children.
+   */
+  select: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Props applied to the [`Select`](/api/select/) element.
+   */
+  SelectProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * The size of the text field.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['medium', 'small']),
+
+  /**
+   * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+   */
+  type: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The value of the `input` element, required for a controlled component.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.any,
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['filled', 'outlined', 'standard'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_13__["default"])(styles, {
+  name: 'MuiTextField'
+})(TextField));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TextField/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TextField/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TextField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TextField__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
 
 /***/ })
 

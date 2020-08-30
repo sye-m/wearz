@@ -66,14 +66,13 @@ const useStyles = makeStyles((theme) => ({
       alignSelf:'center',
       fontSize:'1.5rem',
       '& a':{
-        color:'black',
+        color:'#ffffff',
         textDecoration:'none'
       }
     },
     user:{
       textAlign:'center',
       alignSelf:'center',
-     
     },
     userText:{
       fontSize:'1.2rem',
@@ -89,7 +88,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize:'2rem',
     },
     userButton:{
-      padding:'0px'
+      padding:'0px',
+      color:'#ffffff',
+    },
+    userLink:{
+      textDecoration:'none',
+      color:'black'
     },
     cartIcon:{
       fontSize:'2rem'
@@ -108,7 +112,8 @@ const useStyles = makeStyles((theme) => ({
     loginButton:{
         textDecoration:'none',
         color:'#000000',
-        cursor:'pointer'
+        cursor:'pointer',
+        color:'#ffffff'
     }
   }));
 const Navbar = ({history,location,auth,cart:{products},logout}) => {
@@ -185,7 +190,7 @@ const Navbar = ({history,location,auth,cart:{products},logout}) => {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                           >
-                            <Link to={`/user/${auth.user.name}`}>
+                            <Link to={`/user/${auth.user.name}`} className={classes.userLink}>
                               <MenuItem onClick={handleClose}>
                                 {auth.user && auth.user.name}
                               </MenuItem>

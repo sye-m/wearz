@@ -19,6 +19,7 @@ Route::post('loginCustomer','Auth\LoginController@login');
 Route::get('getBrands','BrandController@index');
 Route::get('getProductTypes','ProductTypeController@index');
 Route::get('getProducts','ProductController@index');
+Route::get('getFeaturedProducts','ProductController@getFeaturedProducts');
 Route::get('getProduct/{productId}','ProductController@show');
 Route::post('getCartItems','ProductController@getCartItems');
 Route::get('refreshToken',function (Request $request)
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::delete('deleteProductFromCart','CartController@deleteProduct');
     Route::delete('emptyCart','CartController@emptyCart');
     Route::get('getOrders','OrderController@index');
+    Route::get('getOrderDetails','OrderController@getOrderDetails');
     Route::post('orderProducts','OrderController@store');
     Route::delete('deleteOrderedProduct','OrderController@destroy');
 

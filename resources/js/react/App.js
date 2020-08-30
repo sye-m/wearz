@@ -22,15 +22,20 @@ const ConfirmOrder = lazy(()=>import('./components/order/ConfirmOrder'));
 const ViewUser = lazy(()=>import('./components/user/ViewUser'));
 const EditAddress = lazy(()=>import('./components/address/EditAddress'));
 const NewAddress = lazy(()=>import('./components/address/NewAddress'));
+const OrderDetails = lazy(()=>import('./components/order/OrderDetails'));
 
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#4a148c',
+      main: '#6a1b9a',
+      light:'#9c4dcc',
+      dark:'#38006b'
     },
     secondary: {
       main: '#ba68c8',
+      light:'#ee98fb',
+      dark:'#883997'
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -66,7 +71,7 @@ const App = (prop) => {
                               <PrivateRoute exact path="/user/:user_name" component={ViewUser} />
                               <PrivateRoute exact path="/user/:user_name/address" component={EditAddress} />
                               <PrivateRoute exact path="/user/:user_name/new_address" component={NewAddress} />
-
+                              <PrivateRoute exact path="/orders/view_order" component={OrderDetails} />
                           </Switch>
                         </Suspense>
                       </div>

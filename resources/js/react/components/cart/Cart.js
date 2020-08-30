@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
 import { getCartItems,updateCartProduct, deleteCartProduct } from './../../actions/cart';
-import { setOrderedProducts } from './../../actions/order';
+import { setOrderedProducts } from './../../actions/orders';
 import { Link,withRouter } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -137,6 +137,19 @@ const useStyles = makeStyles((theme) => ({
             textDecoration:'none',
             color:'#000000'
         }
+    },
+    productsLink:{
+        padding: '10px',
+        display: 'flex',
+        width: 'fit-content',
+        borderRadius: '4px',
+        textDecoration: 'none',
+        backgroundColor:theme.palette.primary.main,
+        color:'#fff',
+        margin:'10px 0px',
+        '& svg':{
+            fontSize:'1.2rem'
+        }
     }
   }))
   
@@ -252,11 +265,9 @@ const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProdu
                         </div>):''
                     )):!loading && (<div>
                             No Products here. 
-                            <Link to="/products">
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<AddShoppingCartIcon/>}>Shop Now</Button>
+                            <Link to="/products" className={classes.productsLink}>
+                                <AddShoppingCartIcon/>
+                                <span>Shop Now</span>
                             </Link>
                       
                     </div>)}

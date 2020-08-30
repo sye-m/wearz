@@ -76347,13 +76347,20 @@ var EditAddress = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["lazy"]
 var NewAddress = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["lazy"])(function () {
   return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./components/address/NewAddress */ "./resources/js/react/components/address/NewAddress.js"));
 });
+var OrderDetails = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["lazy"])(function () {
+  return Promise.all(/*! import() */[__webpack_require__.e(17), __webpack_require__.e(21)]).then(__webpack_require__.bind(null, /*! ./components/order/OrderDetails */ "./resources/js/react/components/order/OrderDetails.js"));
+});
 var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["createMuiTheme"])({
   palette: {
     primary: {
-      main: '#4a148c'
+      main: '#6a1b9a',
+      light: '#9c4dcc',
+      dark: '#38006b'
     },
     secondary: {
-      main: '#ba68c8'
+      main: '#ba68c8',
+      light: '#ee98fb',
+      dark: '#883997'
     },
     contrastThreshold: 3,
     tonalOffset: 0.2
@@ -76443,6 +76450,10 @@ var App = function App(prop) {
     exact: true,
     path: "/user/:user_name/new_address",
     component: NewAddress
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_routing_PrivateRoute__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    exact: true,
+    path: "/orders/view_order",
+    component: OrderDetails
   }))))))));
 };
 
@@ -76514,7 +76525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./alert */ "./resources/js/react/actions/alert.js");
 /* harmony import */ var _cart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cart */ "./resources/js/react/actions/cart.js");
 /* harmony import */ var _cookie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../cookie */ "./resources/js/react/cookie.js");
-/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./order */ "./resources/js/react/actions/order.js");
+/* harmony import */ var _orders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./orders */ "./resources/js/react/actions/orders.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -76815,7 +76826,7 @@ var postSignInActions = function postSignInActions(ifFromGuest) {
               }
 
               _context7.next = 13;
-              return dispatch(Object(_order__WEBPACK_IMPORTED_MODULE_6__["setOrderedProducts"])());
+              return dispatch(Object(_orders__WEBPACK_IMPORTED_MODULE_6__["setOrderedProducts"])());
 
             case 13:
               dispatch(Object(_cart__WEBPACK_IMPORTED_MODULE_4__["getCart"])());
@@ -77604,277 +77615,14 @@ var deleteCartProduct = function deleteCartProduct(productDetails, positionInCar
 
 /***/ }),
 
-/***/ "./resources/js/react/actions/order.js":
-/*!*********************************************!*\
-  !*** ./resources/js/react/actions/order.js ***!
-  \*********************************************/
+/***/ "./resources/js/react/actions/orders.js":
+/*!**********************************************!*\
+  !*** ./resources/js/react/actions/orders.js ***!
+  \**********************************************/
 /*! exports provided: setOrderedProducts, getOrderedProducts, getOrders, cancelOrder, orderProducts */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setOrderedProducts", function() { return setOrderedProducts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrderedProducts", function() { return getOrderedProducts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrders", function() { return getOrders; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelOrder", function() { return cancelOrder; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "orderProducts", function() { return orderProducts; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./resources/js/react/actions/types.js");
-/* harmony import */ var _alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./alert */ "./resources/js/react/actions/alert.js");
-/* harmony import */ var _cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../cookie */ "./resources/js/react/cookie.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-
-var setOrderedProducts = function setOrderedProducts() {
-  return /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch, getState) {
-      var cart, allProducts;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (getState().auth.user) {
-                cart = getState().cart.products;
-                allProducts = JSON.stringify(cart.map(function (cartProduct) {
-                  return cartProduct.pivot;
-                }));
-                Object(_cookie__WEBPACK_IMPORTED_MODULE_3__["setCookie"])(getState().auth.user.id, allProducts);
-              }
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x, _x2) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-var getOrderedProducts = function getOrderedProducts() {
-  return /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch, getState) {
-      var allProducts;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              allProducts = Object(_cookie__WEBPACK_IMPORTED_MODULE_3__["getCookie"])(getState().auth.user.id);
-
-              if (allProducts) {
-                allProducts = JSON.parse(allProducts);
-              } else {
-                allProducts = [];
-              }
-
-              return _context2.abrupt("return", allProducts);
-
-            case 3:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function (_x3, _x4) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-};
-var getOrders = function getOrders() {
-  return /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch, getState) {
-      var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.prev = 0;
-
-              if (!getState().auth.user) {
-                _context3.next = 7;
-                break;
-              }
-
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["LOADING_ORDERS"]
-              });
-              _context3.next = 5;
-              return axios.get('/getOrders');
-
-            case 5:
-              res = _context3.sent;
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["SET_ORDERS"],
-                payload: res.data.orders
-              });
-
-            case 7:
-              _context3.next = 14;
-              break;
-
-            case 9:
-              _context3.prev = 9;
-              _context3.t0 = _context3["catch"](0);
-              console.log(_context3.t0);
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["ORDERS_ERROR"]
-              });
-              dispatch(Object(_alert__WEBPACK_IMPORTED_MODULE_2__["setAlert"])('Error with getting orders', 'error'));
-
-            case 14:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3, null, [[0, 9]]);
-    }));
-
-    return function (_x5, _x6) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-};
-var cancelOrder = function cancelOrder(orderIndex, productIndex, orderedProduct) {
-  return /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(dispatch, getState) {
-      var orders;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.prev = 0;
-              orders = getState().orders.products;
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["LOADING_ORDERS"]
-              });
-              orders[orderIndex].splice(productIndex, 1); //if no products remain for this order remove the order itself
-
-              if (orders[orderIndex].length === 0) {
-                orders.splice(orderIndex, 1);
-              }
-
-              _context4.next = 7;
-              return axios["delete"]('/deleteOrderedProduct', {
-                data: {
-                  orderedProduct: orderedProduct
-                }
-              });
-
-            case 7:
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["SET_ORDERS"],
-                payload: orders
-              });
-              _context4.next = 14;
-              break;
-
-            case 10:
-              _context4.prev = 10;
-              _context4.t0 = _context4["catch"](0);
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["ORDERS_ERROR"]
-              });
-              dispatch(Object(_alert__WEBPACK_IMPORTED_MODULE_2__["setAlert"])('Error with cancelling the order', 'error'));
-
-            case 14:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4, null, [[0, 10]]);
-    }));
-
-    return function (_x7, _x8) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-};
-var orderProducts = function orderProducts(orderedProducts, addressFormData, sameAsDefaultAddress) {
-  return /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(dispatch, getState) {
-      var cart, orderedProductsId;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _context5.prev = 0;
-
-              if (!getState().auth.user) {
-                _context5.next = 15;
-                break;
-              }
-
-              cart = getState().cart.products;
-              console.log(cart);
-              _context5.next = 6;
-              return axios.post('/orderProducts', {
-                orderedProducts: orderedProducts,
-                addressFormData: addressFormData,
-                sameAsDefaultAddress: sameAsDefaultAddress
-              });
-
-            case 6:
-              Object(_cookie__WEBPACK_IMPORTED_MODULE_3__["eraseCookie"])(getState().auth.user.id);
-              _context5.next = 9;
-              return axios["delete"]('/emptyCart', {
-                data: {
-                  orderedProducts: orderedProducts
-                }
-              });
-
-            case 9:
-              orderedProductsId = orderedProducts.map(function (product) {
-                return product.product_id;
-              });
-              console.log(orderedProductsId);
-              cart = cart.filter(function (cartProduct) {
-                return !orderedProductsId.includes(cartProduct.product) && !orderedProductsId.includes(cartProduct.product.id);
-              });
-              console.log(cart);
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["SET_CART"],
-                payload: cart
-              });
-              dispatch(Object(_alert__WEBPACK_IMPORTED_MODULE_2__["setAlert"])('Order placed successfully', 'success'));
-
-            case 15:
-              _context5.next = 22;
-              break;
-
-            case 17:
-              _context5.prev = 17;
-              _context5.t0 = _context5["catch"](0);
-              console.log(_context5.t0);
-              dispatch({
-                type: _types__WEBPACK_IMPORTED_MODULE_1__["ORDERS_ERROR"]
-              });
-              dispatch(Object(_alert__WEBPACK_IMPORTED_MODULE_2__["setAlert"])('Error with ordering products', 'error'));
-
-            case 22:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5, null, [[0, 17]]);
-    }));
-
-    return function (_x9, _x10) {
-      return _ref5.apply(this, arguments);
-    };
-  }();
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'D:\\laravel\\Wearz\\resources\\js\\react\\actions\\orders.js'");
 
 /***/ }),
 
@@ -78055,7 +77803,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["ma
       alignSelf: 'center',
       fontSize: '1.5rem',
       '& a': {
-        color: 'black',
+        color: '#ffffff',
         textDecoration: 'none'
       }
     },
@@ -78076,7 +77824,12 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["ma
       fontSize: '2rem'
     },
     userButton: {
-      padding: '0px'
+      padding: '0px',
+      color: '#ffffff'
+    },
+    userLink: {
+      textDecoration: 'none',
+      color: 'black'
     },
     cartIcon: {
       fontSize: '2rem'
@@ -78092,11 +77845,11 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["ma
       textDecoration: 'none',
       color: '#000000'
     },
-    loginButton: {
+    loginButton: _defineProperty({
       textDecoration: 'none',
       color: '#000000',
       cursor: 'pointer'
-    }
+    }, "color", '#ffffff')
   };
 });
 
@@ -78216,7 +77969,8 @@ var Navbar = function Navbar(_ref) {
     open: Boolean(anchorEl),
     onClose: handleClose
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
-    to: "/user/".concat(auth.user.name)
+    to: "/user/".concat(auth.user.name),
+    className: classes.userLink
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_14__["default"], {
     onClick: handleClose
   }, auth.user && auth.user.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {

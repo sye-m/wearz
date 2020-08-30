@@ -2,7 +2,7 @@ import React,{ useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import { orderProducts, getOrderedProducts } from '../../actions/order';
+import { orderProducts, getOrderedProducts } from '../../actions/orders';
 import { withRouter } from 'react-router-dom';
 import AddressForm from './../forms/AddressForm';
 import Checkbox from '@material-ui/core/Checkbox';

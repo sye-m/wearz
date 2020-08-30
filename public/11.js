@@ -283,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! currency-symbol-map */ "./node_modules/currency-symbol-map/currency-symbol-map.js");
 /* harmony import */ var currency_symbol_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(currency_symbol_map__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _actions_cart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../actions/cart */ "./resources/js/react/actions/cart.js");
-/* harmony import */ var _actions_order__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../actions/order */ "./resources/js/react/actions/order.js");
+/* harmony import */ var _actions_orders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../actions/orders */ "./resources/js/react/actions/orders.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "./node_modules/@material-ui/core/esm/InputLabel/index.js");
 /* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js");
@@ -431,6 +431,19 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ma
         textDecoration: 'none',
         color: '#000000'
       }
+    },
+    productsLink: {
+      padding: '10px',
+      display: 'flex',
+      width: 'fit-content',
+      borderRadius: '4px',
+      textDecoration: 'none',
+      backgroundColor: theme.palette.primary.main,
+      color: '#fff',
+      margin: '10px 0px',
+      '& svg': {
+        fontSize: '1.2rem'
+      }
     }
   };
 });
@@ -572,12 +585,9 @@ var Cart = function Cart(_ref) {
       className: classes.productPrice
     }, "".concat(currency_symbol_map__WEBPACK_IMPORTED_MODULE_4___default()('INR'), " ").concat(cartProduct.product.price))) : '';
   }) : !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "No Products here.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Link"], {
-    to: "/products"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    variant: "contained",
-    color: "primary",
-    startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14___default.a, null)
-  }, "Shop Now"))))));
+    to: "/products",
+    className: classes.productsLink
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AddShoppingCart__WEBPACK_IMPORTED_MODULE_14___default.a, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Shop Now"))))));
 };
 
 Cart.propTypes = {
@@ -598,7 +608,7 @@ var mapStateToProps = function mapStateToProps(state) {
   getCartItems: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["getCartItems"],
   updateCartProduct: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["updateCartProduct"],
   deleteCartProduct: _actions_cart__WEBPACK_IMPORTED_MODULE_5__["deleteCartProduct"],
-  setOrderedProducts: _actions_order__WEBPACK_IMPORTED_MODULE_6__["setOrderedProducts"]
+  setOrderedProducts: _actions_orders__WEBPACK_IMPORTED_MODULE_6__["setOrderedProducts"]
 })(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(Cart)));
 
 /***/ })

@@ -53,7 +53,8 @@ mix.react('resources/js/app.js', 'public/js')
                   'NODE_ENV': JSON.stringify('production')
                 },
               }),
-             
+              new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+
           ]
           
     }); 
