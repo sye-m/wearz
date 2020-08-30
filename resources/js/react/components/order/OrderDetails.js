@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import queryString from 'query-string';
 import { withRouter, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import CircularLoader from './../loaders/CircularLoader';
-import Moment from 'react-moment';
 import { setAlert } from './../../actions/alert';
 import { connect } from 'react-redux';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import getSymbolFromCurrency from 'currency-symbol-map'
+import CircularLoader from './../loaders/CircularLoader';
+import Moment from 'react-moment';
+
 const useStyles = makeStyles((theme) => ({
     orderDetailsContainer:{
         width: '100%',
@@ -49,16 +50,22 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '8px',
         padding: '10px',
         margin: '10px 0px',
-        height: '300px',
-        display:'flex'
+        height: 'fit-content',
+        display:'flex',
+        ['@media(max-width:600px)']:{
+            flexDirection:'column'
+        }
     },
     productImage:{
         height: '100%',
-        width: '40%',
+        width: '55%',
         '& img':{
             height: '100%',
             borderRadius: '4px',
             objectFit: 'cover',
+            width: '100%',
+        },
+        ['@media(max-width:600px)']:{
             width: '100%',
         }
     },
@@ -74,10 +81,10 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
         display: 'block',
         borderRadius: '4px',
-        width: '100px',
+        width: 'fit-content',
         color:'#000000',
-        height: '20px',
-        padding: '10px',
+        height: '30px',
+        padding: '8px 10px 10px 10px',
         border: '1px solid #dadce0',
         whiteSpace: 'nowrap',
     }  
@@ -127,9 +134,10 @@ const OrderDetails = ({setAlert}) => {
 
                             <div>
                                 <span><b>Order Summary</b></span>
-                                <span>Product Price: {order.product.price}</span>
+                                <span>Product Price: {`${getSymbolFromCurrency('INR')} ${order.product.price}`}</span>
                                 <span>Total Items: {order.product.quantity}</span>
-                                <span>Total Price: {order.product.price * order.product.quantity}</span>
+                                <span>Total Cost:
+                                {`${getSymbolFromCurrency('INR')} ${Math.round(order.product.price * order.product.quantity)}`}</span>
                             </div>
                         </div>
                         <div className={classes.productInformation}>
@@ -137,15 +145,15 @@ const OrderDetails = ({setAlert}) => {
                                 <img src={order.product.image} alt={order.product.name}/>
                             </div>
                             <div className={classes.orderedProductDetails}>
+                                <span><b>Name</b>: {order.product.name}</span>
                                 <span><b>Size</b>: {order.product.size}</span>
                                 <span><b>Quantity</b>: {order.product.size}</span>
-                                <span><b>Price</b>:{order.product.price}</span>
+                                <span><b>Price</b>:{`${getSymbolFromCurrency('INR')} ${order.product.price}`}</span>
                                 <span><b>Ordered on</b>: <Moment date={order.ordered_at} format="DD MMM YYYY" withTitle/> </span>
                             </div>
                         </div>
                     </div> : <CircularLoader loading={true}/>}
                     <Link to="/orders" className={classes.ordersLink}>
-                        <ArrowBackIcon/>
                         <span>Back to orders</span>
                     </Link>
             </div>
