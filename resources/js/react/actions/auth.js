@@ -106,7 +106,7 @@ const postSignInActions = (ifFromGuest) => async (dispatch) => {
             payload: user
         });
         if(ifFromGuest){
-            await dispatch(setOrderedProducts());
+            dispatch(setOrderedProducts());
         } 
         dispatch(getCart());
         eraseCookie('guestId');
@@ -129,6 +129,7 @@ const postLogOutActions = () => async(dispatch,getState) => {
         dispatch({type:CLEAR_CART});
         dispatch({type:CLEAR_ORDERS});
         dispatch({ type: LOG_OUT });
+        dispatch(loadUser());
     }
     catch(err){
         dispatch(setAlert('Something went wrong try reloading the page', 'error'));

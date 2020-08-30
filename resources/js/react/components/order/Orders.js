@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
             objectFit: 'cover',
             borderRadius:'10px'
         },
-        ['@media(max-width:600px)']:{
+        ['@media(max-width:650px)']:{
             minWidth:'100px',
             gridRowEnd: '3',
             gridRowStart: '1',
@@ -79,13 +79,13 @@ const useStyles = makeStyles((theme) => ({
     productDetails:{
         gridRowStart: '2',
         gridColumnStart: '2',
-        ['@media(max-width:600px)']:{
+        ['@media(max-width:650px)']:{
             gridRowStart: '3',
             gridColumnStart: '1',
             gridColumnEnd:'3',
         },
         '& p':{
-            display:'inline-block',
+            display:'inline',
             marginRight:'5px'
         }
     },
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize:'1.2em',
         textAlign:'end',
         gridColumnStart:'4',
-        ['@media(max-width:600px)']:{
+        ['@media(max-width:650px)']:{
             gridRowStart: '2',
             gridColumnStart: '3',
             textAlign:'start'
@@ -105,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
       gridColumnStart:'2',
       gridColumnEnd:'4',
       display:'flex',
-      ['@media(max-width:600px)']:{
+      ['@media(max-width:650px)']:{
         gridRowStart: '3',
         gridColumnStart: '3',
         display:'block',

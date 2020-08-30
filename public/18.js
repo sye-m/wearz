@@ -101,10 +101,19 @@ var Login = function Login(_ref) {
       login = _ref.login;
 
   if (auth.isAuthenticated) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-      push: true,
-      to: "/"
-    });
+    var query = query_string__WEBPACK_IMPORTED_MODULE_10___default.a.parse(location.search);
+    var ifFromOrder = false;
+
+    if (query.confirm_order) {
+      ifFromOrder = true;
+    }
+
+    if (!ifFromOrder) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        push: true,
+        to: "/"
+      });
+    }
   }
 
   var doSomething = function doSomething() {};
@@ -128,7 +137,7 @@ var Login = function Login(_ref) {
 
   var loginUser = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-      var query, ifFromOrder, res;
+      var query, ifFromOrder;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -149,22 +158,21 @@ var Login = function Login(_ref) {
               }, ifFromOrder);
 
             case 7:
-              res = _context.sent;
               ifFromOrder ? history.push('/confirm_order') : history.push('/');
-              _context.next = 14;
+              _context.next = 13;
               break;
 
-            case 11:
-              _context.prev = 11;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context["catch"](4);
               console.log(_context.t0);
 
-            case 14:
+            case 13:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[4, 11]]);
+      }, _callee, null, [[4, 10]]);
     }));
 
     return function loginUser(_x) {

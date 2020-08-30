@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth:'200px',
     maxWidth:'450px',
     minHeight:'350px',
-    maxHeight:'400px',
+    maxHeight:'500px',
     ['@media(max-width:700px)']:{
         width:'100%',
         height:'40%',

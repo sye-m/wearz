@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { editDefaultAddress,loadUser,deleteAddress } from './../../actions/auth';
+import { Link } from 'react-router-dom';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Button from '@material-ui/core/Button';
@@ -11,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
-import { Link } from 'react-router-dom';
+import InfoIcon from '@material-ui/icons/Info';
 const useStyles = makeStyles((theme) => ({
     viewUserContainer:{
         width: '100%',
@@ -74,26 +75,36 @@ const useStyles = makeStyles((theme) => ({
     },
     addressOptionContainer:{
         display:'flex',
-        margin:'10px 0px'
+        margin:'10px 0px',
+        '& label':{
+            marginRight:'0px',
+            width:'70%'
+        }
     },
     addressOptions:{
         '& span':{
-        
             display: '-webkit-box',
-            '-webkit-line-clamp': '3',
+            '-webkit-line-clamp': '2',
             '-webkit-box-orient': 'vertical',
             textOverflow: 'ellipsis',
             overflow: 'hidden',
         }  
     },
     editAddressButton:{
-        width:'40px',
-        height:'40px',
+        width:'12%',
+        maxWidth:'40px',
+        maxHeight:'40px',
+        minWidth:'20px',
+        minHeight:'20px',
         backgroundColor:theme.palette.secondary.main,
         color:'#fff',
         '&:hover': {
             backgroundColor: theme.palette.secondary.dark,
           },
+        '& svg':{
+            width:'0.8em',
+            height:'0.9em'
+        },
         borderRadius:'50%',
         margin:'5px',
         alignItems:'center',
@@ -102,8 +113,11 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     deleteAddressButton:{
-        width:'40px',
-        height:'40px',
+        width:'12%',
+        minWidth:'20px',
+        minHeight:'20px',
+        maxWidth:'40px',
+        maxHeight:'40px',
         backgroundColor:theme.palette.error.main,
         color:'#fff',
         '&:hover': {
@@ -122,6 +136,13 @@ const useStyles = makeStyles((theme) => ({
         margin:'10px 0px',
         '& svg':{
             fontSize:'1.2rem'
+        }
+    },
+    addressSelectionHelperText:{
+        marginBottom:'10px',
+        '& svg':{
+            top:'6px',
+            position:'relative'
         }
     }
 
@@ -167,6 +188,7 @@ const ViewUser = ({auth:{user,loading},editDefaultAddress, deleteAddress,loadUse
                         <h3>
                         Manage Addresses
                         </h3>
+                        <div className={classes.addressSelectionHelperText}><InfoIcon/><span>Select an address to set it as default address</span></div>
                         <div>
                             <RadioGroup aria-label="addresses" name="addressses" value={value} onChange={onAddressChange} >
                                 {user.addresses.length > 0 && user.addresses.map((address,index)=>(

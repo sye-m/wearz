@@ -134,7 +134,7 @@ const OrderDetails = ({setAlert}) => {
 
                             <div>
                                 <span><b>Order Summary</b></span>
-                                <span>Product Price: {`${getSymbolFromCurrency('INR')} ${order.product.price}`}</span>
+                                <span>Price: {`${getSymbolFromCurrency('INR')} ${order.product.price}`}</span>
                                 <span>Total Items: {order.product.quantity}</span>
                                 <span>Total Cost:
                                 {`${getSymbolFromCurrency('INR')} ${Math.round(order.product.price * order.product.quantity)}`}</span>

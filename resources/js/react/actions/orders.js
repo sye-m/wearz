@@ -2,12 +2,10 @@ import {SET_CART, SET_ORDERS,ORDERS_ERROR, LOADING_ORDERS} from './types'
 import { setAlert } from './alert';
 import { setCookie,getCookie,eraseCookie } from '../cookie';
 
-export const setOrderedProducts = () => async(dispatch,getState) => {
+export const setOrderedProducts = () => (dispatch,getState) => {
     if(getState().auth.user){
         let cart = getState().cart.products;
-        console.log(cart)
         let allProducts = JSON.stringify(cart.map((cartProduct)=>({...cartProduct.pivot,price:cartProduct.product.price})));
-        console.log(allProducts)
         setCookie(getState().auth.user.id,allProducts);
     }
 }

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { setAlert } from './../../actions/alert';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme)=>({
     bannerImage:{
@@ -46,20 +47,29 @@ const useStyles = makeStyles((theme)=>({
         fontSize: '1.2rem',
     }
 }));
-const FeaturedProductsBanner = (prop) => {
+const FeaturedProductsBanner = ({setAlert}) => {
     useEffect(()=>{
+        let isSubscribed = true;
     const getFeaturedProducts = async () => {
         try{
-            const res = await axios.get('/getFeaturedProducts');
-            setFeaturedProducts(res.data.featuredProducts);
-            showDivs(1);
+            if(isSubscribed === true){
+                const res =  await axios.get('/getFeaturedProducts');
+                setFeaturedProducts(res.data.featuredProducts);
+                isSubscribed=false;
+                showDivs(1);
+            }
         }
         catch(err){
+            console.log(err)
+            isSubscribed = false;
             setAlert('Error loading page try reloading the page', 'error')
         }
     } 
     getFeaturedProducts();
+    return () => isSubscribed = false
 },[]);
+const mountedRef = useRef(true)
+
     const [featuredProducts, setFeaturedProducts] = useState([]);
     let slideIndex = 1;    
 
@@ -87,7 +97,7 @@ const FeaturedProductsBanner = (prop) => {
             <div className={classes.bannerContainer}>
             {featuredProducts.length>0 && featuredProducts.map((featuredProduct,index)=>(
                 <Link key={index} to={`/product/${featuredProduct.id}`}>
-                    <img  title={featuredProduct.name} className={classes.bannerImage} src={featuredProduct.image} alt={featuredProduct.name}/>
+                    <img  title={featuredProduct.name} loading="lazy" className={classes.bannerImage} src={featuredProduct.image} alt={featuredProduct.name}/>
                 </Link>
             ))}
             
@@ -97,5 +107,5 @@ const FeaturedProductsBanner = (prop) => {
             );
 }
 
-export default FeaturedProductsBanner;
+export default connect(null,{setAlert})(FeaturedProductsBanner);
 

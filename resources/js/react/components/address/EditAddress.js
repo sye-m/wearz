@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop:'15px',
     }
     }))
-const EditAddress = ({location,updateAddress}) => {
+const EditAddress = ({auth:{user},history,location,updateAddress}) => {
     useEffect(()=>{
         const getAddress = async (addressId)=>{
             const res = await axios.get(`/getAddress/${addressId}`);
@@ -66,6 +66,8 @@ const EditAddress = ({location,updateAddress}) => {
     const editAddress = (e) =>{
         e.preventDefault();
         updateAddress(address)
+        history.push(`/user/${user.name}`)
+
     }
 
     const classes = useStyles();
@@ -90,4 +92,7 @@ EditAddress.propTypes = {
     updateAddress:PropTypes.func.isRequired,
 }
 
-export default connect(null,{updateAddress})(withRouter(EditAddress))
+const mapStateToProps = state => ({
+    auth:state.auth
+})
+export default connect(mapStateToProps,{updateAddress})(withRouter(EditAddress))

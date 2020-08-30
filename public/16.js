@@ -79,7 +79,9 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ma
 });
 
 var EditAddress = function EditAddress(_ref) {
-  var location = _ref.location,
+  var user = _ref.auth.user,
+      history = _ref.history,
+      location = _ref.location,
       updateAddress = _ref.updateAddress;
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     var getAddress = /*#__PURE__*/function () {
@@ -145,6 +147,7 @@ var EditAddress = function EditAddress(_ref) {
   var editAddress = function editAddress(e) {
     e.preventDefault();
     updateAddress(address);
+    history.push("/user/".concat(user.name));
   };
 
   var classes = useStyles();
@@ -171,7 +174,14 @@ var EditAddress = function EditAddress(_ref) {
 EditAddress.propTypes = {
   updateAddress: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(null, {
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, {
   updateAddress: _actions_auth__WEBPACK_IMPORTED_MODULE_8__["updateAddress"]
 })(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(EditAddress)));
 

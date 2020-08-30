@@ -78,9 +78,9 @@ const useStyles = makeStyles((theme) => ({
 
 const ConfirmOrder = ({auth:{user},history,orderProducts,getOrderedProducts}) => {
     useEffect(()=>{
-        const fromCookieGetProducts = async () =>{
+        const fromCookieGetProducts = () =>{
             if(user){
-                let orderedProducts = await getOrderedProducts();
+                let orderedProducts = getOrderedProducts();
                 //check if the user has already selected products to buy if not then redirect them to cart page
                 if(orderedProducts.length === 0){
                     history.push('/cart');

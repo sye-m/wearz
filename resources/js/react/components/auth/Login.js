@@ -43,8 +43,16 @@ const useStyles = makeStyles((theme)=>({
 }));
 
 const Login = ({auth,history,location,login}) => {
-    if(auth.isAuthenticated){
+    if(auth.isAuthenticated){ 
+        let query = queryString.parse(location.search)
+        let ifFromOrder = false;
+        if(query.confirm_order){
+            ifFromOrder = true
+        }
+        if(!ifFromOrder){
+
         return <Redirect push to="/"/>
+        }
     }
 
     const doSomething = () => {}
@@ -67,7 +75,7 @@ const Login = ({auth,history,location,login}) => {
         }
         e.preventDefault();
         try{
-        let res = await login({email,password},ifFromOrder);
+        await login({email,password},ifFromOrder);
         ifFromOrder ? history.push('/confirm_order') : history.push('/')
         }
         catch(err){
