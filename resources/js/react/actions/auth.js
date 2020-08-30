@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { setAlert } from './alert';
 import { getCart,newCart,newGuestCart } from './cart';
 import { setCookie,getCookie,eraseCookie} from './../cookie';
-import { setOrderedProducts } from './order';
+import { setOrderedProducts } from './orders';
 //get the user 
 const getUser = async () => {
     try{

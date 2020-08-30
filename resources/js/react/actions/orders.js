@@ -1,11 +1,13 @@
 import {SET_CART, SET_ORDERS,ORDERS_ERROR, LOADING_ORDERS} from './types'
 import { setAlert } from './alert';
-import { setCookie,getCookie,eraseCookie } from './../cookie';
+import { setCookie,getCookie,eraseCookie } from '../cookie';
 
 export const setOrderedProducts = () => async(dispatch,getState) => {
     if(getState().auth.user){
         let cart = getState().cart.products;
-        let allProducts = JSON.stringify(cart.map((cartProduct)=>cartProduct.pivot));
+        console.log(cart)
+        let allProducts = JSON.stringify(cart.map((cartProduct)=>({...cartProduct.pivot,price:cartProduct.product.price})));
+        console.log(allProducts)
         setCookie(getState().auth.user.id,allProducts);
     }
 }
@@ -40,7 +42,6 @@ export const getOrders = () => async (dispatch,getState) => {
         dispatch(setAlert('Error with getting orders', 'error'));
     }
 }
-
 
 export const cancelOrder = (orderIndex,productIndex,orderedProduct) => async (dispatch,getState) => {
     try{
@@ -83,11 +84,10 @@ export const orderProducts = (orderedProducts,addressFormData,sameAsDefaultAddre
             payload:cart
         })
         dispatch(setAlert('Order placed successfully', 'success'));
-
     }
     }
     catch(err){
-        console.log(err)
+        console.log(err.response)
         dispatch({
             type:ORDERS_ERROR,
         })

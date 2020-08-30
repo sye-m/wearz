@@ -1,7 +1,9 @@
-import React, { Fragment,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { setAlert } from './../../actions/alert';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme)=>({
     bannerImage:{
@@ -9,15 +11,15 @@ const useStyles = makeStyles((theme)=>({
         display:'none',
         height:'100%',
         minHeight:'300px',
-        maxHeight:'400px',
+        maxHeight:'500px',
         objectFit:'cover'
     },
     bannerContainer:{
-        height:'40%',
+        height:'50%',
         minHeight:'300px',
+        maxHeight:'500px',
         width:'100%',
         position:'relative',
-        maxHeight:'400px'
     },
     prevImageButton:{
         position: 'absolute',
@@ -45,39 +47,50 @@ const useStyles = makeStyles((theme)=>({
     }
 }));
 const FeaturedProductsBanner = (prop) => {
-    const classes = useStyles();
     useEffect(()=>{
-    showDivs(1);
-    
+    const getFeaturedProducts = async () => {
+        try{
+            const res = await axios.get('/getFeaturedProducts');
+            setFeaturedProducts(res.data.featuredProducts);
+            showDivs(1);
+        }
+        catch(err){
+            setAlert('Error loading page try reloading the page', 'error')
+        }
+    } 
+    getFeaturedProducts();
 },[]);
-var slideIndex = 1;    
+    const [featuredProducts, setFeaturedProducts] = useState([]);
+    let slideIndex = 1;    
+
 
     
-function plusDivs(n) {
-showDivs(slideIndex += n);
-}
+    const plusDivs = (n) => {
+        showDivs(slideIndex += n);
+    }
 
-function showDivs(n) {
-var i=0;
-var x = document.getElementsByClassName(classes.bannerImage);
-if(x.length > 0){
-if (n > x.length) {slideIndex = 1}
-if (n < 1) {slideIndex = x.length}
-for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-}
-x[slideIndex-1].style.display = "inline-block";  
-}
-}
+    const showDivs = (n) => {
+        let i=0;
+        let x = document.getElementsByClassName(classes.bannerImage);
+        if(x.length > 0){
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            x[slideIndex-1].style.display = "inline-block";  
+        }
+    }
  
-
+    const classes = useStyles();
     return (
             <div className={classes.bannerContainer}>
-            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/1.jpg" alt="Product Image"/>
-            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/2.jpg" alt="Product Image"/>
-            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/3.jpg" alt="Product Image"/>
-            <img className={classes.bannerImage} loading="lazy" src="storage/featured_products/4.jpg" alt="Product Image"/>
-
+            {featuredProducts.length>0 && featuredProducts.map((featuredProduct,index)=>(
+                <Link key={index} to={`/product/${featuredProduct.id}`}>
+                    <img  className={classes.bannerImage} src={featuredProduct.image} alt={featuredProduct.name}/>
+                </Link>
+            ))}
+            
             <Button className={classes.prevImageButton} onClick={()=>plusDivs(-1)}>&#10094;</Button>
             <Button className={classes.nextImageButton} onClick={()=>plusDivs(1)}>&#10095;</Button>
             </div>  

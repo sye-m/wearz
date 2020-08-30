@@ -1,6 +1,6 @@
 import React,{ useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { getOrders,cancelOrder } from '../../actions/order';
+import { getOrders,cancelOrder } from '../../actions/orders';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import getSymbolFromCurrency from 'currency-symbol-map'
@@ -14,11 +14,6 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-    },
-    orderTitle:{
-        fontSize: '1.5em',
-        fontWeight: 'bold',
-        width:'40%'
     },
     displayOrders:{
         width: '85%',
@@ -108,17 +103,48 @@ const useStyles = makeStyles((theme) => ({
     orderActions:{
       gridRowStart:'3',
       gridColumnStart:'2',
+      gridColumnEnd:'4',
+      display:'flex',
       ['@media(max-width:600px)']:{
         gridRowStart: '3',
-        gridColumnStart: '3'
+        gridColumnStart: '3',
+        display:'block',
     }
     },
     cancelOrderButton:{
         backgroundColor:theme.palette.error.main,
+        width: '100px',
+        height:'40px',
         color:'#fff',
         '&:hover': {
             backgroundColor: theme.palette.error.dark,
           },
+    },
+    viewOrderDetails:{
+        padding: '10px',
+        display: 'flex',
+        width: '80px',
+        height:'20px',
+        whiteSpace:'nowrap',
+        borderRadius: '4px',
+        textDecoration: 'none',
+        border: '1px solid #6a1b9a',
+        color:'#000000',
+        margin:'0px 10px 10px 0px',
+    },
+    productsLink:{
+        padding: '10px',
+        display: 'flex',
+        width: 'fit-content',
+        borderRadius: '4px',
+        textDecoration: 'none',
+        backgroundColor:theme.palette.primary.main,
+        color:'#fff',
+        margin:'10px 0px',
+        
+        '& svg':{
+            fontSize:'1.2rem'
+        }
     }
 }))
 
@@ -131,7 +157,7 @@ const Orders = ({auth:{user},orders:{products,loading},getOrders,cancelOrder}) =
         <div className={classes.ordersContainer}>
             <div className={classes.displayOrders}>
                 <div className={classes.ordersDescription}>
-                    <p className={classes.orderTitle}>Orders</p>
+                    <h2>Orders</h2>
                 </div>
                 <div className={classes.orders}>
                     <CircularLoader loading={loading}/> 
@@ -153,6 +179,9 @@ const Orders = ({auth:{user},orders:{products,loading},getOrders,cancelOrder}) =
                                 </p>
                             </div>
                             <div className={classes.orderActions}>
+                                <Link className={classes.viewOrderDetails} to={`/orders/view_order?order_id=${product.pivot.order_id}&ordered_product_id=${product.pivot.id}`}>
+                                    View Order
+                                </Link>
                                 <Button
                                     variant="contained"
                                     className={classes.cancelOrderButton}
@@ -163,18 +192,16 @@ const Orders = ({auth:{user},orders:{products,loading},getOrders,cancelOrder}) =
                                 </Button>
                             </div>
                             <div className={classes.productPrice}>
-                                {`${getSymbolFromCurrency('INR')} ${Math.round(product.price*product.pivot.quantity)}`}
+                                {`${getSymbolFromCurrency('INR')} ${Math.round(product.pivot.price*product.pivot.quantity)}`}
                             </div>
                         </div>
                         ))
                     
                     )):!loading && (<div>
                         No Products here. 
-                        <Link to="/products">
-                            <Button
-                            variant="contained"
-                            color="primary"
-                            startIcon={<AddShoppingCartIcon/>}>Shop Now</Button>
+                        <Link to="/products" className={classes.productsLink}>
+                                <AddShoppingCartIcon/>
+                                <span>Shop Now</span>
                         </Link>
                   
                 </div>)}
