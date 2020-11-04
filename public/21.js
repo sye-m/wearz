@@ -106,6 +106,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["ma
     productImage: _defineProperty({
       height: '100%',
       width: '55%',
+      maxWidth: '400px',
       '& img': {
         height: '100%',
         borderRadius: '4px',
@@ -129,8 +130,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["ma
       borderRadius: '4px',
       width: 'fit-content',
       color: '#000000',
-      height: '30px',
-      padding: '8px 10px 10px 10px',
+      padding: '1em',
       border: '1px solid #dadce0',
       whiteSpace: 'nowrap'
     }

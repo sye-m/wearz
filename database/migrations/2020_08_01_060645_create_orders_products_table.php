@@ -18,10 +18,10 @@ class CreateOrdersProductsTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity')->default(1);
+            $table->float('size',3,1)->default(1);
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');
             $table->unique(['order_id','product_id']);
-
             $table->timestamps();
         });
     }

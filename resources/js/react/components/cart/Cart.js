@@ -184,12 +184,12 @@ const Cart = ({auth,cart:{products,loading},history,getCartItems,updateCartProdu
 
     const orderCartProducts = () =>{
         //if user has logged in order the products and redirect the user
-        if(auth.user){
+        if(auth.user && products.length > 0){
         setOrderedProducts();
         history.push('/confirm_order');
         }
         //if user has not logged in 
-        else{
+        else if(!auth.user && products.length > 0){
             history.push('/login?confirm_order=true');
         }
     }

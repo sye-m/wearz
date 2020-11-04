@@ -18,8 +18,5 @@ class Order extends Model
     public function shippingAddress(){
         return $this->belongsTo('App\Address','shipping_id');
     }
-    
-    public function billingAddress(){
-        return $this->belongsTo('App\Address','billing_id');
-    }
+  
 }

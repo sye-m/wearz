@@ -1,5 +1,4 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
 const webpack = require('webpack');
 const mix = require('laravel-mix');
 

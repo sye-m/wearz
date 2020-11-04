@@ -15,6 +15,13 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+# new storage path
+# base_path() -> returns root path
+$path_storage = "D:/laravel/wearzImages";
+
+# override already $app->storagePath using the function
+$app->useStoragePath($path_storage);
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
