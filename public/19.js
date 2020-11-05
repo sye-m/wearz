@@ -249,7 +249,8 @@ var Register = function Register(_ref) {
     onChange: function onChange(e) {
       return onInputChange(e);
     },
-    helperText: formErrors.name
+    helperText: formErrors.name,
+    autoComplete: "name"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
     type: "email",
     fullWidth: true,
@@ -264,7 +265,8 @@ var Register = function Register(_ref) {
       return onInputChange(e);
     },
     value: email,
-    helperText: formErrors.email
+    helperText: formErrors.email,
+    autoComplete: "email"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
     type: "password",
     fullWidth: true,
@@ -279,7 +281,8 @@ var Register = function Register(_ref) {
       return onInputChange(e);
     },
     value: password,
-    helperText: formErrors.password
+    helperText: formErrors.password,
+    autoComplete: "new-password"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
     type: "password",
     fullWidth: true,
@@ -294,7 +297,8 @@ var Register = function Register(_ref) {
       return onInputChange(e);
     },
     value: rePassword,
-    helperText: formErrors.rePassword
+    helperText: formErrors.rePassword,
+    autoComplete: "off"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: !isValidated,
     variant: "contained",

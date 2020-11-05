@@ -120,10 +120,10 @@ const Register = ({auth,register,history,location}) => {
                     <p className={classes.formTitle}>Create Account</p>
                     <hr/>
                     <form onSubmit={(e)=>registerUser(e)} autoComplete="off">
-                    <TextField fullWidth={true} error={formErrors.name.length > 0?true:false} className={classes.formInput} id="name" required name="name" label="Name" variant="outlined" onChange={(e)=>onInputChange(e)}  helperText={formErrors.name}/>
-                    <TextField type="email" fullWidth={true} error={ formErrors.email.length > 0?true:false } className={classes.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email} helperText={formErrors.email} />
-                    <TextField type="password" fullWidth={true} error={ formErrors.password.length > 0?true:false } className={classes.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password} helperText={formErrors.password} />
-                    <TextField type="password" fullWidth={true} error = { formErrors.rePassword.length > 0?true:false }className={classes.formInput} required id="rePassword" name="rePassword" label="Confirm Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={rePassword} helperText={formErrors.rePassword} />
+                    <TextField fullWidth={true} error={formErrors.name.length > 0?true:false} className={classes.formInput} id="name" required name="name" label="Name" variant="outlined" onChange={(e)=>onInputChange(e)}  helperText={formErrors.name} autoComplete="name"/>
+                    <TextField type="email" fullWidth={true} error={ formErrors.email.length > 0?true:false } className={classes.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email} helperText={formErrors.email} autoComplete="email"/>
+                    <TextField type="password" fullWidth={true} error={ formErrors.password.length > 0?true:false } className={classes.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password} helperText={formErrors.password} autoComplete="new-password"/>
+                    <TextField type="password" fullWidth={true} error = { formErrors.rePassword.length > 0?true:false }className={classes.formInput} required id="rePassword" name="rePassword" label="Confirm Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={rePassword} helperText={formErrors.rePassword} autoComplete="off"/>
                     <Button disabled={!isValidated} variant="contained" fullWidth={true} color="primary" type="submit">Create Account</Button>
                     </form>
                 <div className={classes.logInSection}>

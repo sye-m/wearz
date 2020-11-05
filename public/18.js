@@ -201,8 +201,7 @@ var Login = function Login(_ref) {
   }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
     onSubmit: function onSubmit(e) {
       return loginUser(e);
-    },
-    autoComplete: "off"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
     type: "email",
     fullWidth: true,
@@ -215,7 +214,8 @@ var Login = function Login(_ref) {
     onChange: function onChange(e) {
       return onInputChange(e);
     },
-    value: email
+    value: email,
+    autoComplete: "email"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
     type: "password",
     fullWidth: true,
@@ -228,7 +228,8 @@ var Login = function Login(_ref) {
     onChange: function onChange(e) {
       return onInputChange(e);
     },
-    value: password
+    value: password,
+    autoComplete: "current-password"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
     variant: "contained",
     fullWidth: true,

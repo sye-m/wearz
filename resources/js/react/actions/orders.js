@@ -33,7 +33,7 @@ export const getOrders = () => async (dispatch,getState) => {
         }
     }
     catch(err){
-        console.log(err)
+        console.log(err.response)
         dispatch({
             type:ORDERS_ERROR,
         })

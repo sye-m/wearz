@@ -100,9 +100,9 @@ const Login = ({auth,history,location,login}) => {
             <div className={classess.loginContainer}>
                 <p className={classess.formTitle}>Login</p>
                 <hr/>
-                <form onSubmit={(e)=>loginUser(e)} autoComplete="off">
-                <TextField type="email" fullWidth={true}  className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email}/>
-                <TextField type="password" fullWidth={true} className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password}/>
+                <form onSubmit={(e)=>loginUser(e)}>
+                <TextField type="email" fullWidth={true}  className={classess.formInput}  id="email" required name="email" label="Email" variant="outlined" onChange={(e)=>onInputChange(e)} value={email} autoComplete="email"/>
+                <TextField type="password" fullWidth={true} className={classess.formInput} required id="password" name="password" label="Password" variant="outlined" onChange={(e)=>onInputChange(e)} value={password} autoComplete="current-password"/>
                 <Button variant="contained" fullWidth={true} color="primary" type="submit">Login</Button>
                 <div className={classess.joinInSection}>
                     Don't have an account with us? 
