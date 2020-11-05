@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
         border:'1px solid #dadce0',
         padding:'0px 10px 10px 10px',
         margin:'10px',
-        borderRadius:'8px'
+        borderRadius:'8px',
+        minWidth:'350px'
 
     },
     defaultAddressContainer:{
@@ -91,11 +92,8 @@ const useStyles = makeStyles((theme) => ({
         }  
     },
     editAddressButton:{
-        width:'12%',
-        maxWidth:'40px',
-        maxHeight:'40px',
-        minWidth:'20px',
-        minHeight:'20px',
+        width:'40px',
+        height:'40px',
         backgroundColor:theme.palette.secondary.main,
         color:'#fff',
         '&:hover': {

@@ -12,6 +12,7 @@ $factory->define(Address::class, function (Faker $faker) {
         'address_line_2' => $faker->streetAddress,
         'landmark' => $faker->name,
         'state' => $faker->state,
+        'phone' => $faker->phoneNumber,
         'zip_code' => $faker->postcode,
         'customer_id' => App\Customer::pluck('id')->random()
     ];

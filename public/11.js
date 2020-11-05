@@ -217,7 +217,8 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
       border: '1px solid #dadce0',
       padding: '0px 10px 10px 10px',
       margin: '10px',
-      borderRadius: '8px'
+      borderRadius: '8px',
+      minWidth: '350px'
     }
   }, _defineProperty(_ref, "defaultAddressContainer", {
     border: '1px solid #dadce0',
@@ -251,11 +252,8 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
       overflow: 'hidden'
     }
   }), _defineProperty(_ref, "editAddressButton", {
-    width: '12%',
-    maxWidth: '40px',
-    maxHeight: '40px',
-    minWidth: '20px',
-    minHeight: '20px',
+    width: '40px',
+    height: '40px',
     backgroundColor: theme.palette.secondary.main,
     color: '#fff',
     '&:hover': {
